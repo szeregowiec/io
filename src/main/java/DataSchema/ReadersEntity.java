@@ -9,8 +9,6 @@ public class ReadersEntity {
     private String idReader;
     private String login;
     private String password;
-    private String name;
-    private String surname;
     private Date birthDate;
     private String address;
     private String postalCode;
@@ -179,25 +177,5 @@ public class ReadersEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + penalty;
         return result;
-    }
-
-    @Basic
-    @Column(name = "name", nullable = false, length = 50)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Basic
-    @Column(name = "surname", nullable = false, length = 50)
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 }
