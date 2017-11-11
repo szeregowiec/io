@@ -22,7 +22,7 @@ public class Application {
 
         staticFiles.location("/Views");
 
-        port(8002);
+        port(4567);
         get("/", (req, res) -> "Hello world");
         get(Constants.INDEX, (request, response) -> {
             return View.render(request, new HashMap<>(),Constants.TEMPLATE);
