@@ -9,6 +9,8 @@ import util.Constants;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import static spark.Spark.*;
 import org.apache.velocity.*;
@@ -46,6 +48,16 @@ public class Application {
 //        ReadersEntity re = session.get(ReadersEntity.class, new Integer[10]);
 //        System.out.println(re.getIdReader() + "coś, ktoś moś");
         //System.out.println("Chciałem bytch");
+        List readers = session.createQuery("FROM ReadersEntity").list();
+        for (Iterator iterator = readers.iterator(); iterator.hasNext();){
+            ReadersEntity readersIteration = (ReadersEntity) iterator.next();
+            System.out.print("First Name: " + readersIteration.getLogin());
+            System.out.print("  Last Name: " + readersIteration.getEmail());
+            System.out.println("  Salary: " + readersIteration.getIdReader());
+        }
+
+
+
     }
 
 
