@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class View {
 
-    private static VelocityTemplateEngine strictVelocityEngine() {
+    private static VelocityTemplateEngine MyVelocityEngine() {
         VelocityEngine configuredEngine = new VelocityEngine();
         configuredEngine.setProperty("runtime.references.strict", true);
         configuredEngine.setProperty("resource.loader", "class");
@@ -23,7 +23,7 @@ public class View {
 //        model.put("msg", new MessageBundle(getSessionLocale(request)));
 //        model.put("currentUser", getSessionCurrentUser(request));
 //        model.put("WebPath", Path.Web.class); // Access application URLs from templates;
-          return strictVelocityEngine().render(new ModelAndView(model, templatePath));
+          return MyVelocityEngine().render(new ModelAndView(model, templatePath));
     }
 
 
