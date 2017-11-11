@@ -17,6 +17,7 @@ public class Application {
         get("/", (req, res) -> "Hello world");
         get(Constants.INDEX, (request, response) -> {
             return View.render(request, new HashMap<>(),Constants.TEMPLATE);});
+
     }
 
 }
