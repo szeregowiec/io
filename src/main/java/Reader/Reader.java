@@ -1,5 +1,6 @@
 package Reader;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,7 +10,8 @@ public class Reader {
     @Id
     private String id;
 
-    private String login
+    @Column
+    private String login;
     private String password, name, surname, address, postal_code, city, phone, email;
 
     public int getPenalty() {
