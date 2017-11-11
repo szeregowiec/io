@@ -9,6 +9,8 @@ public class ReadersEntity {
     private String idReader;
     private String login;
     private String password;
+    private String name;
+    private String surname;
     private Date birthDate;
     private String address;
     private String postalCode;
@@ -45,6 +47,26 @@ public class ReadersEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = false, length = 50)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "surname", nullable = false, length = 50)
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Basic
@@ -128,6 +150,8 @@ public class ReadersEntity {
         if (idReader != null ? !idReader.equals(that.idReader) : that.idReader != null) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (surname != null ? !surname.equals(that.surname) : that.surname != null) return false;
         if (birthDate != null ? !birthDate.equals(that.birthDate) : that.birthDate != null) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
         if (postalCode != null ? !postalCode.equals(that.postalCode) : that.postalCode != null) return false;
@@ -143,6 +167,8 @@ public class ReadersEntity {
         int result = idReader != null ? idReader.hashCode() : 0;
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + (postalCode != null ? postalCode.hashCode() : 0);
