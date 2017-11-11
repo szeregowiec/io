@@ -22,7 +22,7 @@ public class Application {
 
         staticFiles.location("/Views");
 
-        port(4567);
+        port(8000);
         get("/", (req, res) -> "Hello world");
         get(Constants.INDEX, (request, response) -> {
             return View.render(request, new HashMap<>(),Constants.TEMPLATE);
@@ -48,7 +48,7 @@ public class Application {
 //        ReadersEntity re = session.get(ReadersEntity.class, new Integer[10]);
 //        System.out.println(re.getIdReader() + "coś, ktoś moś");
         //System.out.println("Chciałem bytch");
-        List readers = session.createQuery("FROM ReadersEntity").list();
+        List readers = session.createQuery("FROM ReadersEntity WHERE idReader like 'a%'").list();
         for (Iterator iterator = readers.iterator(); iterator.hasNext();){
             ReadersEntity readersIteration = (ReadersEntity) iterator.next();
             System.out.print("First Name: " + readersIteration.getLogin());
