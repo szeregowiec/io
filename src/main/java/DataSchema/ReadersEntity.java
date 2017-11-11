@@ -16,6 +16,8 @@ public class ReadersEntity {
     private String phone;
     private String email;
     private int penalty;
+    private String name;
+    private String surname;
 
     @Id
     @Column(name = "id_reader", nullable = false, length = 50)
@@ -151,5 +153,25 @@ public class ReadersEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + penalty;
         return result;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = false, length = 50)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "surname", nullable = false, length = 50)
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }
