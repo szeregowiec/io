@@ -1,34 +1,29 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://mysql.agh.edu.pl:3306/adbuczek</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+      <mapping class="DataSchema.BooksEntity"/>
+      <mapping class="DataSchema.BorrowedEntity"/>
+      <mapping resource="DataSchema/BorrowedEntity.hbm.xml"/>
+      <mapping resource="DataSchema/CopiesEntity.hbm.xml"/>
+      <mapping class="DataSchema.CopiesEntity"/>
+      <mapping resource="DataSchema/EmployeeEntity.hbm.xml"/>
+      <mapping class="DataSchema.EmployeeEntity"/>
+      <mapping resource="DataSchema/NotificationsEntity.hbm.xml"/>
+      <mapping class="DataSchema.NotificationsEntity"/>
+      <mapping resource="DataSchema/ReadersEntity.hbm.xml"/>
+      <mapping class="DataSchema.ReadersEntity"/>
+      <mapping resource="DataSchema/ReservedEntity.hbm.xml"/>
+      <mapping class="DataSchema.ReservedEntity"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
 
-    <session-factory>
-
-        <!-- Database connection settings -->
-        <property name="connection.driver_class">org.postgresql.Driver</property>
-        <property name="connection.url">jdbc:postgresql://charon.kis.agh.edu.pl/phppgadmin/</property>
-        <property name="connection.username">magikam1</property>
-        <property name="connection.password">ubuntu17</property>
-
-        <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
-
-        <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-
-        <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
-
-        <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">false</property>
-
-        <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
-
-
-    </session-factory>
-
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
 </hibernate-configuration>

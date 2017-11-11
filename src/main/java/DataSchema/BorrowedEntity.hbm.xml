@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="DataSchema.BorrowedEntity" table="borrowed" schema="adbuczek">
+        <id name="idBorrowed">
+            <column name="id_borrowed" sql-type="varchar(50)" length="50"/>
+        </id>
+        <property name="idBook">
+            <column name="id_book" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="idReader">
+            <column name="id_reader" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="borrowedDate">
+            <column name="borrowed_date" sql-type="date"/>
+        </property>
+        <property name="returnDate">
+            <column name="return_date" sql-type="date"/>
+        </property>
+    </class>
+</hibernate-mapping>

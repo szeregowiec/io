@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="DataSchema.BooksEntity" table="books" schema="adbuczek">
+        <id name="isbn">
+            <column name="isbn" sql-type="varchar(50)" length="50"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="authors">
+            <column name="authors" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="category">
+            <column name="category" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="publishingHouse">
+            <column name="publishing_house" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="publishYear">
+            <column name="publish_year" sql-type="date"/>
+        </property>
+        <property name="publishPlace">
+            <column name="publish_place" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="pages">
+            <column name="pages" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="description">
+            <column name="description" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="language">
+            <column name="language" sql-type="varchar(50)" length="50"/>
+        </property>
+    </class>
+</hibernate-mapping>

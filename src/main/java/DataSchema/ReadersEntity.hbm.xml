@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="DataSchema.ReadersEntity" table="readers" schema="adbuczek">
+        <id name="idReader">
+            <column name="id_reader" sql-type="varchar(50)" length="50"/>
+        </id>
+        <property name="login">
+            <column name="login" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="birthDate">
+            <column name="birth_date" sql-type="date"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="postalCode">
+            <column name="postal_code" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="city">
+            <column name="city" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="penalty">
+            <column name="penalty" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>
