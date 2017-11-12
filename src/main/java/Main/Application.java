@@ -3,6 +3,7 @@ package Main;
 import Base.Database;
 import DataSchema.ReadersEntity;
 import Login.LoginController;
+import Login.Register;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -29,12 +30,13 @@ public class Application {
 
         port(8000);
         get("/", (req, res) -> "Hello world");
-        get(Constants.INDEX, (request, response) -> {
-            return View.render(request, new HashMap<>(),Constants.TEMPLATE);
+        get(Constants.LOGIN, (request, response) -> {
+            return View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE);
         });
 
         post(Constants.START, LoginController.loginIfRegistered);
-
+        get(Constants.REGISTER, Register.giveInformation);
+        post(Constants.REGISTER, Register.register);
 
 
     }
