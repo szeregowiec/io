@@ -8,64 +8,59 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="cssm/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="myCss.css">
+
 </head>
 
 <body>
 
     <div id="divFormAddBook" class="container">
-        <form id="formAddBook" class="form-signin">
+        <form action="/start" method="post" id="formAddBook" class="form-signin">
             <h2 class="form-signin-heading">Dodawanie książki</h2>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputIsbn" placeholder="Isbn" required>
+                <input type="text" class="form-control" id="inputIsbn" name="inputIsbn" placeholder="Isbn" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputTitle" placeholder="Tytuł" required>
+                <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Tytuł" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputAuthor" placeholder="Autor" required>
+                <input type="text" class="form-control" id="inputAuthor" name="inputAuthor" placeholder="Autor" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputKategory" placeholder="Kategoria" required>
+                <input type="text" class="form-control" id="inputKategory" name="inputKategory" placeholder="Kategoria" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputPublishingHouse" placeholder="Wydawnictwo" required>
+                <input type="text" class="form-control" id="inputPublishingHouse" name="inputPublishingHouse" placeholder="Wydawnictwo" required>
             </div>
 
             <div class="form-group">
-                <input type="year" class="form-control" id="inputDate" placeholder="Rok wydania" required autofocus>
+                <input type="year" class="form-control" id="inputDate" name="inputDate" placeholder="Rok wydania" required autofocus>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputPlace" placeholder="Miejsce wydania" required>
+                <input type="text" class="form-control" id="inputPlace" name="inputPlace" placeholder="Miejsce wydania" required>
             </div>
 
             <div class="form-group">
-                <input type="number" class="form-control" id="inputPages" placeholder="Liczba stron" required>
+                <input type="number" class="form-control" id="inputPages" name="inputPages" placeholder="Liczba stron" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputDescription" placeholder="Opis" required>
+                <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Opis" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputLanguage" placeholder="Język" required>
+                <input type="text" class="form-control" id="inputLanguage" name="inputLanguage" placeholder="Język" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputAvailability" placeholder="Dostępność (tak/nie)" required>
+                <input type="text" class="form-control" id="inputAvailability" name="inputAvailability" placeholder="Dostępność (tak/nie)" required>
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit">Dodaj</button>
@@ -73,11 +68,6 @@
         </form>
     </div>
 
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
