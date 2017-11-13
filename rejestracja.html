@@ -8,12 +8,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="cssm/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="myCss.css">
 </head>
@@ -21,60 +15,60 @@
 <body>
 
     <div id="divFormSignUp" class="container">
-        <form id="formSignUp" class="form-signin">
+        <form action="/start" method="post" id="formSignUp" class="form-signin">
             <h2 class="form-signin-heading">Rejestracja</h2>
 
             <div class="form-group">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Adres email" required autofocus>
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email" required autofocus>
             </div>
 
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputLogin" placeholder="Login" required>
+                <input type="text" class="form-control" id="inputLogin" name="inputLogin" placeholder="Login" required>
             </div>
 
 
             <div class="form-group">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Hasło" required>
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputName" placeholder="Imię" required>
+                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputSurname" placeholder="Nazwisko" required>
+                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Nazwisko" required>
             </div>
 
             <div class="form-group">
-                <input type="data" class="form-control" id="inputDateBirth" placeholder="Data urodzenia" required autofocus>
+                <input type="data" class="form-control" id="inputDateBirth" name="inputDateBirth" placeholder="Data urodzenia" required autofocus>
             </div>
 
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputAddress" placeholder="Adres - ulica i numer" required>
+                <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Adres - ulica i numer" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputPostalCode" placeholder="Kod pocztowy" required>
+                <input type="text" class="form-control" id="inputPostalCode" name="inputPostalCode" placeholder="Kod pocztowy" required>
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="inputCity" placeholder="Miasto" required>
+                <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="Miasto" required>
             </div>
 
             <div class="form-group">
-                <input type="tel" class="form-control" id="inputPhone" placeholder="Telefon" required>
+                <input type="tel" class="form-control" id="inputPhone" name="inputPhone" placeholder="Telefon" required>
             </div>
 
 
             <div class="form-check">
                 <label>
-            <input type="checkbox" class="form-check-input" required> Wyrażam zgodę na przetwarzanie moich danych osobowych przez bibliotekę w celu świadczenia usług bibliotecznych.</label>
+            <input type="checkbox" class="form-check-input" id="inputPermission" name="inputPermission" required> Wyrażam zgodę na przetwarzanie moich danych osobowych przez bibliotekę w celu świadczenia usług bibliotecznych.</label>
             </div>
             <div class="form-check">
                 <label>
-            <input type="checkbox" class="form-check-input" required> Zapoznałem się z <a href="#">regulaminem</a> i akceptuję go.</label>
+            <input type="checkbox" class="form-check-input" id="inputRegulations" name="inputRegulations" required> Zapoznałem się z <a href="/regulations">regulaminem</a> i akceptuję go.</label>
 
             </div>
 
@@ -84,11 +78,6 @@
         </form>
     </div>
 
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/javascript.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
