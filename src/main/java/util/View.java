@@ -12,9 +12,12 @@ public class View {
 
     private static VelocityTemplateEngine MyVelocityEngine() {
         VelocityEngine configuredEngine = new VelocityEngine();
+        configuredEngine.setProperty("input.encoding", "UTF-8");
+        configuredEngine.setProperty("output.encoding", "UTF-8");
         configuredEngine.setProperty("runtime.references.strict", true);
         configuredEngine.setProperty("resource.loader", "class");
         configuredEngine.setProperty("class.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        configuredEngine.init();
         return new VelocityTemplateEngine(configuredEngine);
     }
 

@@ -25,10 +25,12 @@ public class Application {
 
     public static Database database;
     public static void main(String[] args) {
-        database = new Database();
-        staticFiles.location("/Views");
 
+        staticFiles.location("/Views");
         port(8000);
+
+        database = new Database();
+
         get("/", (req, res) -> "Hello world");
         get(Constants.LOGIN, (request, response) -> {
             return View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE);
@@ -40,7 +42,5 @@ public class Application {
 
 
     }
-
-
 
 }
