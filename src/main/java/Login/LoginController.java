@@ -7,13 +7,15 @@ import spark.Route;
 
 import java.util.List;
 
+import static util.Password.getHashedPassword;
+
 
 public class LoginController {
 
     public static Route loginIfRegistered = (request, response) -> {
         //Database database= new Database();
 
-        List reader = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email and password = :password").setParameter("email", request.queryParams("inputEmail")).setParameter("password", request.queryParams("inputPassword")).list();
+        List reader = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email and password = :password").setParameter("email", request.queryParams("inputEmail")).setParameter("password", getHashedPassword(request.queryParams("inputPassword"))).list();
         if(reader.isEmpty()){
             return "You cannot log in. You have given us wrong email or password. Sorry!";
         }else {
