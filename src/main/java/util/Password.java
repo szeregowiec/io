@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class Password {
 
+
+
     public static String getHashedPassword(String Password){
         String generatedPassword = null;
         try {
