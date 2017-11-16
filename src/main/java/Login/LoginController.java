@@ -4,7 +4,9 @@ import DataSchema.ReadersEntity;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import util.Constants;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static util.Password.getHashedPassword;
@@ -21,7 +23,7 @@ public class LoginController {
         }else {
             ReadersEntity re =  ((ReadersEntity) reader.get(0));
 
-            return "Hello "+re.getName()+" "+ re.getSurname()+". You have succesfully logged in. Your login is: "+ re.getLogin();
+            return util.View.render(request, new HashMap<>(), Constants.VIEW_BOOKS);
         }
     };
 
