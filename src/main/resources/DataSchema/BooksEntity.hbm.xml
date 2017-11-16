@@ -21,7 +21,7 @@
             <column name="publishing_house" sql-type="varchar(50)" length="50"/>
         </property>
         <property name="publishYear">
-            <column name="publish_year" sql-type="date"/>
+            <column name="publish_year" sql-type="int(11)"/>
         </property>
         <property name="publishPlace">
             <column name="publish_place" sql-type="varchar(50)" length="50"/>

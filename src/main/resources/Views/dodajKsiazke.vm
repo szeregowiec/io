@@ -20,7 +20,7 @@
 <body>
 
 <div id="divFormAddBook" class="container">
-    <form action="/book" method="post" id="formAddBook" class="form-signin">
+    <form action="/uploadbook" method="post" id="formAddBook" class="form-signin">
         <h2 class="form-signin-heading">Dodawanie książki</h2>
 
 
