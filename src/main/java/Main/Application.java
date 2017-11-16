@@ -37,9 +37,7 @@ public class Application {
 
         get("/", (req, res) -> "Hello world");
 
-        get(Constants.LOGIN, (request, response) -> {
-            return View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE);
-        });
+        get(Constants.LOGIN, (request, response) -> View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE));
 
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.REGISTER, Register.giveInformation);
