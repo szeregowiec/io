@@ -42,7 +42,7 @@ public class Application {
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.REGISTER, Register.giveInformation);
         post(Constants.REGISTER, Register.register);
-        afknwefg
+
 
     }
 
