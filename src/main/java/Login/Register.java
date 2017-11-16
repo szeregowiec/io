@@ -60,6 +60,7 @@ public class Register {
 
         database.getSession().save("ReadersEntity", newReader);
         database.getSession().getTransaction().commit();
+        response.redirect(Constants.LOGIN);
     return newReader.getIdReader()+"\n"+newReader.getName()+"\n"+newReader.getSurname()+"\n"+newReader.getPassword()+"\n"+newReader.getLogin();
     };
 
