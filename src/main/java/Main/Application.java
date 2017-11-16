@@ -44,7 +44,7 @@ public class Application {
         get(Constants.REGISTER, Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
-        get(Constants.LOGOUT, LoginController.Logout);
+        get(Constants.LOGOUT, LoginController.logout);
 
     }
 
