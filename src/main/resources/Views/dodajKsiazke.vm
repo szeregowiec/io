@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DODAJ KSIĄŻKĘ</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="myCss.css">
+
+    <script src="js/additional-methods.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="divFormAddBook" class="container">
+    <form action="/uploadbook" method="post" id="formAddBook" class="form-signin">
+        <h2 class="form-signin-heading">Dodaj ksiązkę</h2>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Tytuł">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputAuthor" name="inputAuthor" placeholder="Autor">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputKategory" name="inputKategory" placeholder="Kategoria">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputPublishingHouse" name="inputPublishingHouse" placeholder="Wydawnictwo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputDate" name="inputDate" placeholder="Rok wydania">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputPlace" name="inputPlace" placeholder="Miejsce wydania">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputPages" name="inputPages" placeholder="Liczba stron">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputDescription" name="inputDescription" placeholder="Opis">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputLanguage" name="inputLanguage" placeholder="Język">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputIsbn" name="inputIsbn" placeholder="Isbn">
+            </div>
+        </div>
+        
+              <div class="form-group">
+            <label>Wybierz obrazek</label>
+            <div id="wiersze">
+                <input type="file" class="form-control" id="inputCover" name="inputCover" placeholder="Okładka" accept="image/*">
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <div id="wiersze">
+                <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="add" id="add">Dodaj</button>
+            </div>
+        </div>
+        
+        
+    </form>
+</div>
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function() {
+        $("#formAddBook").validate({
+            rules: {
+                inputTitle: {
+                    required: true
+                },
+                inputAuthor: "required",
+                inputKategory: {
+                    required: true
+                },
+                inputPublishingHouse: {
+                    required: true
+                },
+                inputDate: {
+                    required: true,
+                    number: true
+                },
+                inputPlace: {
+                    required: true
+                },
+                inputPages: {
+                    required: true,
+                    number: true
+                },
+                inputDescription: {
+                    required: true
+                },
+                inputLanguage: {
+                    required: true
+                },
+                inputIsbn: {
+                    required: true,
+                    digits: true,
+                    minlength: 13,
+                    maxlength: 13
+                },
+                   inputCover: {
+                    required: true
+                }                
+            },
+            messages: {
+                inputTitle: {
+                    required: "Proszę wpisać tytuł"
+                },
+                inputAuthor: "Proszę wpisać autora",
+                inputKategory: {
+                    required: "Proszę wpisać kategorię"
+                },
+                inputPublishingHouse: {
+                    required: "Proszę wpisać wydawnictwo"
+                },
+                inputDate: {
+                    required: "Proszę wpisać datę wydania",
+                    number: "Proszę wpisać liczbę"
+                },
+                inputPlace: {
+                    required: "Proszę wpisać miejsce wydania"
+                },
+                inputPages: {
+                    required: "Proszę wpisać ilość stron",
+                    number: "Proszę wpisać liczbę"
+                },
+                inputDescription: {
+                    required: "Proszę wpisać opis"
+                },
+                inputLanguage: "Proszę wpisać język",
+                inputIsbn: {
+                    required: "Proszę wpisać swój numer ISBN",
+                    digits: "Proszę wpisać tylko cyfry",
+                    minlength: "Numer ma zawierac 13 cyfr",
+                    maxlength: "Numer ma zawierac 13 cyfr"
+                },
+                inputCover: {
+                    required: "Proszę dodać okładkę"
+                }
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+
+                error.addClass("help-block");
+
+                element.parents("#wiersze").addClass("has-feedback");
+
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+
+                if (!element.next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>").insertAfter(element);
+                }
+            },
+            success: function(label, element) {
+                if (!$(element).next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>").insertAfter($(element));
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).parents("#wiersze").addClass("has-error").removeClass("has-success");
+                $(element).next("span").addClass("glyphicon-remove").removeClass("glyphicon-ok");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).parents("#wiersze").addClass("has-success").removeClass("has-error");
+                $(element).next("span").addClass("glyphicon-ok").removeClass("glyphicon-remove");
+            }
+
+        });
+    });
+</script>
+
+
+
+
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
