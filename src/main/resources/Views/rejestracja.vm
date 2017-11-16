@@ -10,75 +10,252 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="myCss.css">
+
+    <script src="js/additional-methods.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
 </head>
 
 <body>
 
-    <div id="divFormSignUp" class="container">
-        <form action="/register" method="post" id="formSignUp" class="form-signin">
-            <h2 class="form-signin-heading">Rejestracja</h2>
+<div id="divFormSignUp" class="container">
+    <form action="/start" method="post" id="formSignUp" class="form-signin">
+        <h2 class="form-signin-heading">Rejestracja</h2>
 
-            <div class="form-group">
-                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email" required autofocus>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email">
             </div>
+        </div>
 
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputLogin" name="inputLogin" placeholder="Login" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputLogin" name="inputLogin" placeholder="Login">
             </div>
+        </div>
 
 
-            <div class="form-group">
-                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Imię">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Nazwisko" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputSurname" name="inputSurname" placeholder="Nazwisko">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="data" class="form-control" id="inputDateBirth" name="inputDateBirth" placeholder="Data urodzenia" required autofocus>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputDateBirth" name="inputDateBirth" placeholder="Data urodzenia ( format 2013-12-30)">
             </div>
+        </div>
 
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Adres - ulica i numer" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Adres - ulica i numer">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputPostalCode" name="inputPostalCode" placeholder="Kod pocztowy" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputPostalCode" name="inputPostalCode" placeholder="Kod pocztowy">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="Miasto" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputCity" name="inputCity" placeholder="Miasto">
             </div>
+        </div>
 
-            <div class="form-group">
-                <input type="tel" class="form-control" id="inputPhone" name="inputPhone" placeholder="Telefon" required>
+        <div class="form-group">
+            <label></label>
+            <div id="wiersze">
+                <input type="text" class="form-control" id="inputPhone" name="inputPhone" placeholder="Telefon">
             </div>
+        </div>
 
 
-            <div class="form-check">
-                <label>
-            <input type="checkbox" class="form-check-input" id="inputPermission" name="inputPermission" required> Wyrażam zgodę na przetwarzanie moich danych osobowych przez bibliotekę w celu świadczenia usług bibliotecznych.</label>
+        <div class="form-group">
+            <div id="wiersze">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="form-check-input" id="inputPermission" name="inputPermission" > Wyrażam zgodę na przetwarzanie moich danych osobowych przez bibliotekę w celu świadczenia usług bibliotecznych.</label></div>
             </div>
-            <div class="form-check">
-                <label>
-            <input type="checkbox" class="form-check-input" id="inputRegulations" name="inputRegulations" required> Zapoznałem się z <a href="/regulations">regulaminem</a> i akceptuję go.</label>
+        </div>
 
+        <div class="form-group">
+            <div id="wiersze">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="form-check-input" id="inputRegulations" name="inputRegulations" > Zapoznałem się z <a href="/regulations">regulaminem</a> i akceptuję go.</label>
+                </div>
             </div>
+        </div>
+
+        <div class="form-group">
+            <div id="wiersze">
+                <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="register" id="register">Zarejestruj</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
-            <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit">Zarejestruj</button>
+<script type="text/javascript">
+    $.validator.addMethod("postalcode", function(value, element) {
+        return this.optional(element) || /[0-9][0-9]-[0-9][0-9][0-9]/.test(value);
+    }, "Wprowadz kod pocztowy poprawny.");
 
-        </form>
-    </div>
 
-    <script src="js/bootstrap.min.js"></script>
+    $.validator.setDefaults({
+        submitHandler: function() {
+            alert("Dodano użytkownika!")
+        }
+    });
+
+    $(document).ready(function() {
+        $("#formSignUp").validate({
+            rules: {
+                inputEmail: {
+                    required: true,
+                    email: true
+                },
+                inputLogin: "required",
+                inputPassword: {
+                    required: true,
+                    minlength: 5
+                },
+                inputName: {
+                    required: true,
+                    lettersonly: true
+                },
+                inputSurname: {
+                    required: true
+                },
+                inputDateBirth: {
+                    date: true,
+                    required: true
+                },
+                inputAddress: {
+                    required: true
+                },
+                inputPostalCode: {
+                    required: true,
+                    postalcode: true,
+                    minlength: 6,
+                    maxlength: 6
+                },
+                inputCity: {
+                    required: true,
+                    lettersonly: true
+                },
+                inputPhone: {
+                    required: true,
+                    digits: true,
+                    minlength: 7
+                },
+                inputPermission: "required",
+                inputRegulations: "required"
+            },
+            messages: {
+                inputEmail: {
+                    email: "Proszę wpisać prawidłowy adres email",
+                    required: "Proszę wpisać adres email"
+                },
+                inputLogin: "Proszę wpisać login",
+                inputPassword: {
+                    required: "Proszę wpisać hasło",
+                    minlength: "Twoje hasło powinno zawierać co najmniej 5 znaków"
+                },
+                inputName: {
+                    required: "Proszę wpisać imię",
+                    lettersonly: "Twoję imię powinno składać się z samych liter"
+                },
+                inputSurname: {
+                    required: "Proszę wpisać nazwisko"
+                },
+                inputDateBirth: {
+                    required: "Proszę wpisać datę urodzenia",
+                    date: "Proszę wpisać datę w poprawnym formacie np. 2013-12-30"
+                },
+                inputAddress: "Proszę wpisać swój adres",
+                inputPostalCode: {
+                    required: "Proszę wpisać swój kod pocztowy",
+                    postalcode: "Proszę wpisać swój kod pocztowy w prawidłowym formacie np 38-207"
+                },
+                inputCity: "Proszę wpisać swoje miasto",
+                inputPhone: {
+                    required: "Proszę wpisać swój numer telefonu",
+                    digits: "Proszę wpisać tylko cyfry"
+                },
+                inputPermission: "Proszę zaakceptować",
+                inputRegulations: "Proszę zaakceptować",
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                // Add the `help-block` class to the error element
+                error.addClass("help-block");
+
+                // Add `has-feedback` class to the parent div.form-group
+                // in order to add icons to inputs
+                element.parents("#wiersze").addClass("has-feedback");
+
+                if (element.prop("type") === "checkbox") {
+                    error.insertAfter(element.parent("label"));
+                } else {
+                    error.insertAfter(element);
+                }
+
+                // Add the span element, if doesn't exists, and apply the icon classes to it.
+                if (!element.next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>").insertAfter(element);
+                }
+            },
+            success: function(label, element) {
+                // Add the span element, if doesn't exists, and apply the icon classes to it.
+                if (!$(element).next("span")[0]) {
+                    $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>").insertAfter($(element));
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).parents("#wiersze").addClass("has-error").removeClass("has-success");
+                $(element).next("span").addClass("glyphicon-remove").removeClass("glyphicon-ok");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).parents("#wiersze").addClass("has-success").removeClass("has-error");
+                $(element).next("span").addClass("glyphicon-ok").removeClass("glyphicon-remove");
+            }
+
+        });
+    });
+</script>
+
+
+
+
+<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
