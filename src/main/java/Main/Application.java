@@ -1,6 +1,7 @@
 package Main;
 
 import Base.Database;
+import Book.UploadController;
 import DataSchema.ReadersEntity;
 import Login.LoginController;
 import Login.Register;
@@ -45,6 +46,8 @@ public class Application {
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.Logout);
+        get(Constants.UPLOADBOOK, UploadController.giveInformation);
+        post(Constants.UPLOADBOOK, UploadController.upload);
 
     }
 
