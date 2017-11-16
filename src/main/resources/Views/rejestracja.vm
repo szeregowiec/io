@@ -20,7 +20,7 @@
 <body>
 
 <div id="divFormSignUp" class="container">
-    <form action="/start" method="post" id="formSignUp" class="form-signin">
+    <form action="/login" method="post" id="formSignUp" class="form-signin">
         <h2 class="form-signin-heading">Rejestracja</h2>
 
         <div class="form-group">
@@ -149,8 +149,7 @@
                     minlength: 5
                 },
                 inputName: {
-                    required: true,
-                    lettersonly: true
+                    required: true
                 },
                 inputSurname: {
                     required: true
@@ -169,8 +168,7 @@
                     maxlength: 6
                 },
                 inputCity: {
-                    required: true,
-                    lettersonly: true
+                    required: true
                 },
                 inputPhone: {
                     required: true,
@@ -191,8 +189,7 @@
                     minlength: "Twoje hasło powinno zawierać co najmniej 5 znaków"
                 },
                 inputName: {
-                    required: "Proszę wpisać imię",
-                    lettersonly: "Twoję imię powinno składać się z samych liter"
+                    required: "Proszę wpisać imię"
                 },
                 inputSurname: {
                     required: "Proszę wpisać nazwisko"
