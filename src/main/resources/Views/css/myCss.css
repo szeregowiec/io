@@ -1,0 +1,20 @@
+body {
+    background-color: aliceblue;
+}
+
+#divFormLogIn {
+    width: 350px;
+}
+
+
+#divFormSignUp {
+    width: 350px;
+}
+
+#divFormAddBook {
+    width: 350px;
+}
+
+#divFormSignUpEmployee {
+    width: 350px;
+}
