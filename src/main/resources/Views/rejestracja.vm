@@ -19,6 +19,12 @@
 
 <body>
 
+
+<div class="jumbotron text-center">
+    <h1>Biblioteka Główna</h1>
+    <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+</div>
+
 <div id="divFormSignUp" class="container">
     <form action="/register" method="post" id="formSignUp" class="form-signin">
         <h2 class="form-signin-heading">Rejestracja</h2>
