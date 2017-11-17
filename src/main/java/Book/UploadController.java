@@ -25,7 +25,7 @@ public class UploadController {
         newBook.setPublishYear(Integer.parseInt(request.queryParams("inputDate")));
         newBook.setPublishPlace(request.queryParams("inputPlace"));
 
-        //nie ma okładki!!!!!
+        //nie ma okładki!!!!! name to inputCover tak żebyś nie musiał sprawdzać ;)
 
 
         database.getSession().save("BooksEntity", newBook);
