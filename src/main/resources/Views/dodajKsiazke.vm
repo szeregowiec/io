@@ -93,12 +93,10 @@
             <div id="wiersze">
                 <select class="form-control" type="text" name="inputLanguage" id="inputLanguage">
                     <option disabled selected>Wybierz język</option>
-                    <option>Język polski</option>
-                    <option>Język angielski</option>
-                    <option>Język hiszpański</option>
-                    <option>Język niemiecki</option>
-                    <option>Język chiński</option>
-                    <option>Język rosyjski</option>
+                    <option>polski</option>
+                    <option>angielski</option>
+                    <option>niemiecki</option>
+                    <option>rosyjski</option>
                 </select>
             </div>
         </div>
