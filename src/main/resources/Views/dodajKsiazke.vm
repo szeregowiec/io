@@ -42,7 +42,13 @@
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputKategory" name="inputKategory" placeholder="Kategoria">
+                <select class="form-control" type="text" name="inputKategory" id="inputKategory">
+                    <option disabled selected>Wybierz kategorię</option>
+                    <option>Horror</option>
+                    <option>Fantasy</option>
+                    <option>Matematyka</option>
+                    <option>i reszta</option>
+                </select>
             </div>
         </div>
 
@@ -85,7 +91,15 @@
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputLanguage" name="inputLanguage" placeholder="Język">
+                <select class="form-control" type="text" name="inputLanguage" id="inputLanguage">
+                    <option disabled selected>Wybierz język</option>
+                    <option>Język polski</option>
+                    <option>Język angielski</option>
+                    <option>Język hiszpański</option>
+                    <option>Język niemiecki</option>
+                    <option>Język chiński</option>
+                    <option>Język rosyjski</option>
+                </select>
             </div>
         </div>
 
@@ -95,29 +109,27 @@
                 <input type="text" class="form-control" id="inputIsbn" name="inputIsbn" placeholder="Isbn">
             </div>
         </div>
-        
-              <div class="form-group">
+
+        <div class="form-group">
             <label>Wybierz obrazek</label>
             <div id="wiersze">
                 <input type="file" class="form-control" id="inputCover" name="inputCover" placeholder="Okładka" accept="image/*">
             </div>
         </div>
-        
+
 
         <div class="form-group">
             <div id="wiersze">
                 <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="add" id="add">Dodaj</button>
             </div>
         </div>
-        
-        
+
+
     </form>
 </div>
 
 
 <script type="text/javascript">
-
-
     $(document).ready(function() {
         $("#formAddBook").validate({
             rules: {
@@ -154,9 +166,9 @@
                     minlength: 13,
                     maxlength: 13
                 },
-                   inputCover: {
+                inputCover: {
                     required: true
-                }                
+                }
             },
             messages: {
                 inputTitle: {
