@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="myCss.css">
+    <link rel="stylesheet" type="text/css" href="css/myCss.css">
 </head>
 
 <body>
