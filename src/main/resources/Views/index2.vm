@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Strona główna</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Strona główna</a></li>
+                    <li><a href="#">Wyszukiwanie</a></li>
+                    <li><a href="#">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Konto</a></li>
+                            <li><a href="#">Wyloguj</a></li>
+                            <li><a href="#">Something else here</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Biblioteka Główna</h1>
+        <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+        <form class="form-inline">
+            <div class="input-group">
+                <input type="email" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz" required>
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span> wyszukaj
+                    </button>
+                </div>
+            </div>
+        </form>
+        <h2><a href="logowanie.html" class="btn btn-primary ">
+            <span class="glyphicon glyphicon-log-in"></span> zaloguj
+        </a>
+        </h2>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-sm-6">
+        <h2>O Bibliotece</h2>
+        <p> Biblioteka Główna Akademii Górniczo-Hutniczej jest jednostką ogólnouczelnianą o zadaniach usługowych, dydaktycznych i naukowych. Pełni funkcje ośrodka informacji naukowej, a wraz z bibliotekami wydziałowymi tworzy jednolity system biblioteczno-informacyjny. Pod względem wielkości zbiorów jest drugą, po Bibliotece Jagiellońskiej, biblioteką Krakowa. Ponadto Biblioteka odgrywa wiodącą rolę w Krakowskim Zespole Bibliotecznym.</p>
+    </div>
+    <div class="col-sm-6">
+        <img src="image/czytelnia_ogolna.jpg" class="img-thumbnail" alt="Cinque Terre" width="" height="">
+    </div>
+
+</div>
+<div id="kontakt" class="container-fluid bg-grey">
+    <h2>Kontakt</h2>
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead>
+            <th class="col-sm-5">OSOBA/ODDZIAŁ:</th>
+            <th class="col-sm-3">TELEFONY:</th>
+            <th class="col-sm-4">E-MAIL:</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Dyrektor: mgr Ewa Dobrzyńska-Lankosz</td>
+                <td>12 617 32 08</td>
+                <td>ewa.lankosz@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Za-ca Dyrektora: dr Jerzy Krawczyk</td>
+                <td>12 617 32 08</td>
+                <td>jerzy.krawczyk@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Za-ca Dyrektora: mgr Maria Garczyńska</td>
+                <td>12 617 32 08</td>
+                <td>maria.garczynska@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Sekretariat</td>
+                <td>
+                    12 617 32 08
+                    <p>fax: 12 634 14 04</p>
+                </td>
+                <td>bgagh@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Sekcja Administracyjna</td>
+                <td>12 617 32 10</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>Oddział Informacji Naukowej</td>
+                <td>12 617 32 15</td>
+                <td>oin@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Oddział Zbiorów Specjalnych</td>
+                <td>12 617 32 17</td>
+                <td>ozs@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Wypożyczalnia Międzybiblioteczna Zamiejscowa</td>
+                <td>12 617 32 14</td>
+                <td>wypmb@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Wypożyczalnia</td>
+                <td>12 617 32 12</td>
+                <td>udo@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Strefa Wolnego Dostępu</td>
+                <td>12 617 34 02</td>
+                <td>udo@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Informacja Katalogowa</td>
+                <td>12 617 32 11</td>
+                <td>katalog@bg.agh.edu.pl</td>
+            </tr>
+            <tr>
+                <td>Czytelnia Główna</td>
+                <td>12 617 40 03</td>
+                <td>udo@bg.agh.edu.pl</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+</body>
+
+</html>

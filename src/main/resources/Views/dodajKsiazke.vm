@@ -19,9 +19,53 @@
 
 <body>
 
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Strona główna</a></li>
+                    <li><a href="#">Wyszukiwanie</a></li>
+                    <li><a href="#">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Konto</a></li>
+                            <li><a href="#">Wyloguj</a></li>
+                            <li><a href="#">Something else here</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Biblioteka Główna</h1>
+        <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+    </div>
+</div>
+
+
 <div id="divFormAddBook" class="container">
     <form action="/uploadbook" method="post" id="formAddBook" class="form-signin">
-        <h2 class="form-signin-heading">Dodaj ksiązkę</h2>
+        <h2 class="form-signin-heading">Dodaj książkę</h2>
 
         <div class="form-group">
             <label></label>
@@ -93,10 +137,12 @@
             <div id="wiersze">
                 <select class="form-control" type="text" name="inputLanguage" id="inputLanguage">
                     <option disabled selected>Wybierz język</option>
-                    <option>polski</option>
-                    <option>angielski</option>
-                    <option>niemiecki</option>
-                    <option>rosyjski</option>
+                    <option>Język polski</option>
+                    <option>Język angielski</option>
+                    <option>Język hiszpański</option>
+                    <option>Język niemiecki</option>
+                    <option>Język chiński</option>
+                    <option>Język rosyjski</option>
                 </select>
             </div>
         </div>
@@ -116,12 +162,13 @@
         </div>
 
 
+
+
         <div class="form-group">
             <div id="wiersze">
                 <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="add" id="add">Dodaj</button>
             </div>
         </div>
-
 
     </form>
 </div>
@@ -237,6 +284,7 @@
 
         });
     });
+
 </script>
 
 

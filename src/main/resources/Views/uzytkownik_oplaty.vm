@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>LOGOWANIE</title>
+    <title>OPŁATY</title>
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
 
 <div class="container-fluid">
     <nav class="navbar navbar-default">
@@ -34,7 +33,7 @@
                     <li><a href="#">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
+                    <li><a href="#">Zaloguj</a></li>
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
@@ -57,33 +56,38 @@
     </div>
 </div>
 
-
-<div id="divFormLogIn" class="container">
-    <form action="/start" method="post" id="formLogIn" class="form-signin">
-        <h2 class="form-signin-heading">Logowanie</h2>
-
-        <div class="form-group">
-            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email" required autofocus>
-        </div>
-
-        <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło" required>
-        </div>
-
-        <div class="form-check">
-            <label>
-                <input type="checkbox" id="inputRememberMe" name="inputRememberMe" class="form-check-input"> Zapamiętaj mnie!
-            </label>
-        </div>
-
-        <div>
-            <h4>Nie masz konta? <a href="/start">Kliknij tutaj!</a></h4>
-        </div>
-
-        <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit">Zaloguj się</button>
-
-    </form>
+<div class="container" id="user">
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation"><a href="uzytkownik_rezerwacje.html">Rezerwacje</a></li>
+        <li role="presentation"><a href="uzytkownik_wypozyczenia.html">Wypożyczone</a></li>
+        <li role="presentation" class="active"><a href="uzytkownik_oplaty.html">Opłaty</a></li>
+        <li role="presentation"><a href="uzytkownik_historia.html">Historia wypozyczeń</a></li>
+        <li role="presentation"><a href="uzytkownik_dane.html">Dane użytkownika</a></li>
+    </ul>
 </div>
+
+
+<div align="center" class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <tbody>
+                <thead>
+                <td class="text-center">Przewidywana data zwrotu</td>
+                <td class="text-center">Ksiażka</td>
+                <td class="text-center">Opłata</td>
+                </thead>
+                <tr>
+                    <td class="text-center">lol1</td>
+                    <td class="text-center">lol1</td>
+                    <td class="text-center">lol1</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
 <script src="js/bootstrap.min.js"></script>
 </body>
