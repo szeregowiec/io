@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="myCss.css">
+    <link rel="stylesheet" type="text/css" href="css/myCss.css">
 
     <script src="js/additional-methods.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -19,10 +19,53 @@
 
 <body>
 
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Strona główna</a></li>
+                    <li><a href="#">Wyszukiwanie</a></li>
+                    <li><a href="#">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Konto</a></li>
+                            <li><a href="#">Wyloguj</a></li>
+                            <li><a href="#">Something else here</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Biblioteka Główna</h1>
+        <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+    </div>
+</div>
+
+
 <div id="divFormAddBook" class="container">
     <form action="/uploadbook" method="post" id="formAddBook" class="form-signin">
-        <h2 class="form-signin-heading">Dodawanie książki</h2>
-
+        <h2 class="form-signin-heading">Dodaj książkę</h2>
 
         <div class="form-group">
             <label></label>
@@ -31,6 +74,7 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <label></label>
             <div id="wiersze">
@@ -38,10 +82,17 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputKategory" name="inputKategory" placeholder="Kategoria">
+                <select class="form-control" type="text" name="inputKategory" id="inputKategory">
+                    <option disabled selected>Wybierz kategorię</option>
+                    <option>Horror</option>
+                    <option>Fantasy</option>
+                    <option>Matematyka</option>
+                    <option>i reszta</option>
+                </select>
             </div>
         </div>
 
@@ -55,7 +106,7 @@
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="year" class="form-control" id="inputDate" name="inputDate" placeholder="Rok wydania">
+                <input type="text" class="form-control" id="inputDate" name="inputDate" placeholder="Rok wydania">
             </div>
         </div>
 
@@ -66,10 +117,11 @@
             </div>
         </div>
 
+
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="number" class="form-control" id="inputPages" name="inputPages" placeholder="Liczba stron">
+                <input type="text" class="form-control" id="inputPages" name="inputPages" placeholder="Liczba stron">
             </div>
         </div>
 
@@ -83,10 +135,17 @@
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputLanguage" name="inputLanguage" placeholder="Język">
+                <select class="form-control" type="text" name="inputLanguage" id="inputLanguage">
+                    <option disabled selected>Wybierz język</option>
+                    <option>Język polski</option>
+                    <option>Język angielski</option>
+                    <option>Język hiszpański</option>
+                    <option>Język niemiecki</option>
+                    <option>Język chiński</option>
+                    <option>Język rosyjski</option>
+                </select>
             </div>
         </div>
-
 
         <div class="form-group">
             <label></label>
@@ -96,11 +155,13 @@
         </div>
 
         <div class="form-group">
-            <label></label>
+            <label>Wybierz obrazek</label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputCover" name="inputCover" placeholder="Okładka">
+                <input type="file" class="form-control" id="inputCover" name="inputCover" placeholder="Okładka" accept="image/*">
             </div>
         </div>
+
+
 
 
         <div class="form-group">
@@ -113,11 +174,9 @@
 </div>
 
 
-
-
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#formSignUp").validate({
+        $("#formAddBook").validate({
             rules: {
                 inputTitle: {
                     required: true
@@ -131,14 +190,14 @@
                 },
                 inputDate: {
                     required: true,
-                    digits: true
+                    number: true
                 },
                 inputPlace: {
                     required: true
                 },
                 inputPages: {
                     required: true,
-                    digits: true
+                    number: true
                 },
                 inputDescription: {
                     required: true
@@ -147,10 +206,13 @@
                     required: true
                 },
                 inputIsbn: {
-                    required: true
+                    required: true,
+                    digits: true,
+                    minlength: 13,
+                    maxlength: 13
                 },
                 inputCover: {
-                    required: false
+                    required: true
                 }
             },
             messages: {
@@ -162,27 +224,28 @@
                     required: "Proszę wpisać kategorię"
                 },
                 inputPublishingHouse: {
-                    required: "Proszę wpisać nazwę wydawnictwa"
+                    required: "Proszę wpisać wydawnictwo"
                 },
                 inputDate: {
                     required: "Proszę wpisać datę wydania",
-                    digits: "Proszę wpisać tylko cyfry"
+                    number: "Proszę wpisać liczbę"
                 },
                 inputPlace: {
-                    required: "Proszę wpisać miejsce wydania
+                    required: "Proszę wpisać miejsce wydania"
                 },
                 inputPages: {
                     required: "Proszę wpisać ilość stron",
-                    digits: "Proszę wpisać tylko cyfry"
+                    number: "Proszę wpisać liczbę"
                 },
                 inputDescription: {
                     required: "Proszę wpisać opis"
                 },
-                inputLanguage: {
-                    required: "Proszę wpisać język"
-                },
+                inputLanguage: "Proszę wpisać język",
                 inputIsbn: {
-                    required: "Proszę wpisać isbn
+                    required: "Proszę wpisać swój numer ISBN",
+                    digits: "Proszę wpisać tylko cyfry",
+                    minlength: "Numer ma zawierac 13 cyfr",
+                    maxlength: "Numer ma zawierac 13 cyfr"
                 },
                 inputCover: {
                     required: "Proszę dodać okładkę"
@@ -190,11 +253,9 @@
             },
             errorElement: "em",
             errorPlacement: function(error, element) {
-                // Add the `help-block` class to the error element
+
                 error.addClass("help-block");
 
-                // Add `has-feedback` class to the parent div.form-group
-                // in order to add icons to inputs
                 element.parents("#wiersze").addClass("has-feedback");
 
                 if (element.prop("type") === "checkbox") {
@@ -203,13 +264,11 @@
                     error.insertAfter(element);
                 }
 
-                // Add the span element, if doesn't exists, and apply the icon classes to it.
                 if (!element.next("span")[0]) {
                     $("<span class='glyphicon glyphicon-remove form-control-feedback'></span>").insertAfter(element);
                 }
             },
             success: function(label, element) {
-                // Add the span element, if doesn't exists, and apply the icon classes to it.
                 if (!$(element).next("span")[0]) {
                     $("<span class='glyphicon glyphicon-ok form-control-feedback'></span>").insertAfter($(element));
                 }
@@ -225,7 +284,9 @@
 
         });
     });
+
 </script>
+
 
 
 

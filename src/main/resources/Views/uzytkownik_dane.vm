@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DANE</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/myCss.css">
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Strona główna</a></li>
+                    <li><a href="#">Wyszukiwanie</a></li>
+                    <li><a href="#">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Konto</a></li>
+                            <li><a href="#">Wyloguj</a></li>
+                            <li><a href="#">Something else here</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Biblioteka Główna</h1>
+        <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+    </div>
+</div>
+
+<div class="container" id="user">
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation"><a href="uzytkownik_rezerwacje.html">Rezerwacje</a></li>
+        <li role="presentation"><a href="uzytkownik_wypozyczenia.html">Wypożyczone</a></li>
+        <li role="presentation"><a href="uzytkownik_oplaty.html">Opłaty</a></li>
+        <li role="presentation"><a href="uzytkownik_historia.html">Historia wypozyczeń</a></li>
+        <li role="presentation" class="active"><a href="uzytkownik_dane.html">Dane użytkownika</a></li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <tbody>
+                <tr>
+                    <td class="text-center">Adres email</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Login</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+
+                <tr>
+                    <td class="text-center">Hasło</td>
+                    <td class="text-center">
+                        <text type="password" value="hasło">ffdgfg</text><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Imię</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Nazwisko</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Data urodzenia</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Adres</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Kod pocztowy</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Miasto</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Numer telefonu</td>
+                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
