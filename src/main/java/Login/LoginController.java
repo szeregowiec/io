@@ -8,6 +8,7 @@ import util.Constants;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static util.Password.getHashedPassword;
 
@@ -28,7 +29,10 @@ public class LoginController {
         {
             ReadersEntity re =  ((ReadersEntity) reader.get(0));
             request.session().attribute("currentUser", re.getEmail());
-            return util.View.render(request, new HashMap<>(), Constants.VIEW_BOOKS);
+            request.session().attribute("login", re.getLogin());
+            Map<String,Object> model = new HashMap<>();
+            model.put("login",request.session().attribute("login"));
+            return util.View.render(request, model, Constants.VIEW_BOOKS);
         }
 
         response.redirect(Constants.LOGIN);
@@ -37,12 +41,15 @@ public class LoginController {
 
     public static Route start = (request, response) -> {
       ensureUserIsLoggedIn(request,response);
-      return util.View.render(request, new HashMap<>(), Constants.VIEW_BOOKS);
+      Map<String,Object> model = new HashMap<>();
+      model.put("login",request.session().attribute("login"));
+      return util.View.render(request, model, Constants.VIEW_BOOKS);
     };
 
 
     public static Route logout = (request, response) -> {
         ensureUserIsLoggedIn(request,response);
+        request.session().removeAttribute("login");
         request.session().removeAttribute("currentUser");
         response.redirect(Constants.LOGIN);
         return null;

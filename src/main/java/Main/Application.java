@@ -5,7 +5,7 @@ import Book.UploadController;
 import DataSchema.ReadersEntity;
 import Login.LoginController;
 import Login.Register;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+//import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -37,7 +37,8 @@ public class Application {
         init();
         database = new Database();
 
-        get("/", (req, res) -> "Hello world");
+        get("/", (req, res) -> {res.redirect(Constants.LOGIN); return null;});
+
 
         get(Constants.LOGIN, (request, response) -> View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE));
 

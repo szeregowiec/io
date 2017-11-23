@@ -6,6 +6,7 @@ import util.Constants;
 
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import static Main.Application.database;
@@ -60,13 +61,16 @@ public class Register {
 
         database.getSession().save("ReadersEntity", newReader);
         database.getSession().getTransaction().commit();
+
         response.redirect(Constants.LOGIN);
     return newReader.getIdReader()+"\n"+newReader.getName()+"\n"+newReader.getSurname()+"\n"+newReader.getPassword()+"\n"+newReader.getLogin();
     };
 
 
     public static Route giveInformation = (request, response) -> {
-        return util.View.render(request, new HashMap<>(), Constants.REGISTER_TEMPLATE);
+        Map<String,Object> model = new HashMap<>();
+        model.put("StronaDoLogowania",Constants.LOGIN);
+        return util.View.render(request, model, Constants.REGISTER_TEMPLATE);
     };
 
 }
