@@ -1,12 +1,12 @@
 package Main;
 
 import Base.Database;
+import Book.ShowBooks;
 import Book.UploadController;
 import DataSchema.ReadersEntity;
 import Login.LoginController;
 import Login.Register;
 //import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-import Sites.Catalog;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,7 +44,8 @@ public class Application {
         get(Constants.LOGIN, (request, response) -> View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE));
 
         post(Constants.START, LoginController.loginIfRegistered);
-        get(Constants.CATALOG, Catalog.viewBooks);
+        get(Constants.CATALOG, ShowBooks.viewBooks);
+        get(Constants.CATALOG+"/:name", ShowBooks.viewSpecificBooks);
         get(Constants.REGISTER,  Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
