@@ -32,7 +32,7 @@ public class LoginController {
             request.session().attribute("login", re.getLogin());
             Map<String,Object> model = new HashMap<>();
             model.put("login",request.session().attribute("login"));
-            return util.View.render(request, model, Constants.VIEW_BOOKS);
+            return util.View.render(request, model, Constants.MAIN_TEMPLATE);
         }
         Map<String,Object> model = new HashMap<>();
         model.put("wrongEmailOrPassword", true);
@@ -44,7 +44,7 @@ public class LoginController {
       ensureUserIsLoggedIn(request,response);
       Map<String,Object> model = new HashMap<>();
       model.put("login",request.session().attribute("login"));
-      return util.View.render(request, model, Constants.VIEW_BOOKS);
+      return util.View.render(request, model, Constants.MAIN_TEMPLATE);
     };
 
 

@@ -28,14 +28,14 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li ><a href="#">Strona główna</a></li>
-                    <li class="active"><a href="#">Katalog</a></li>
+                    <li class="active"><a href="/catalog">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Konto <span class="caret"></span></a>
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Ustawienia</a></li>
-                            <li><a href="#">Wyloguj</a></li>
+                            <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
 
@@ -58,10 +58,7 @@
                 </div>
             </div>
         </form>
-        <h2><a href="logowanie.html" class="btn btn-primary ">
-            <span class="glyphicon glyphicon-log-in"></span> zaloguj
-        </a>
-        </h2>
+
 
     </div>
 
@@ -70,9 +67,6 @@
     <div class="col-sm-6">
         <h2>O Bibliotece</h2>
         <p> Biblioteka Główna Akademii Górniczo-Hutniczej jest jednostką ogólnouczelnianą o zadaniach usługowych, dydaktycznych i naukowych. Pełni funkcje ośrodka informacji naukowej, a wraz z bibliotekami wydziałowymi tworzy jednolity system biblioteczno-informacyjny. Pod względem wielkości zbiorów jest drugą, po Bibliotece Jagiellońskiej, biblioteką Krakowa. Ponadto Biblioteka odgrywa wiodącą rolę w Krakowskim Zespole Bibliotecznym.</p>
-    </div>
-    <div class="col-sm-6">
-        <img src="image/czytelnia_ogolna.jpg" class="img-thumbnail" alt="Cinque Terre" width="" height="">
     </div>
 
 </div>
