@@ -39,6 +39,7 @@ public class Register {
         newReader.setPhone(request.queryParams("inputPhone"));
         newReader.setPenalty(0);
 
+
         /**
          * a to po to żeby dobrze znaleźć date urodzin ze stringa
          * lepiej by było to brać z oddzielnych pól, no ale cóż
@@ -46,10 +47,12 @@ public class Register {
         try{
             int year=0, month=0, day=0;
             String dataGiven = request.queryParams("inputDateBirth");
-            if(Pattern.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d",dataGiven)){
-                year = Integer.parseInt(dataGiven.substring(0,3));
-                month = Integer.parseInt(dataGiven.substring(5,6));
-                day = Integer.parseInt(dataGiven.substring(8,9));
+
+            /*if(Pattern.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d",dataGiven)){
+                year = Integer.parseInt(dataGiven.substring(0,4));
+                month = Integer.parseInt(dataGiven.substring(5,7));
+                day = Integer.parseInt(dataGiven.substring(8,10));
+                System.out.println(year+", "+month+", "+day);
             }else if(Pattern.matches("\\d\\d-\\d\\d-\\d\\d\\d\\d",dataGiven)){
                 year = Integer.parseInt(dataGiven.substring(6,9));
                 month = Integer.parseInt(dataGiven.substring(3,4));
@@ -57,15 +60,15 @@ public class Register {
             } else{
                 System.out.println("Data nie pasuje do niczego");
                 response.redirect(Constants.REGISTER);
-            }
+            }*/
 
-            Date birthDate = new Date(year,month,day);
+            //Date birthDate = new Date(year,month,day);
+            Date birthDate = Date.valueOf(dataGiven);
             newReader.setBirthDate(birthDate);
         }catch(Exception e){
             response.redirect(Constants.REGISTER);
             System.out.println("Wyjebalo wyjatek");
         }
-
         int max_id = Integer.parseInt(database.getSession().createQuery("select max(idReader) from ReadersEntity ").list().get(0).toString());
         newReader.setIdReader(Integer.toString(max_id + 1));
 
