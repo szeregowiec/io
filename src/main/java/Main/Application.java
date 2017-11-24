@@ -45,14 +45,14 @@ public class Application {
 
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.CATALOG, ShowBooks.viewBooks);
-        get(Constants.CATALOG+"/:name", ShowBooks.viewSpecificBooks);
+
         get(Constants.REGISTER,  Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.logout);
         get(Constants.UPLOADBOOK, UploadController.giveInformation);
         post(Constants.UPLOADBOOK, UploadController.upload);
-
+        get("/:name", ShowBooks.viewSpecificBooks);
     }
 
 }

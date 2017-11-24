@@ -7,8 +7,6 @@ import util.Constants;
 import java.util.HashMap;
 import java.util.Map;
 
-import static spark.Spark.staticFiles;
-
 public class ShowBooks {
 
 
@@ -28,7 +26,6 @@ public class ShowBooks {
         model.put("login",request.session().attribute("login"));
         String typeOfBook = request.params(":name");
         //System.out.println(typeOfBook);
-
 
 
         return util.View.render(request, model, Constants.VIEW_BOOKS);
