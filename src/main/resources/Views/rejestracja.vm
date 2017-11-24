@@ -70,7 +70,7 @@
             <div id="wiersze">
                 <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email">
             </div>
-                  #if($readerAlreadyExist = true)        
+                  #if($readerAlreadyExist)
         <div>
             <strong>Podany email jest już zarejestrowany<strong>
         </div>
