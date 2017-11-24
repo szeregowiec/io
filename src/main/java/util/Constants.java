@@ -5,7 +5,6 @@ public class Constants {
     public static String LOGIN = "/login";
     public static String START = "/start";
     public static String REGISTER = "/register";
-    public static String REGISTER_ALREADYEXIST = "/registeralreadyexist";
     public static String UPLOADBOOK = "/uploadbook";
     public static String LOGOUT = "/logout";
 

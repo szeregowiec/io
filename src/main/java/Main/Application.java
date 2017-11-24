@@ -43,8 +43,7 @@ public class Application {
         get(Constants.LOGIN, (request, response) -> View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE));
 
         post(Constants.START, LoginController.loginIfRegistered);
-        get(Constants.REGISTER, Register.giveInformation);
-        get(Constants.REGISTER_ALREADYEXIST, Register.giveInformationReaderAlreadyExist);
+        get(Constants.REGISTER,  Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.logout);

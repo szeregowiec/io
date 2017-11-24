@@ -69,6 +69,11 @@
         <div class="form-group">
             <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło" required>
         </div>
+                  #if($wrongEmailOrPassword)        
+            <div>
+            <strong>Podany błędny email lub hasło!<strong>
+            </div>
+                #end
 
         <div class="form-check">
             <label>

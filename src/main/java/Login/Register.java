@@ -18,13 +18,15 @@ import static util.Password.getHashedPassword;
 public class Register {
 
     public static Route register = (request, response) -> {
-
+        //if user(email) already exist
         List reader = database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.queryParams("inputEmail")).list();
         if(!reader.isEmpty()){
-            response.redirect(Constants.REGISTER_ALREADYEXIST);
+            request.session().attribute("alreadyExist",true);
+            response.redirect(Constants.REGISTER);
+            return "";
         }
 
-
+        //making new user
         ReadersEntity newReader = new ReadersEntity();
         newReader.setEmail(request.queryParams("inputEmail"));
         newReader.setLogin(request.queryParams("inputLogin"));
@@ -77,14 +79,12 @@ public class Register {
 
     public static Route giveInformation = (request, response) -> {
         Map<String,Object> model = new HashMap<>();
-        model.put("readerAlreadyExist", false);
-        model.put("StronaDoLogowania",Constants.LOGIN);
-        return util.View.render(request, model, Constants.REGISTER_TEMPLATE);
-    };
 
-    public static Route giveInformationReaderAlreadyExist = (request, response) -> {
-        Map<String,Object> model = new HashMap<>();
+        if(request.session().attributes().contains("alreadyExist")){
         model.put("readerAlreadyExist", true);
+        request.session().removeAttribute("alreadyExist");
+        } else {model.put("readerAlreadyExist", false);}
+
         model.put("StronaDoLogowania",Constants.LOGIN);
         return util.View.render(request, model, Constants.REGISTER_TEMPLATE);
     };
