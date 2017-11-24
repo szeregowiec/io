@@ -15,9 +15,9 @@
 <body>
 
 
-<div class="container-fluid">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+<div class="container-fixed">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fixed">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -29,20 +29,15 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Strona główna</a></li>
-                    <li><a href="#">Wyszukiwanie</a></li>
-                    <li><a href="#">Katalog</a></li>
+                    <li ><a href="#">Strona główna</a></li>
+                    <li class="active"><a href="#">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
-
                     <li class="dropdown">
-                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Konto</a></li>
-                            <li><a href="#">Wyloguj</a></li>
-                            <li><a href="#">Something else here</a></li>
-
+                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
 
@@ -75,45 +70,45 @@
                 <tbody>
                 <tr>
                     <td class="text-center">Adres email</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$email<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Login</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$login<a href="#"></a></td>
                 </tr>
 
                 <tr>
                     <td class="text-center">Hasło</td>
                     <td class="text-center">
-                        <text type="password" value="hasło">ffdgfg</text><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <text type="password" value="hasło">$password</text><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Imię</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$name<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Nazwisko</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$surname<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Data urodzenia</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$birth_date<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Adres</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$address<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Kod pocztowy</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$postal_code<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Miasto</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$city<a href="#"></a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Numer telefonu</td>
-                    <td class="text-center">lol1<a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td class="text-center">$phone<a href="#"></a></td>
                 </tr>
                 </tbody>
             </table>
