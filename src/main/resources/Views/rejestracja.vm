@@ -105,7 +105,7 @@
         <div class="form-group">
             <label></label>
             <div id="wiersze">
-                <input type="text" class="form-control" id="inputDateBirth" name="inputDateBirth" placeholder="Data urodzenia ( format 2013-12-30)">
+                <input type="date" class="form-control" id="inputDateBirth" name="inputDateBirth" placeholder="Data urodzenia ( format 2013-12-30)">
             </div>
         </div>
 
@@ -161,7 +161,7 @@
                 <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="register" id="register">Zarejestruj</button>
             </div>
         </div>
-        #if($readerAlreadyExist = true)        
+        #if($readerAlreadyExist = true)
         <div>
             Ten emial juz istnieje !
         </div>
@@ -196,7 +196,7 @@
                     required: true
                 },
                 inputDateBirth: {
-                    date: true,
+               //     date: true,
                     required: true
                 },
                 inputAddress: {
@@ -239,7 +239,7 @@
                 },
                 inputDateBirth: {
                     required: "Proszę wpisać datę urodzenia",
-                    date: "Proszę wpisać datę w poprawnym formacie np. 2013-12-30"
+                //    date: "Proszę wpisać datę w poprawnym formacie np. 2013-12-30"
                 },
                 inputAddress: "Proszę wpisać swój adres",
                 inputPostalCode: {
