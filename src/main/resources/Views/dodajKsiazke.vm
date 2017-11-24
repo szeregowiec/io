@@ -67,8 +67,7 @@
     <form action="/uploadbook" method="post" id="formAddBook" class="form-signin">
         <h2 class="form-signin-heading">Dodaj książkę</h2>
 
-
-        #if($bookAlreadyExist = true)
+        #if($bookAlreadyExists)
             <div>
                 KSIĄŻKA O PODANYM ISBN JUŻ ISTNIEJE!
             </div>
