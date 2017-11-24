@@ -34,9 +34,10 @@ public class LoginController {
             model.put("login",request.session().attribute("login"));
             return util.View.render(request, model, Constants.VIEW_BOOKS);
         }
+        Map<String,Object> model = new HashMap<>();
+        model.put("wrongEmailOrPassword", true);
+        return util.View.render(request, model, Constants.LOGIN_TEMPLATE);
 
-        response.redirect(Constants.LOGIN);
-        return null;
     };
 
     public static Route start = (request, response) -> {

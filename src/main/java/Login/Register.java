@@ -22,7 +22,8 @@ public class Register {
         List reader = database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.queryParams("inputEmail")).list();
         if(!reader.isEmpty()){
             request.session().attribute("alreadyExist",true);
-            response.redirect(Constants.REGISTER);//+"&alreadyExist=true");
+            response.redirect(Constants.REGISTER);
+            return "";
         }
 
         //making new user
@@ -78,7 +79,6 @@ public class Register {
 
     public static Route giveInformation = (request, response) -> {
         Map<String,Object> model = new HashMap<>();
-
 
         if(request.session().attributes().contains("alreadyExist")){
         model.put("readerAlreadyExist", true);
