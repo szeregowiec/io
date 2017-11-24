@@ -70,6 +70,11 @@
             <div id="wiersze">
                 <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Adres email">
             </div>
+                  #if($readerAlreadyExist = true)        
+        <div>
+            <strong>Podany email jest już zarejestrowany<strong>
+        </div>
+        #end
         </div>
 
 
@@ -161,11 +166,7 @@
                 <button class="btn btn-lg btn-primary btn-block" class="btn btn-primary" type="submit" name="register" id="register">Zarejestruj</button>
             </div>
         </div>
-        #if($readerAlreadyExist = true)        
-        <div>
-            Ten emial juz istnieje !
-        </div>
-        #end
+  
     </form>
 </div>
 
