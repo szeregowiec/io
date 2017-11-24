@@ -44,6 +44,7 @@ public class Application {
 
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.REGISTER, Register.giveInformation);
+        get(Constants.REGISTER_ALREADYEXIST, Register.giveInformationReaderAlreadyExist);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.logout);

@@ -6,6 +6,7 @@ import util.Constants;
 
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,13 @@ import static util.Password.getHashedPassword;
 public class Register {
 
     public static Route register = (request, response) -> {
+
+        List reader = database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.queryParams("inputEmail")).list();
+        if(!reader.isEmpty()){
+            response.redirect(Constants.REGISTER_ALREADYEXIST);
+        }
+
+
         ReadersEntity newReader = new ReadersEntity();
         newReader.setEmail(request.queryParams("inputEmail"));
         newReader.setLogin(request.queryParams("inputLogin"));
@@ -69,6 +77,14 @@ public class Register {
 
     public static Route giveInformation = (request, response) -> {
         Map<String,Object> model = new HashMap<>();
+        model.put("readerAlreadyExist", false);
+        model.put("StronaDoLogowania",Constants.LOGIN);
+        return util.View.render(request, model, Constants.REGISTER_TEMPLATE);
+    };
+
+    public static Route giveInformationReaderAlreadyExist = (request, response) -> {
+        Map<String,Object> model = new HashMap<>();
+        model.put("readerAlreadyExist", true);
         model.put("StronaDoLogowania",Constants.LOGIN);
         return util.View.render(request, model, Constants.REGISTER_TEMPLATE);
     };
