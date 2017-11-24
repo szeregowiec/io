@@ -9,12 +9,13 @@ public class BooksEntity {
     private String authors;
     private String category;
     private String publishingHouse;
-    private int publishYear;
+    private String publishYear;
     private String publishPlace;
     private String pages;
     private String description;
     private String language;
     private String isbn;
+    private String cover;
 
     @Basic
     @Column(name = "title", nullable = false, length = 50)
@@ -57,12 +58,12 @@ public class BooksEntity {
     }
 
     @Basic
-    @Column(name = "publish_year", nullable = false)
-    public int getPublishYear() {
+    @Column(name = "publish_year", nullable = false, length = 50)
+    public String getPublishYear() {
         return publishYear;
     }
 
-    public void setPublishYear(int publishYear) {
+    public void setPublishYear(String publishYear) {
         this.publishYear = publishYear;
     }
 
@@ -116,6 +117,16 @@ public class BooksEntity {
         this.isbn = isbn;
     }
 
+    @Basic
+    @Column(name = "cover", nullable = true, length = 50)
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,17 +134,18 @@ public class BooksEntity {
 
         BooksEntity that = (BooksEntity) o;
 
-        if (publishYear != that.publishYear) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (authors != null ? !authors.equals(that.authors) : that.authors != null) return false;
         if (category != null ? !category.equals(that.category) : that.category != null) return false;
         if (publishingHouse != null ? !publishingHouse.equals(that.publishingHouse) : that.publishingHouse != null)
             return false;
+        if (publishYear != null ? !publishYear.equals(that.publishYear) : that.publishYear != null) return false;
         if (publishPlace != null ? !publishPlace.equals(that.publishPlace) : that.publishPlace != null) return false;
         if (pages != null ? !pages.equals(that.pages) : that.pages != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
         if (isbn != null ? !isbn.equals(that.isbn) : that.isbn != null) return false;
+        if (cover != null ? !cover.equals(that.cover) : that.cover != null) return false;
 
         return true;
     }
@@ -144,12 +156,13 @@ public class BooksEntity {
         result = 31 * result + (authors != null ? authors.hashCode() : 0);
         result = 31 * result + (category != null ? category.hashCode() : 0);
         result = 31 * result + (publishingHouse != null ? publishingHouse.hashCode() : 0);
-        result = 31 * result + publishYear;
+        result = 31 * result + (publishYear != null ? publishYear.hashCode() : 0);
         result = 31 * result + (publishPlace != null ? publishPlace.hashCode() : 0);
         result = 31 * result + (pages != null ? pages.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (language != null ? language.hashCode() : 0);
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
+        result = 31 * result + (cover != null ? cover.hashCode() : 0);
         return result;
     }
 }
