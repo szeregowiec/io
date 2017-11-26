@@ -4,6 +4,7 @@ import Base.Database;
 import Book.ShowBooks;
 import Book.UploadController;
 import DataSchema.ReadersEntity;
+import Login.ChangeUserData;
 import Login.LoginController;
 import Login.Register;
 //import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
@@ -52,7 +53,9 @@ public class Application {
         get(Constants.LOGOUT, LoginController.logout);
         get(Constants.UPLOADBOOK, UploadController.giveInformation);
         post(Constants.UPLOADBOOK, UploadController.upload);
-        get("/:name", ShowBooks.viewSpecificBooks);
+        //get("/:name", ShowBooks.viewSpecificBooks);
+        get(Constants.CHANGEUSERDATA, ChangeUserData.changeUserData);
+        post(Constants.CHANGEUSERDATA, ChangeUserData.ChangeUserDataPost);
     }
 
 }

@@ -15,10 +15,9 @@ import static util.Password.getHashedPassword;
 
 public class LoginController {
 
-    public static void ensureUserIsLoggedIn(Request request, Response response) {
-        if (request.session().attribute("currentUser") == null) {
-            response.redirect(Constants.LOGIN);
-        }
+    public static boolean ifUserIsNotLogged(Request request, Response response) {
+        if (request.session().attribute("currentUser") == null) return true;
+        return false;
     };
 
     public static Route loginIfRegistered = (request, response) -> {
@@ -41,7 +40,10 @@ public class LoginController {
     };
 
     public static Route start = (request, response) -> {
-      ensureUserIsLoggedIn(request,response);
+      if(ifUserIsNotLogged(request,response)){
+          response.redirect(Constants.LOGIN);
+          return "";
+      }
       Map<String,Object> model = new HashMap<>();
       model.put("login",request.session().attribute("login"));
       return util.View.render(request, model, Constants.MAIN_TEMPLATE);
@@ -49,7 +51,10 @@ public class LoginController {
 
 
     public static Route logout = (request, response) -> {
-        ensureUserIsLoggedIn(request,response);
+        if(ifUserIsNotLogged(request,response)){
+            response.redirect(Constants.LOGIN);
+            return "";
+        }
         request.session().removeAttribute("login");
         request.session().removeAttribute("currentUser");
         response.redirect(Constants.LOGIN);

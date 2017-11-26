@@ -85,7 +85,7 @@
                         <text type="password" value="hasło">$password</text><a href="#" id="changePassword"> Zmień hasło</a>
 
                         <div class="messagepop pop">
-                            <form method="post" id="formChangePassword" action="#">
+                            <form method="post" id="formChangePassword" action="/change">
                                 <p>
                                     <label for="password">Wpisz obecne hasło</label>
                                     <input type="password" name="ChangePasswordOld" id="ChangePasswordOld" /></p>

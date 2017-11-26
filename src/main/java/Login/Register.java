@@ -73,7 +73,9 @@ public class Register {
         newReader.setIdReader(Integer.toString(max_id + 1));
 
         database.getSession().save("ReadersEntity", newReader);
+        database.getSession().flush();
         database.getSession().getTransaction().commit();
+
 
         response.redirect(Constants.LOGIN);
     return newReader.getIdReader()+"\n"+newReader.getName()+"\n"+newReader.getSurname()+"\n"+newReader.getPassword()+"\n"+newReader.getLogin();

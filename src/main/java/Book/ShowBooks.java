@@ -17,7 +17,10 @@ public class ShowBooks {
 
 
     public static Route viewBooks = (request, response) -> {
-        LoginController.ensureUserIsLoggedIn(request,response);
+        if(LoginController.ifUserIsNotLogged(request,response)){
+            response.redirect(Constants.LOGIN);
+            return "";
+        }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login    "));
         List<BooksEntity> books = database.getSession().createQuery("FROM BooksEntity").list();
@@ -28,7 +31,10 @@ public class ShowBooks {
 
 
     public static Route viewSpecificBooks = (request, response) -> {
-        LoginController.ensureUserIsLoggedIn(request,response);
+        if(LoginController.ifUserIsNotLogged(request,response)){
+            response.redirect(Constants.LOGIN);
+            return "";
+        }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login"));
         String typeOfBook = request.params(":isbn");
