@@ -54,8 +54,9 @@ public class UploadController {
         in.close();
         byte[] response1 = out.toByteArray();
 
-        FileOutputStream fos = new FileOutputStream("src\\main\\resources\\Covers\\"+newBook.getIsbn()+".jpg");
+        FileOutputStream fos = new FileOutputStream("src\\main\\resources\\Views\\Covers\\"+newBook.getIsbn()+".jpg");
         fos.write(response1);
+        fos.flush();
         fos.close();
 
         database.getSession().save("BooksEntity", newBook);

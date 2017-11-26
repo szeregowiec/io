@@ -98,89 +98,20 @@
 
 
 
-
-
+            #foreach($book in $books)
                 <div class="thumbnail col-md-4 container">
 
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
+                    <a href="Covers/$book.getCover()" target="">
+          <img src="Covers/$book.getCover()" alt="Fjords" style="width:100%">
           <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+            <p>TYTUŁ: $book.getTitle()</p>
+              <p>AUTOR: $book.getAuthors()</p>
           </div>
         </a>
                 </div>
+                #end
 
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
 
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-                   <div class="thumbnail col-md-4 container">
-
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-                   <div class="thumbnail col-md-4 container">
-
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
-
-                <div class="thumbnail col-md-4">
-                    <a href="image/marcin3.jpg" target="">
-          <img src="image/marcin3.jpg" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
-          </div>
-        </a>
-                </div>
                 
 
 
