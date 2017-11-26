@@ -102,7 +102,7 @@
                 <div class="thumbnail col-md-4 container">
 
                     <a href="Covers/$book.getCover()" target="">
-          <img src="Covers/$book.getCover()" alt="Fjords" style="width:100%">
+          <img src="Covers/$book.getCover()" alt="Fjords" id="coverId" ">
           <div class="caption">
             <p>TYTUŁ: $book.getTitle()</p>
               <p>AUTOR: $book.getAuthors()</p>
