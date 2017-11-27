@@ -37,7 +37,10 @@ public class ShowBooks {
         }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login"));
-        String typeOfBook = request.params(":isbn");
+        String typeOfBook = request.params(":category");
+        List<BooksEntity> books = database.getSession().createQuery("FROM BooksEntity WHERE category = :category").setParameter("category",typeOfBook).list();
+        model.put("books",books);
+        request.session().attribute("books",books);
         return util.View.render(request, model, Constants.VIEW_BOOKS);
     };
 

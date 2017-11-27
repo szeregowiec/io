@@ -9,8 +9,8 @@ public class Constants {
     public static String LOGOUT = "/logout";
     public static String MAIN = "/main";
     public static String CATALOG = "/catalog";
+    public static String CATEGORY = CATALOG+"/:category";
     public static String CHANGEUSERDATA = "/change";
-
 
     public static String LOGIN_TEMPLATE = "/Views/logowanie.vm";
     public static String REGISTER_TEMPLATE = "Views/rejestracja.vm";
