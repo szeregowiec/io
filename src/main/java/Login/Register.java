@@ -1,5 +1,6 @@
 package Login;
 
+import Base.Database;
 import DataSchema.ReadersEntity;
 import spark.Route;
 import util.Constants;
@@ -73,8 +74,7 @@ public class Register {
         newReader.setIdReader(Integer.toString(max_id + 1));
 
         database.getSession().save("ReadersEntity", newReader);
-        database.getSession().flush();
-        database.getSession().getTransaction().commit();
+        Database.myUpdate();
 
 
         response.redirect(Constants.LOGIN);

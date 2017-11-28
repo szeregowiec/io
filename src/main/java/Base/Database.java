@@ -1,15 +1,24 @@
 package Base;
 
 import DataSchema.ReadersEntity;
+import Main.Application;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.transaction.Transactional;
 import java.util.Iterator;
 import java.util.List;
 
 public class Database {
+
+    @Transactional
+    public static void myUpdate(){
+        Application.database.getSession().flush();
+        Application.database.getSession().getTransaction().commit();
+        Application.database.getSession().getTransaction().begin();
+    }
 
     private Session session;
     private Transaction transaction;

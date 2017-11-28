@@ -1,11 +1,13 @@
 package Login;
 
+import Base.Database;
 import DataSchema.ReadersEntity;
 import Main.Application;
 import spark.Route;
 import util.Constants;
 import util.Password;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +32,9 @@ public class ChangeUserData {
         if (reader.getPassword().equals(Password.getHashedPassword(request.queryParams("ChangePasswordOld")))){
             reader.setPassword(Password.getHashedPassword(request.queryParams("ChangePasswordNew")));
 
-            //Application.database.getSession().flush();
-            Application.database.getSession().getTransaction().commit();
+
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
 
             model.put("login", request.session().attribute("login"));
             model.put("email", reader.getEmail());

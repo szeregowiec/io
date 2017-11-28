@@ -66,8 +66,7 @@ public class UploadController {
         }
 
         database.getSession().save("BooksEntity", newBook);
-        database.getSession().flush();
-        database.getSession().getTransaction().commit();
+        Database.myUpdate();
 
         response.redirect(Constants.UPLOADBOOK);
         return "Success";
