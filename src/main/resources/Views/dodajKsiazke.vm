@@ -21,8 +21,8 @@
 
 
 <div class="container-fluid">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fixed">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,20 +34,15 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Strona główna</a></li>
-                    <li><a href="#">Wyszukiwanie</a></li>
-                    <li><a href="#">Katalog</a></li>
+                    <li ><a href="/start">Strona główna</a></li>
+                    <li ><a href="/catalog">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Zaloguj<span class="sr-only"></span></a></li>
-
                     <li class="dropdown">
-                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano: <span class="caret"></span></a>
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Konto</a></li>
-                            <li><a href="#">Wyloguj</a></li>
-                            <li><a href="#">Something else here</a></li>
-
+                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
 
@@ -94,10 +89,22 @@
             <div id="wiersze">
                 <select class="form-control" type="text" name="inputKategory" id="inputKategory">
                     <option disabled selected>Wybierz kategorię</option>
+                    <option>Akcja</option>
+                    <option>Biograficzne</option>
+                    <option>Dla dzieci</option>
+                    <option>Erotyka</option>
+                    <option>Fantastyka</option>
+                    <option>Historyczna</option>
                     <option>Horror</option>
-                    <option>Fantasy</option>
-                    <option>Matematyka</option>
-                    <option>i reszta</option>
+                    <option>Języki obce</option>
+                    <option>Klasyka</option>
+                    <option>Komiks</option>
+                    <option>Kryminał</option>
+                    <option>Literatura piękna</option>
+                    <option>Obyczajowa</option>
+                    <option>Poezja</option>
+                    <option>Thriller</option>
+                    <option>Inne</option>
                 </select>
             </div>
         </div>
@@ -143,12 +150,12 @@
             <div id="wiersze">
                 <select class="form-control" type="text" name="inputLanguage" id="inputLanguage">
                     <option disabled selected>Wybierz język</option>
-                    <option>Język polski</option>
-                    <option>Język angielski</option>
-                    <option>Język hiszpański</option>
-                    <option>Język niemiecki</option>
-                    <option>Język chiński</option>
-                    <option>Język rosyjski</option>
+                    <option>Jezyk polski</option>
+                    <option>Jezyk angielski</option>
+                    <option>Jezyk hiszpanski</option>
+                    <option>Jezyk niemiecki</option>
+                    <option>Jezyk chinski</option>
+                    <option>Jezyk rosyjski</option>
                 </select>
             </div>
         </div>

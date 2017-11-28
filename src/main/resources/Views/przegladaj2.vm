@@ -55,37 +55,37 @@
                     <div class="well">
                         <ul class="nav ">
 
-                       
-                            <a data-toggle="collapse" href="#collapse1">Literatura piękna</a>
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><a href="#">biografia</a></li>
-                                    <li class="list-group-item"><a href="#">fantastyka</a></li>
-                                    <li class="list-group-item"><a href="#">historyczna</a></li>
-                                </ul>
-
-                            </div>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Akcja</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Biograficzne</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Dla dzieci</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Erotyka</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Fantastyka</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Historyczna</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Horror</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Języki obce</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Klasyka</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Komiks</a>
                             </li>
-                            <li><a href="#">Link</a>
+                            <li><a href="#">Kryminał</a>
+                            </li>
+                            <li><a href="#">Literatura piękna</a>
+                            </li>
+                            <li><a href="#">Obyczajowa</a>
+                            </li>
+                            <li><a href="#">Poezja</a>
+                            </li>
+                            <li><a href="#">Thriller</a>
+                            </li>
+                            <li><a href="#">Inne</a>
                             </li>
                         </ul>
                     </div>
@@ -98,21 +98,21 @@
 
 
         #if($books.isEmpty())
-            <p>BRAK KSIAZEK!!!!</p>
+            <h1 id="noBooks">NIESTETY NIE POSIADAMY KSIĄŻEK W WYBRANEJ PRZEZ CIEBIE KATEGORII</h1>
         #else
             #foreach($book in $books)
                 <div class="thumbnail col-md-4 container">
 
                     <a href="/Covers/$book.getCover()" target="">
-          <img src="/Covers/$book.getCover()" alt="Fjords" id="coverId" ">
-          <div class="caption">
-            <p>TYTUŁ: $book.getTitle()</p>
-              <p>AUTOR: $book.getAuthors()</p>
-          </div>
-        </a>
+                        <img src="/Covers/$book.getCover()" alt="Fjords" id="coverId" ">
+                        <div class="caption">
+                            <p>TYTUŁ: $book.getTitle()</p>
+                            <p>AUTOR: $book.getAuthors()</p>
+                        </div>
+                    </a>
                 </div>
-                #end
             #end
+        #end
 
 
                 

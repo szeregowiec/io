@@ -22,3 +22,7 @@ body {
 #divFormAddBook {
     width: 350px;
 }
+
+#noBooks{
+    color: #b92c28;
+}

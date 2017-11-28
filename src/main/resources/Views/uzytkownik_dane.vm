@@ -65,6 +65,14 @@
 </div>
 
 
+
+
+
+
+
+
+
+
 <div class="container">
     <div class="row">
         <div class="table-responsive">
@@ -82,22 +90,32 @@
                 <tr>
                     <td class="text-center">Hasło</td>
                     <td class="text-center">
-                        <text type="password" value="hasło">$password</text><a href="#" id="changePassword"> Zmień hasło</a>
+                        <text type="password" value="hasło">$password</text>
+                        <a id="changePassword" data-target="#myModal" data-toggle="modal"> Zmień hasło</a>
 
-                        <div class="messagepop pop">
-                            <form method="post" id="formChangePassword" action="/change">
-                                <p>
-                                    <label for="password">Wpisz obecne hasło</label>
-                                    <input type="password" name="ChangePasswordOld" id="ChangePasswordOld" /></p>
-                                <p>
-                                    <label for="password">Wpisz nowe hasło</label>
-                                    <input type="password" name="ChangePasswordNew" id="ChangePasswordNew"></p>
-                                <p>
-                                    <input type="submit" value="Zmień hasło" name="changePasswordSubmit" id="changePasswordSubmit" />
-                                    <a class="close" href="/">Anuluj</a></p>
-                            </form>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePassword" action="/change">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień hasło</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label for="password">Wpisz obecne hasło</label>
+                                            <input type="password" name="ChangePasswordOld" id="ChangePasswordOld">
+
+                                            <label for="password">Wpisz nowe hasło</label>
+                                            <input type="password" name="ChangePasswordNew" id="ChangePasswordNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePasswordSubmit" id="changePasswordSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-
 
                     </td>
                 </tr>
@@ -135,42 +153,7 @@
     </div>
 </div>
 
-
-
-
-
-<script>
-    function deselect(e) {
-        $('.pop').slideFadeToggle(function() {
-            e.removeClass('selected');
-        });
-    }
-
-    $(function() {
-        $('#changePassword').on('click', function() {
-            if ($(this).hasClass('selected')) {
-                deselect($(this));
-            } else {
-                $(this).addClass('selected');
-                $('.pop').slideFadeToggle();
-            }
-            return false;
-        });
-
-        $('.close').on('click', function() {
-            deselect($('#changePassword'));
-            return false;
-        });
-    });
-
-    $.fn.slideFadeToggle = function(easing, callback) {
-        return this.animate({
-            opacity: 'toggle',
-            height: 'toggle'
-        }, 'fast', easing, callback);
-    };
-</script>
-
+<script src="https://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 
