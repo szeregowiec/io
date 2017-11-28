@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Biblioteka</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+
+
+<div class="container-fixed">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fixed">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/start">Strona główna</a></li>
+                    <li><a href="/catalog">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $login<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/change">Ustawienia</a></li>
+                            <li><a href="/logout">Wyloguj</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div id="tresc" class="container">
+    <div class="row">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img id="picture" src="/Covers/$book.getCover()" alt="okladkalol" style="width:100%"></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="caption">
+                        <h1>Tytuł $book.getTitle()</h1>
+                        <p>Autor $book.getAuthors()</p>
+                        <p>Opis $book.getDescription()</p>
+                        <p>Język $book.getLanguage</p>
+                        <p>ISBN $book.getISBN()</p>
+                        <p>Kategoria $book.getCategory()</p>
+                        <p>Wydawnictwo $book.getPublishingHouse()</p>
+                        <p>Rok Wydania $book.getDate()</p>
+                        <p>Miejsce wydania $book.getPlace()</p>
+                        <p>Ilość stron $book.getPages()</p>
+
+
+                        <div id="divFormBorrow" class="container">
+                            <form action="#" method="post" id="formBorrow" class="form-signin">
+                                <div class="form-group">
+                                    <label>
+                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">Wypożycz!</button>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="divFormReserve" class="container">
+                            <form action="#" method="post" id="formReserve" class="form-signin">
+                                <div class="form-group">
+                                    <label>
+                                        <button type="button" class="btn btn-lg btn-success" type="submit" id="reserveButton" name="reserveButton">Rezerwuj!</button>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
