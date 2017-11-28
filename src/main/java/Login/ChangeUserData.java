@@ -28,8 +28,47 @@ public class ChangeUserData {
         List readers = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.session().attribute("currentUser")).list();
         ReadersEntity reader = ((ReadersEntity) readers.get(0));
 
+        if(request.queryParams().contains("ChangeLoginNew")){
+            reader.setLogin(request.queryParams("ChangeLoginNew"));
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
 
-        if (reader.getPassword().equals(Password.getHashedPassword(request.queryParams("ChangePasswordOld")))){
+            model.put("login", request.session().attribute("login"));
+            model.put("email", reader.getEmail());
+            //model.put("password", "Hasło zostało zmienione");
+            model.put("name", reader.getName());
+            model.put("surname", reader.getSurname());
+            model.put("birth_date", reader.getBirthDate());
+            model.put("address", reader.getAddress());
+            model.put("postal_code", reader.getPostalCode());
+            model.put("city", reader.getCity());
+            model.put("phone", reader.getPhone());
+
+
+            return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+        if(request.queryParams().contains("ChangeAddressNew")){
+            reader.setLogin(request.queryParams("ChangeAddressNew"));
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
+
+            model.put("login", request.session().attribute("login"));
+            model.put("email", reader.getEmail());
+            model.put("password", "");
+            model.put("name", reader.getName());
+            model.put("surname", reader.getSurname());
+            model.put("birth_date", reader.getBirthDate());
+            model.put("address", reader.getAddress());
+            model.put("postal_code", reader.getPostalCode());
+            model.put("city", reader.getCity());
+            model.put("phone", reader.getPhone());
+
+
+            return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+        if (request.queryParams().contains("ChangePasswordOld") && reader.getPassword().equals(Password.getHashedPassword(request.queryParams("ChangePasswordOld")))){
             reader.setPassword(Password.getHashedPassword(request.queryParams("ChangePasswordNew")));
 
 
@@ -39,7 +78,7 @@ public class ChangeUserData {
             model.put("login", request.session().attribute("login"));
             model.put("email", reader.getEmail());
 
-            model.put("password", "Hasło zostało zmienione");
+            model.put("password", "");
 
             model.put("name", reader.getName());
             model.put("surname", reader.getSurname());
