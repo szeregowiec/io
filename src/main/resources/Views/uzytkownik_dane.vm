@@ -65,14 +65,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
 <div class="container">
     <div class="row">
         <div class="table-responsive">
@@ -80,20 +72,81 @@
                 <tbody>
                 <tr>
                     <td class="text-center">Adres email</td>
-                    <td class="text-center">$email<a href="#"></a></td>
+                    <td class="text-center">
+                        <text>$email</text>
+                        <a id="changeEmail" data-target="#modalChangeEmail" data-toggle="modal"> Zmień email</a>
+
+                        <div class="modal fade" id="modalChangeEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeEmail" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień email</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="email">Wpisz obecny email</label>
+                                            <input type="email" name="ChangeEmailOld" id="ChangeEmailOld">
+
+                                            <label id="changeLabel" for="email">Wpisz nowe hasło</label>
+                                            <input type="email" name="ChangeEmailNew" id="ChangeEmailNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeEmailSubmit" id="changeEmailSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
+
+
+
                 <tr>
                     <td class="text-center">Login</td>
-                    <td class="text-center">$login<a href="#"></a></td>
+                    <td class="text-center">
+                        <text>$login</text>
+
+                        <a id="changeLogin" data-target="#modalChangeLogin" data-toggle="modal"> Zmień login</a>
+
+                        <div class="modal fade" id="modalChangeLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeLogin" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień login</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz obecny login</label>
+                                            <input type="text" name="ChangeLoginOld" id="ChangeLoginOld">
+
+                                            <label id="changeLabel" for="text">Wpisz nowy login</label>
+                                            <input type="text" name="ChangeLoginNew" id="ChangeLoginNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeLoginSubmit" id="changeLoginSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </td>
                 </tr>
+
 
                 <tr>
                     <td class="text-center">Hasło</td>
                     <td class="text-center">
                         <text type="password" value="hasło">$password</text>
-                        <a id="changePassword" data-target="#myModal" data-toggle="modal"> Zmień hasło</a>
+                        <a id="changePassword" data-target="#modalChangePassword" data-toggle="modal"> Zmień hasło</a>
 
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalChangePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <form method="post" id="formChangePassword" action="/change">
@@ -103,10 +156,10 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <label for="password">Wpisz obecne hasło</label>
+                                            <label id="changeLabel" for="password">Wpisz obecne hasło</label>
                                             <input type="password" name="ChangePasswordOld" id="ChangePasswordOld">
 
-                                            <label for="password">Wpisz nowe hasło</label>
+                                            <label id="changeLabel" for="password">Wpisz nowe hasło</label>
                                             <input type="password" name="ChangePasswordNew" id="ChangePasswordNew">
                                         </div>
 
@@ -131,21 +184,143 @@
                     <td class="text-center">Data urodzenia</td>
                     <td class="text-center">$birth_date<a href="#"></a></td>
                 </tr>
+
+
                 <tr>
                     <td class="text-center">Adres</td>
-                    <td class="text-center">$address<a href="#"></a></td>
+                    <td class="text-center">
+                        <text>$address</text>
+
+                        <a id="changeAddress" data-target="#modalChangeAddress" data-toggle="modal"> Zmień adres</a>
+
+                        <div class="modal fade" id="modalChangeAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeAddress" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień adres</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz obecny adres</label>
+                                            <input type="text" name="ChangeAddressOld" id="ChangeAddressOld">
+
+                                            <label id="changeLabel" for="text">Wpisz nowy adres</label>
+                                            <input type="text" name="ChangeAddressNew" id="ChangeAddressNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeAddressSubmit" id="changeAddressSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
+
+
+
                 <tr>
                     <td class="text-center">Kod pocztowy</td>
-                    <td class="text-center">$postal_code<a href="#"></a></td>
+                    <td class="text-center">
+                        <text>$postal_code</text>
+
+                        <a id="changePostalCode" data-target="#modalChangePostalCode" data-toggle="modal"> Zmień kod pocztowy</a>
+
+                        <div class="modal fade" id="modalChangePostalCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePostalCode" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień kod pocztowy</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz obecny kod pocztowy</label>
+                                            <input type="text" name="ChangePostalCodeOld" id="ChangePostalCodeOld">
+
+                                            <label id="changeLabel" for="text">Wpisz nowy kod pocztowy</label>
+                                            <input type="text" name="ChangePostalCodeNew" id="ChangePostalCodeNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePostalCodeSubmit" id="changePostalCodeSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td class="text-center">Miasto</td>
-                    <td class="text-center">$city<a href="#"></a></td>
+
+                    <td class="text-center">
+                        <text>$city</text>
+
+                        <a id="changeCity" data-target="#modalChangeCity" data-toggle="modal"> Zmień miasto</a>
+
+                        <div class="modal fade" id="modalChangeCity" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeCity" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień miasto</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz obecne miasto</label>
+                                            <input type="text" name="ChangeCityOld" id="ChangeCityOld">
+
+                                            <label id="changeLabel" for="text">Wpisz nowe miasto</label>
+                                            <input type="text" name="ChangeCityNew" id="ChangeCityNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeCitySubmit" id="changeCitySubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
                 </tr>
                 <tr>
                     <td class="text-center">Numer telefonu</td>
-                    <td class="text-center">$phone<a href="#"></a></td>
+                    <td class="text-center">
+                        <text>$phone</text>
+
+                        <a id="changePhone" data-target="#modalChangePhone" data-toggle="modal"> Zmień numer telefonu</a>
+
+                        <div class="modal fade" id="modalChangePhone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePhone" action="#">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Zmień numer telefonu</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz obecny numer telefonu</label>
+                                            <input type="text" name="ChangePhoneOld" id="ChangePhoneOld">
+
+                                            <label id="changeLabel" for="text">Wpisz nowy numer telefonu</label>
+                                            <input type="text" name="ChangePhoneNew" id="ChangePhoneNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePhoneSubmit" id="changePhoneSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+
+
                 </tr>
                 </tbody>
             </table>
