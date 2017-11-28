@@ -66,6 +66,10 @@
             <div>
                 KSIĄŻKA O PODANYM ISBN JUŻ ISTNIEJE!
             </div>
+        #elseif($wrongURL)
+            <div>
+                NIE UDAŁO SIĘ WCZYTAĆ OBRAZKA, SPRAWDŹ POPRAWNOŚĆ ADRESU!
+            </div>
         #end
 
         <div class="form-group">
@@ -89,22 +93,22 @@
             <div id="wiersze">
                 <select class="form-control" type="text" name="inputKategory" id="inputKategory">
                     <option disabled selected>Wybierz kategorię</option>
-                    <option>Akcja</option>
-                    <option>Biograficzne</option>
-                    <option>Dla dzieci</option>
-                    <option>Erotyka</option>
-                    <option>Fantastyka</option>
-                    <option>Historyczna</option>
-                    <option>Horror</option>
-                    <option>Języki obce</option>
-                    <option>Klasyka</option>
-                    <option>Komiks</option>
-                    <option>Kryminał</option>
-                    <option>Literatura piękna</option>
-                    <option>Obyczajowa</option>
-                    <option>Poezja</option>
-                    <option>Thriller</option>
-                    <option>Inne</option>
+                    <option value="action">Akcja</option>
+                    <option value="biographical">Biograficzne</option>
+                    <option value="children">Dla dzieci</option>
+                    <option value="erotic">Erotyka</option>
+                    <option value="fantasy">Fantastyka</option>
+                    <option value="historical">Historyczna</option>
+                    <option value="horror">Horror</option>
+                    <option value="languages">Języki obce</option>
+                    <option value="classical">Klasyka</option>
+                    <option value="comic">Komiks</option>
+                    <option value="crime">Kryminał</option>
+                    <option value="bellas">Literatura piękna</option>
+                    <option value="custom">Obyczajowa</option>
+                    <option value="poetry">Poezja</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="others">Inne</option>
                 </select>
             </div>
         </div>

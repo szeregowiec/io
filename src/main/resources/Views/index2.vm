@@ -34,7 +34,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="/change">Ustawienia</a></li>
                             <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>

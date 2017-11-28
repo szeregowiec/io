@@ -41,23 +41,29 @@ public class UploadController {
         newBook.setPublishPlace(request.queryParams("inputPlace"));
         newBook.setCover(request.queryParams("inputIsbn")+".jpg");
 
-        String imgURL = request.queryParams("inputCover");
-        URL url = new URL(imgURL);
-        InputStream in = new BufferedInputStream(url.openStream());
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        byte[] buf = new byte[1024];
-        int n = 0;
-        while (-1!=(n=in.read(buf))) {
-            out.write(buf, 0, n);
+        try {
+            String imgURL = request.queryParams("inputCover");
+            URL url = new URL(imgURL);
+            InputStream in = new BufferedInputStream(url.openStream());
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            int n = 0;
+            while (-1 != (n = in.read(buf))) {
+                out.write(buf, 0, n);
+            }
+            out.close();
+            in.close();
+            byte[] response1 = out.toByteArray();
+            File file = new File("src\\main\\resources\\Views\\Covers\\" + newBook.getIsbn() + ".jpg");
+            FileOutputStream fos = new FileOutputStream(file,false);
+            fos.write(response1);
+            fos.flush();
+            fos.close();
+        }catch(Exception e){
+            request.session().attribute("wrongURL",true);
+            response.redirect(Constants.UPLOADBOOK);
+            return "";
         }
-        out.close();
-        in.close();
-        byte[] response1 = out.toByteArray();
-
-        FileOutputStream fos = new FileOutputStream("src\\main\\resources\\public\\Covers\\"+newBook.getIsbn()+".jpg");
-        fos.write(response1);
-        fos.flush();
-        fos.close();
 
         database.getSession().save("BooksEntity", newBook);
         database.getSession().flush();
@@ -65,6 +71,7 @@ public class UploadController {
 
         response.redirect(Constants.UPLOADBOOK);
         return "Success";
+
     };
 
     public static Route giveInformation = (request, response) -> {
@@ -74,7 +81,10 @@ public class UploadController {
         if(request.session().attributes().contains("alreadyExist")){
             model.put("bookAlreadyExists", true);
             request.session().removeAttribute("alreadyExist");
-        } else {model.put("bookAlreadyExists", false);}
+        } else if(request.session().attributes().contains("wrongURL")) {
+            model.put("wrongURL", true);
+            request.session().removeAttribute("wrongURL");
+        } else model.put("bookAlreadyExists", false);
 
         return util.View.render(request, model, Constants.UPLOADBOOK_TEMPLATE);
     };
