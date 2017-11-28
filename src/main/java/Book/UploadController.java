@@ -54,12 +54,13 @@ public class UploadController {
         in.close();
         byte[] response1 = out.toByteArray();
 
-        FileOutputStream fos = new FileOutputStream("src\\main\\resources\\Views\\Covers\\"+newBook.getIsbn()+".jpg");
+        FileOutputStream fos = new FileOutputStream("src\\main\\resources\\public\\Covers\\"+newBook.getIsbn()+".jpg");
         fos.write(response1);
         fos.flush();
         fos.close();
 
         database.getSession().save("BooksEntity", newBook);
+        database.getSession().flush();
         database.getSession().getTransaction().commit();
 
         response.redirect(Constants.UPLOADBOOK);
@@ -69,7 +70,7 @@ public class UploadController {
     public static Route giveInformation = (request, response) -> {
 
         Map<String,Object> model = new HashMap<>();
-
+        model.put("login",request.session().attribute("login    "));
         if(request.session().attributes().contains("alreadyExist")){
             model.put("bookAlreadyExists", true);
             request.session().removeAttribute("alreadyExist");

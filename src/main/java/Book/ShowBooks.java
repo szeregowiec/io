@@ -22,6 +22,7 @@ public class ShowBooks {
             return "";
         }
         Map<String,Object> model = new HashMap<>();
+        model.put("login",request.session().attribute("login"));
         model.put("login",request.session().attribute("login    "));
         List<BooksEntity> books = database.getSession().createQuery("FROM BooksEntity").list();
         model.put("books",books);
