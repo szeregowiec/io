@@ -93,7 +93,7 @@
                         <div class="modal fade" id="modalChangeLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeLogin" action="#">
+                                    <form method="post" id="formChangeLogin" action="/change">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień login</h4>
@@ -172,7 +172,7 @@
                         <div class="modal fade" id="modalChangeAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeAddress" action="#">
+                                    <form method="post" id="formChangeAddress" action="/change">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel3">Zmień adres</h4>

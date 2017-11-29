@@ -28,14 +28,20 @@ public class ChangeUserData {
         List readers = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.session().attribute("currentUser")).list();
         ReadersEntity reader = ((ReadersEntity) readers.get(0));
 
-        if(request.queryParams().contains("ChangeLoginNew")){
+        System.out.println(request.queryParams().toString());
+
+        if(request.queryParams().contains("ChangeLoginNew") && !request.queryParams("ChangeLoginNew").equals(reader.getLogin())){
             reader.setLogin(request.queryParams("ChangeLoginNew"));
             Application.database.getSession().update(reader);
             Database.myUpdate();
 
+
+            request.session().removeAttribute("login");
+            request.session().attribute("login", request.queryParams("ChangeLoginNew"));
+
             model.put("login", request.session().attribute("login"));
             model.put("email", reader.getEmail());
-            //model.put("password", "Hasło zostało zmienione");
+            model.put("password", "");
             model.put("name", reader.getName());
             model.put("surname", reader.getSurname());
             model.put("birth_date", reader.getBirthDate());
@@ -48,7 +54,7 @@ public class ChangeUserData {
             return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
         }
 
-        if(request.queryParams().contains("ChangeAddressNew")){
+        if(request.queryParams().contains("ChangeAddressNew")&& !request.queryParams("ChangeAddressNew").equals(reader.getAddress())){
             reader.setLogin(request.queryParams("ChangeAddressNew"));
             Application.database.getSession().update(reader);
             Database.myUpdate();
@@ -78,7 +84,7 @@ public class ChangeUserData {
             model.put("login", request.session().attribute("login"));
             model.put("email", reader.getEmail());
 
-            model.put("password", "");
+            model.put("password", "Hasło zostało zmienione");
 
             model.put("name", reader.getName());
             model.put("surname", reader.getSurname());
