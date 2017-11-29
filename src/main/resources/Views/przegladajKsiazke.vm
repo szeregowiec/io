@@ -63,16 +63,16 @@
                 </div>
                 <div class="col-md-6">
                     <div class="caption">
-                        <h1>Tytuł $book.getTitle()</h1>
-                        <p>Autor $book.getAuthors()</p>
-                        <p>Opis $book.getDescription()</p>
-                        <p>Język $book.getLanguage()</p>
-                        <p>ISBN $book.getIsbn()</p>
-                        <p>Kategoria $book.getCategory()</p>
-                        <p>Wydawnictwo $book.getPublishingHouse()</p>
-                        <p>Rok Wydania $book.getPublishYear()</p>
-                        <p>Miejsce wydania $book.getPublishPlace()</p>
-                        <p>Ilość stron $book.getPages()</p>
+                        <h1>Tytuł: $book.getTitle()</h1>
+                        <p>Autor: $book.getAuthors()</p>
+                        <p>Opis: $book.getDescription()</p>
+                        <p>Język: $book.getLanguage()</p>
+                        <p>ISBN: $book.getIsbn()</p>
+                        <p>Kategoria: $book.getCategory()</p>
+                        <p>Wydawnictwo: $book.getPublishingHouse()</p>
+                        <p>Rok Wydania: $book.getPublishYear()</p>
+                        <p>Miejsce wydania: $book.getPublishPlace()</p>
+                        <p>Ilość stron: $book.getPages()</p>
 
 
                         <div id="divFormBorrow" class="container">
