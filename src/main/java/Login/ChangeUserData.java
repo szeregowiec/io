@@ -28,16 +28,34 @@ public class ChangeUserData {
         List readers = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.session().attribute("currentUser")).list();
         ReadersEntity reader = ((ReadersEntity) readers.get(0));
 
-        System.out.println(request.queryParams().toString());
 
         if(request.queryParams().contains("ChangeLoginNew") && !request.queryParams("ChangeLoginNew").equals(reader.getLogin())){
             reader.setLogin(request.queryParams("ChangeLoginNew"));
             Application.database.getSession().update(reader);
             Database.myUpdate();
 
-
             request.session().removeAttribute("login");
             request.session().attribute("login", request.queryParams("ChangeLoginNew"));
+
+            model.put("login", request.session().attribute("login"));
+            model.put("email", reader.getEmail());
+            model.put("password", "");
+            model.put("name", reader.getName());
+            model.put("surname", reader.getSurname());
+            model.put("birth_date", reader.getBirthDate());
+            model.put("address", reader.getAddress());
+            model.put("postal_code", reader.getPostalCode());
+            model.put("city", reader.getCity());
+            model.put("phone", reader.getPhone());
+
+            return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+        if(request.queryParams().contains("ChangeAddressNew")&& !request.queryParams("ChangeAddressNew").equals(reader.getAddress())){
+
+            reader.setAddress(request.queryParams("ChangeAddressNew"));
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
 
             model.put("login", request.session().attribute("login"));
             model.put("email", reader.getEmail());
@@ -54,8 +72,9 @@ public class ChangeUserData {
             return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
         }
 
-        if(request.queryParams().contains("ChangeAddressNew")&& !request.queryParams("ChangeAddressNew").equals(reader.getAddress())){
-            reader.setLogin(request.queryParams("ChangeAddressNew"));
+        if(request.queryParams().contains("ChangePostalCodeNew")&& !request.queryParams("ChangePostalCodeNew").equals(reader.getPostalCode())){
+
+            reader.setPostalCode(request.queryParams("ChangePostalCodeNew"));
             Application.database.getSession().update(reader);
             Database.myUpdate();
 
@@ -70,6 +89,47 @@ public class ChangeUserData {
             model.put("city", reader.getCity());
             model.put("phone", reader.getPhone());
 
+            return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+
+        if(request.queryParams().contains("ChangeCityNew")&& !request.queryParams("ChangeCityNew").equals(reader.getCity())){
+
+            reader.setCity(request.queryParams("ChangeCityNew"));
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
+
+            model.put("login", request.session().attribute("login"));
+            model.put("email", reader.getEmail());
+            model.put("password", "");
+            model.put("name", reader.getName());
+            model.put("surname", reader.getSurname());
+            model.put("birth_date", reader.getBirthDate());
+            model.put("address", reader.getAddress());
+            model.put("postal_code", reader.getPostalCode());
+            model.put("city", reader.getCity());
+            model.put("phone", reader.getPhone());
+
+            return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+
+        if(request.queryParams().contains("ChangePhoneNew")&& !request.queryParams("ChangePhoneNew").equals(reader.getPhone())){
+
+            reader.setPhone(request.queryParams("ChangePhoneNew"));
+            Application.database.getSession().update(reader);
+            Database.myUpdate();
+
+            model.put("login", request.session().attribute("login"));
+            model.put("email", reader.getEmail());
+            model.put("password", "");
+            model.put("name", reader.getName());
+            model.put("surname", reader.getSurname());
+            model.put("birth_date", reader.getBirthDate());
+            model.put("address", reader.getAddress());
+            model.put("postal_code", reader.getPostalCode());
+            model.put("city", reader.getCity());
+            model.put("phone", reader.getPhone());
 
             return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
         }
