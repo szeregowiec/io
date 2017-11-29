@@ -20,7 +20,7 @@
 
 <body>
 
-<div class="container-fix">
+<div class="container-fixed">
     <div class="jumbotron text-center">
         <h1>Biblioteka Główna</h1>
         <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>

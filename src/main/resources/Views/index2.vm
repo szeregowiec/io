@@ -57,7 +57,7 @@
         <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
         <form class="form-inline">
             <div class="input-group">
-                <input type="email" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz" required>
+                <input type="text" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz" required>
                 <div class="input-group-btn">
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-search"></span> wyszukaj
