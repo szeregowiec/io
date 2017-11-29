@@ -31,11 +31,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Biblioteka</a>
+                <a class="navbar-brand" href="/start">Biblioteka</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li ><a href="/start">Strona główna</a></li>
                     <li ><a href="/catalog">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -79,31 +78,6 @@
                     <td class="text-center">Adres email</td>
                     <td class="text-center">
                         <text>$email</text>
-                        <a id="changeEmail" data-target="#modalChangeEmail" data-toggle="modal"> Zmień email</a>
-
-                        <div class="modal fade" id="modalChangeEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form method="post" id="formChangeEmail" action="#">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Zmień email</h4>
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <label id="changeLabel" for="email">Wpisz nowy email</label>
-                                            <input type="email" name="ChangeEmailNew" id="ChangeEmailNew">
-
-                                            <label id="changeLabel" for="text">Wpisz hasło</label>
-                                            <input type="password" name="confirmPassword" id="confirmPassword">
-                                        </div>
-
-                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeEmailSubmit" id="changeEmailSubmit">Zapisz zmiany</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </td>
                 </tr>
 
@@ -176,15 +150,15 @@
                 </tr>
                 <tr>
                     <td class="text-center">Imię</td>
-                    <td class="text-center">$name<a href="#"></a></td>
+                    <td class="text-center"><text>$name</text></td>
                 </tr>
                 <tr>
                     <td class="text-center">Nazwisko</td>
-                    <td class="text-center">$surname<a href="#"></a></td>
+                    <td class="text-center"><text>$surname</text></td>
                 </tr>
                 <tr>
                     <td class="text-center">Data urodzenia</td>
-                    <td class="text-center">$birth_date<a href="#"></a></td>
+                    <td class="text-center"><text>$birth_date</text></td>
                 </tr>
 
 
