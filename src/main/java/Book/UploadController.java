@@ -3,8 +3,7 @@ package Book;
 import DataSchema.BooksEntity;
 import spark.Route;
 import util.Constants;
-import javax.imageio.ImageIO;
-import java.awt.*;
+
 import java.io.*;
 import java.net.URL;
 import java.util.HashMap;

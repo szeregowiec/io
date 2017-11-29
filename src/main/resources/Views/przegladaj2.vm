@@ -59,37 +59,37 @@
                     <div class="well">
                         <ul class="nav ">
 
-                            <li><a href="#">Akcja</a>
+                            <li><a href="/catalog/action">Akcja</a>
                             </li>
-                            <li><a href="#">Biograficzne</a>
+                            <li><a href="/catalog/biographical ">Biograficzne</a>
                             </li>
-                            <li><a href="#">Dla dzieci</a>
+                            <li><a href="/catalog/children">Dla dzieci</a>
                             </li>
-                            <li><a href="#">Erotyka</a>
+                            <li><a href="/catalog/erotic">Erotyka</a>
                             </li>
-                            <li><a href="#">Fantastyka</a>
+                            <li><a href="/catalog/fantasy">Fantastyka</a>
                             </li>
-                            <li><a href="#">Historyczna</a>
+                            <li><a href="/catalog/historical">Historyczna</a>
                             </li>
-                            <li><a href="#">Horror</a>
+                            <li><a href="/catalog/horror">Horror</a>
                             </li>
-                            <li><a href="#">Języki obce</a>
+                            <li><a href="/catalog/languages">Języki obce</a>
                             </li>
-                            <li><a href="#">Klasyka</a>
+                            <li><a href="/catalog/classical">Klasyka</a>
                             </li>
-                            <li><a href="#">Komiks</a>
+                            <li><a href="/catalog/comic">Komiks</a>
                             </li>
-                            <li><a href="#">Kryminał</a>
+                            <li><a href="/catalog/crime">Kryminał</a>
                             </li>
-                            <li><a href="#">Literatura piękna</a>
+                            <li><a href="belles">Literatura piękna</a>
                             </li>
-                            <li><a href="#">Obyczajowa</a>
+                            <li><a href="custom">Obyczajowa</a>
                             </li>
-                            <li><a href="#">Poezja</a>
+                            <li><a href="/catalog/poetry">Poezja</a>
                             </li>
-                            <li><a href="#">Thriller</a>
+                            <li><a href="/catalog/thriller">Thriller</a>
                             </li>
-                            <li><a href="#">Inne</a>
+                            <li><a href="/catalog/others">Inne</a>
                             </li>
                         </ul>
                     </div>
@@ -107,7 +107,7 @@
             #foreach($book in $books)
                 <div class="thumbnail col-md-4 container">
 
-                    <a href="/Covers/$book.getCover()" target="">
+                    <a href="/book/$book.getIsbn()" target="">
                         <img src="/Covers/$book.getCover()" alt="Fjords" id="coverId" ">
                         <div class="caption">
                             <p>TYTUŁ: $book.getTitle()</p>

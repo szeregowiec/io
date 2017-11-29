@@ -21,12 +21,10 @@ public class Application {
     public static Database database;
 
     public static void main(String[] args) {
-
-        staticFiles.location("/Views");
+        staticFiles.externalLocation(System.getProperty("user.dir") + "/src/main/resources/Views");
         port(8000);
         init();
         staticFiles.expireTime(600L);
-        enableDebugScreen();
         database = new Database();
 
         get("/", (req, res) -> {res.redirect(Constants.LOGIN); return null;});
@@ -37,6 +35,7 @@ public class Application {
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.CATALOG, ShowBooks.viewBooks);
         get(Constants.CATEGORY, ShowBooks.viewSpecificBooks);
+        get(Constants.ONE_BOOK, ShowBooks.viewOneBook);
         get(Constants.REGISTER,  Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);

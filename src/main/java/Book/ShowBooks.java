@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static Main.Application.database;
+import static spark.Spark.redirect;
 import static spark.Spark.staticFiles;
 
 public class ShowBooks {
@@ -43,6 +44,21 @@ public class ShowBooks {
         model.put("books",books);
         request.session().attribute("books",books);
         return util.View.render(request, model, Constants.VIEW_BOOKS);
+    };
+
+    public static Route viewOneBook = (request, response) -> {
+        if(LoginController.ifUserIsNotLogged(request,response)){
+            response.redirect(Constants.LOGIN);
+            return "";
+        }
+        Map<String,Object> model = new HashMap<>();
+        model.put("login",request.session().attribute("login"));
+        String isbnBook = request.params(":isbn");
+        List<BooksEntity> books = database.getSession().createQuery("FROM BooksEntity WHERE isbn = :isbn").setParameter("isbn",isbnBook).list();
+        BooksEntity book = books.get(0);
+        model.put("book",book);
+        request.session().attribute("book",book);
+        return util.View.render(request, model, Constants.ONE_BOOK_TEMPLATE);
     };
 
 
