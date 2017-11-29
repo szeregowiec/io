@@ -44,3 +44,37 @@ td {
     width: 300px;
     height: 400px;
 }
+
+
+#divFormLogIn {
+    width: 350px;
+}
+
+
+#divFormSignUp {
+    width: 350px;
+}
+
+#divFormAddBook {
+    width: 350px;
+}
+
+#divFormSignUpEmployee {
+    width: 350px;
+}
+
+#divFormAddBook {
+    width: 350px;
+}
+
+#noBooks{
+    color: #b92c28;
+}
+
+
+#changeLabel {
+    display: block;
+    margin-bottom: 3px;
+    padding-left: 15px;
+    text-indent: -15px;
+}
