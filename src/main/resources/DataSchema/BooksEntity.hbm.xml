@@ -30,7 +30,7 @@
             <column name="pages" sql-type="varchar(50)" length="50"/>
         </property>
         <property name="description">
-            <column name="description" sql-type="varchar(50)" length="250"/>
+            <column name="description" sql-type="varchar(250)" length="250"/>
         </property>
         <property name="language">
             <column name="language" sql-type="varchar(50)" length="50"/>
