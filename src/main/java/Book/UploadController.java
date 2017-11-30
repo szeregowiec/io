@@ -36,7 +36,7 @@ public class UploadController {
         newBook.setLanguage(request.queryParams("inputLanguage"));
         newBook.setPages(request.queryParams("inputPages"));
         newBook.setPublishingHouse(request.queryParams("inputPublishingHouse"));
-        newBook.setPublishYear(request.queryParams("inputPages"));
+        newBook.setPublishYear(request.queryParams("inputDate"));
         newBook.setPublishPlace(request.queryParams("inputPlace"));
         newBook.setCover(request.queryParams("inputIsbn")+".jpg");
 
