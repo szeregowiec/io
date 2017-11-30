@@ -82,3 +82,8 @@ td {
 #wrongPassword{
     color: red;
 }
+
+#bookDiv{
+    width: 300px;
+    height: 500px;
+}
