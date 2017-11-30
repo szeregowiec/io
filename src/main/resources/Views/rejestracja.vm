@@ -9,12 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 
@@ -136,7 +131,10 @@
   
     </form>
 </div>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 
 <script type="text/javascript">
     $.validator.addMethod("postalcode", function(value, element) {
@@ -164,7 +162,7 @@
                     required: true
                 },
                 inputDateBirth: {
-                //    date: true,
+                    date: true,
                     required: true
                 },
                 inputAddress: {
@@ -207,7 +205,7 @@
                 },
                 inputDateBirth: {
                     required: "Proszę wpisać datę urodzenia",
-                //    date: "Proszę wpisać datę w poprawnym formacie np. 2013-12-30"
+                    date: "Proszę wpisać datę"
                 },
                 inputAddress: "Proszę wpisać swój adres",
                 inputPostalCode: {
@@ -261,6 +259,7 @@
     });
 
 </script>
+
 
 </body>
 
