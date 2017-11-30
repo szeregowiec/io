@@ -107,7 +107,7 @@
                 <div id="bookDiv" class="thumbnail col-md-4 container">
 
                     <a href="/book/$book.getIsbn()" target="">
-                        <img src="/Covers/$book.getCover()" alt="Fjords" id="coverId" ">
+                        <img src="/Covers/$book.getCover()" alt="Brak okładki" id="coverId" ">
                         <div class="caption">
                             <p>TYTUŁ: $book.getTitle()</p>
                             <p>AUTOR: $book.getAuthors()</p>

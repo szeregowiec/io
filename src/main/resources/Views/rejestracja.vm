@@ -36,6 +36,10 @@
         <div>
             <strong>Podany email jest już zarejestrowany<strong>
         </div>
+                      #elseif($wrongEmail)
+                          <div>
+                                  <strong>Podany email jest nieprawidłowy<strong>
+                          </div>
         #end
         </div>
 

@@ -14,15 +14,23 @@ import java.util.regex.Pattern;
 import static Main.Application.database;
 import static spark.Spark.redirect;
 import static util.Password.getHashedPassword;
+import org.apache.commons.validator.routines.EmailValidator;
 
 
 public class Register {
 
     public static Route register = (request, response) -> {
+        EmailValidator emailValidator = EmailValidator.getInstance();
+
         //if user(email) already exist
         List reader = database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.queryParams("inputEmail")).list();
         if(!reader.isEmpty()){
             request.session().attribute("alreadyExist",true);
+            response.redirect(Constants.REGISTER);
+            return "";
+        }
+        else if(!emailValidator.isValid(request.queryParams("inputEmail"))){
+            request.session().attribute("wrongEmail",true);
             response.redirect(Constants.REGISTER);
             return "";
         }

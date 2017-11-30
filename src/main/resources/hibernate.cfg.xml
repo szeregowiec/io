@@ -8,7 +8,7 @@
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.username">adbuczek</property>
     <property name="hibernate.connection.password">v3FBnz9tRVNyrjyU</property>
-    <mapping class="DataSchema.BooksEntity"/>
+      <mapping class="DataSchema.BooksEntity"/>
       <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
       <mapping class="DataSchema.BorrowedEntity"/>
       <mapping resource="DataSchema/BorrowedEntity.hbm.xml"/>
@@ -24,7 +24,9 @@
       <mapping resource="DataSchema/ReservedEntity.hbm.xml"/>
       <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
     <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-    <!-- <property name="connection.username"/> -->
+      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+      <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->
