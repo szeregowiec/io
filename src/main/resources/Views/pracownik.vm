@@ -56,7 +56,7 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/uploadBook">Dodaj książkę</a></li>
+        <li role="presentation"><a href="/uploadbook">Dodaj książkę</a></li>
         <li role="presentation"><a href="#">Potwierdź wypożyczenie</a></li>
         <li role="presentation"><a href="#">Potwierdź zwrot</a></li>
         <li role="presentation"><a href="#">Potwierdź uiszczenie opłaty</a></li>

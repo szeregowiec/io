@@ -78,7 +78,8 @@
                             <form action="#" method="post" id="formBorrow" class="form-signin">
                                 <div class="form-group">
                                     <label>
-                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">$book.getStateOfBook()</button>
+                                        <!-- $ book.getStateOfBook() -->
+                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">tutaj mozna wsadzic to co jest w komentarzy wyzej (chyba)(w kodzie w sensie ze)</button>
                                     </label>
                                 </div>
                             </form>
