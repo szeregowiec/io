@@ -3,23 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>OPŁATY</title>
+    <title>PRACOWNIK</title>
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
 </head>
 
 <body>
-
 <div class="container-fixed">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fixed">
@@ -59,42 +56,11 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="#">Rezerwacje</a></li>
-        <li role="presentation"><a href="#">Wypożyczone</a></li>
-        <li role="presentation" class="active"><a href="#">Opłaty</a></li>
-        <li role="presentation"><a href="#">Historia wypozyczeń</a></li>
-        <li role="presentation"><a href="/change">Dane użytkownika</a></li>
+        <li role="presentation"><a href="/uploadBook">Dodaj książkę</a></li>
+        <li role="presentation"><a href="#">Potwierdź wypożyczenie</a></li>
+        <li role="presentation"><a href="#">Potwierdź zwrot</a></li>
+        <li role="presentation"><a href="#">Potwierdź uiszczenie opłaty</a></li>
     </ul>
-</div>
-
-
-<div align="center" class="container">
-    <div class="row">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <tbody>
-                <thead>
-                <td class="text-center">Przewidywana data zwrotu</td>
-                <td class="text-center">Ksiażka</td>
-                <td class="text-center">Opłata</td>
-                </thead>
-                <tr>
-
-                    #if($charges.isEmpty())
-                        <h1 id="noCharges">Nie masz żadnych opłat</h1>
-                    #else #foreach($charge in $charges)
-
-                        <td class="text-center">$charge.getReturnDate()</td>
-                        <td class="text-center">$charge.getTitle()</td>
-                        <td class="text-center">$charge.getCharge()</td>
-
-                    #end #end
-
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
 
 </body>

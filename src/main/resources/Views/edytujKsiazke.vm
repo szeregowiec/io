@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EDYCJA KSIĄŻKI</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+
+<div class="container-fixed">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fixed">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/start">Biblioteka</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/catalog">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/change">Ustawienia</a></li>
+                            <li><a href="/logout">Wyloguj</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="jumbotron text-center">
+        <h1>Biblioteka Główna</h1>
+        <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
+    </div>
+</div>
+
+<div class="container" id="user">
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation" class="active"><a>Informacje o książce</a></li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <tbody>
+                <tr>
+                    <td class="text-center">ISBN</td>
+                    <td class="text-center">
+                        <text>$book.getIsbn()</text>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="text-center">Tytuł</td>
+                    <td class="text-center">
+                        <text>$book.getTitle()</text>
+
+                        <a id="changeTitle" data-target="#modalChangeTitle" data-toggle="modal"> Zmień tytuł</a>
+
+                        <div class="modal fade" id="modalChangeTitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeTitle" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień tytuł</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nowy tytuł</label>
+                                            <input type="text" name="ChangeTitleNew" id="ChangeTitleNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeTitleSubmit" id="changeTitleSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center">Autor</td>
+                    <td class="text-center">
+                        <text>$book.getAuthors()</text>
+                        <a id="changeAuthors" data-target="#modalChangeAuthors" data-toggle="modal"> Zmień autora</a>
+                        <div class="modal fade" id="modalChangeAuthors" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeAuthors" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień autora</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nowego autora</label>
+                                            <input type="text" name="ChangeAuthorsNew" id="ChangeAuthorsNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeAuthorsSubmit" id="changeAuthorsSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="text-center">Kategoria</td>
+                    <td class="text-center">
+                        <text>$book.getCategory()</text>
+                        <a id="changeCategory" data-target="#modalChangeCategory" data-toggle="modal"> Zmień kategorię</a>
+                        <div class="modal fade" id="modalChangeCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeCategory" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień kategorię</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wybierz nową kategorię</label>
+                                            <select class="form-control" type="text" name="ChangeCategoryNew" id="ChangeCategoryNew">
+                                                <option disabled selected>Wybierz kategorię</option>
+                                                <option value="action">Akcja</option>
+                                                <option value="biographical">Biograficzne</option>
+                                                <option value="children">Dla dzieci</option>
+                                                <option value="erotic">Erotyka</option>
+                                                <option value="fantasy">Fantastyka</option>
+                                                <option value="historical">Historyczna</option>
+                                                <option value="horror">Horror</option>
+                                                <option value="languages">Języki obce</option>
+                                                <option value="classical">Klasyka</option>
+                                                <option value="comic">Komiks</option>
+                                                <option value="crime">Kryminał</option>
+                                                <option value="bellas">Literatura piękna</option>
+                                                <option value="custom">Obyczajowa</option>
+                                                <option value="poetry">Poezja</option>
+                                                <option value="thriller">Thriller</option>
+                                                <option value="others">Inne</option>
+                                            </select>
+                                            <!--              <input type="text" name="ChangeCategoryNew" id="ChangeCategoryNew">   -->
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeCategorySubmit" id="changeCategorySubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center">Wydawnictwo</td>
+                    <td class="text-center">
+                        <text>$book.getPublishingHouse()</text>
+                        <a id="changePublishingHouse" data-target="#modalChangePublishingHouse" data-toggle="modal"> Zmień wydawnictwo</a>
+                        <div class="modal fade" id="modalChangePublishingHouse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePublishingHouse" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień wydawnictwo</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nowe wydawnictwo</label>
+                                            <input type="text" name="ChangePublishingHouseNew" id="ChangePublishingHouseNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePublishingHouseSubmit" id="changePublishingHouseSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="text-center">Data wydania</td>
+                    <td class="text-center">
+                        <text>$book.getPublishYear()</text>
+                        <a id="changePublishYear" data-target="#modalChangePublishYear" data-toggle="modal"> Zmień datę wydania</a>
+                        <div class="modal fade" id="modalChangePublishYear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePublishYear" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień datę wydania</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nową datę wydania</label>
+                                            <input type="number" min="0" name="ChangePublishYearNew" id="ChangePublishYearNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePublishYearSubmit" id="changePublishYearSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="text-center">Miejsce wydania</td>
+                    <td class="text-center">
+                        <text>$book.getPublishPlace()</text>
+                        <a id="changePublishPlace" data-target="#modalChangePublishPlace" data-toggle="modal"> Zmień miejsce wydania</a>
+                        <div class="modal fade" id="modalChangePublishPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePublishPlace" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień miejsce wydania</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nowe miejsce wydania</label>
+                                            <input type="text" name="ChangePublishPlaceNew" id="ChangePublishPlaceNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePublishPlaceSubmit" id="changePublishPlaceSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="text-center">Ilość stron</td>
+                    <td class="text-center">
+                        <text>$book.getPages()</text>
+                        <a id="changePages" data-target="#modalChangePages" data-toggle="modal"> Zmień ilość stron</a>
+                        <div class="modal fade" id="modalChangePages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangePages" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień ilość stron</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nową ilość stron</label>
+                                            <input type="number" min="0" name="ChangePagesNew" id="ChangePagesNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePagesSubmit" id="changePagesSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="text-center">Opis</td>
+                    <td class="text-center">
+                        <text>$book.getDescription()</text>
+                        <a id="changeDescription" data-target="#modalChangeDescription" data-toggle="modal"> Zmień opis</a>
+                        <div class="modal fade" id="modalChangeDescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeDescription" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień opis</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nowy opis</label>
+                                            <input type="text" name="ChangeDescriptionNew" id="ChangeDescriptionNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeDescriptionSubmit" id="changeDescriptionSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center">Język</td>
+                    <td class="text-center">
+                        <text>$book.getLanguage()</text>
+                        <a id="changeLanguage" data-target="#modalChangeLanguage" data-toggle="modal"> Zmień język</a>
+                        <div class="modal fade" id="modalChangeLanguage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeLanguage" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień język</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wybierz nowy język</label>
+                                            <select class="form-control" type="text" name="ChangeLanguageNew" id="ChangeLanguageNew">
+                                                <option disabled selected>Wybierz język</option>
+                                                <option>Jezyk polski</option>
+                                                <option>Jezyk angielski</option>
+                                                <option>Jezyk hiszpanski</option>
+                                                <option>Jezyk niemiecki</option>
+                                                <option>Jezyk chinski</option>
+                                                <option>Jezyk rosyjski</option>
+                                            </select>
+
+                                            <!--     <input type="text" name="ChangeLanguageNew" id="ChangeLanguageNew"> -->
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeLanguageSubmit" id="changeLanguageSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center">Ilość</td>
+                    <td class="text-center">
+                        <text>$book.getAmount()</text>
+                        <a id="changeAmount" data-target="#modalChangeAmount" data-toggle="modal"> Zmień ilość</a>
+                        <div class="modal fade" id="modalChangeAmount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeAmount" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień ilość</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz nową ilość</label>
+                                            <input type="number" min="0" name="ChangeAmountNew" id="ChangeAmountNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeAmountSubmit" id="changeAmountSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="text-center">Okładka</td>
+                    <td class="text-center">
+                        <!--          <text>$password</text> -->
+                        <img id="picture" src="/Covers/$book.getCover()" alt="Brak okładki" style="width:100%"></a>
+                        <a id="changeCover" data-target="#modalChangeCover" data-toggle="modal"> Zmień okładkę</a>
+                        <div class="modal fade" id="modalChangeCover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" id="formChangeCover" action="/changeBook">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
+                                            <h4 class="modal-title" id="myModalLabel1">Zmień okładkę</h4>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            <label id="changeLabel" for="text">Wpisz adres nowej okładki</label>
+                                            <input type="url" name="ChangeCoverNew" id="ChangeCoverNew">
+                                        </div>
+
+                                        <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changeCoverSubmit" id="changeCoverSubmit">Zapisz zmiany</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

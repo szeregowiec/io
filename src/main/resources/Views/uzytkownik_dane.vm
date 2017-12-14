@@ -35,7 +35,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li ><a href="/catalog">Katalog</a></li>
+                    <li><a href="/catalog">Katalog</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -136,7 +136,7 @@
                                             <input type="password" name="ChangePasswordOld" id="ChangePasswordOld">
 
                                             <label id="changeLabel" for="password">Wpisz nowe hasło</label>
-                                            <input type="password" name="ChangePasswordNew" id="ChangePasswordNew">
+                                            <input type="password" min="5" name="ChangePasswordNew" id="ChangePasswordNew">
                                         </div>
 
                                         <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePasswordSubmit" id="changePasswordSubmit">Zapisz zmiany</button>
@@ -275,7 +275,7 @@
                                         <div class="modal-body">
 
                                             <label id="changeLabel" for="text">Wpisz nowy numer telefonu</label>
-                                            <input type="text" name="ChangePhoneNew" id="ChangePhoneNew">
+                                            <input type="number" min="0" name="ChangePhoneNew" id="ChangePhoneNew">
                                         </div>
 
                                         <div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button><button type="submit" class="btn btn-primary" name="changePhoneSubmit" id="changePhoneSubmit">Zapisz zmiany</button>

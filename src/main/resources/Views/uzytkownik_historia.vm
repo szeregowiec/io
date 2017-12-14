@@ -40,7 +40,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="/change">Ustawienia</a></li>
                             <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
@@ -59,11 +59,11 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="uzytkownik_rezerwacje.html">Rezerwacje</a></li>
-        <li role="presentation"><a href="uzytkownik_wypozyczenia.html">Wypożyczone</a></li>
-        <li role="presentation"><a href="uzytkownik_oplaty.html">Opłaty</a></li>
-        <li role="presentation" class="active"><a href="uzytkownik_historia.html">Historia wypozyczeń</a></li>
-        <li role="presentation"><a href="uzytkownik_dane.html">Dane użytkownika</a></li>
+        <li role="presentation"><a href="#">Rezerwacje</a></li>
+        <li role="presentation"><a href="#">Wypożyczone</a></li>
+        <li role="presentation"><a href="#">Opłaty</a></li>
+        <li role="presentation" class="active"><a href="#">Historia wypozyczeń</a></li>
+        <li role="presentation"><a href="/change">Dane użytkownika</a></li>
     </ul>
 </div>
 
@@ -80,15 +80,24 @@
                 <td class="text-center">Autor</td>
                 </thead>
                 <tr>
-                    <td class="text-center">lol1</td>
-                    <td class="text-center">lol1</td>
-                    <td class="text-center">lol1</td>
+
+                    #if($history.isEmpty())
+                        <h1 id="noHistory">Nie masz żadnej historii wypożyczeń</h1>
+                    #else #foreach($book in $history)
+
+                        <td class="text-center">$book.getReturnDate()</td>
+                        <td class="text-center">$book.getTitle()</td>
+                        <td class="text-center">$book.getAuthors()</td>
+
+                    #end #end
+
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 
 
 </body>

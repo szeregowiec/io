@@ -32,11 +32,11 @@
                 <a class="navbar-brand" href="/start">Biblioteka</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="/catalog">Katalog</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/catalog">Katalog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/change">Ustawienia</a></li>
@@ -48,62 +48,76 @@
             </div>
         </div>
     </nav>
-    </div>
- 
+</div>
 
-    <div id="tresc" class="container">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="sidebar-nav-fixed ">
-                    <div class="well">
-                        <ul class="nav ">
 
-                            <li><a href="/catalog/action">Akcja</a>
-                            </li>
-                            <li><a href="/catalog/biographical ">Biograficzne</a>
-                            </li>
-                            <li><a href="/catalog/children">Dla dzieci</a>
-                            </li>
-                            <li><a href="/catalog/erotic">Erotyka</a>
-                            </li>
-                            <li><a href="/catalog/fantasy">Fantastyka</a>
-                            </li>
-                            <li><a href="/catalog/historical">Historyczna</a>
-                            </li>
-                            <li><a href="/catalog/horror">Horror</a>
-                            </li>
-                            <li><a href="/catalog/languages">Języki obce</a>
-                            </li>
-                            <li><a href="/catalog/classical">Klasyka</a>
-                            </li>
-                            <li><a href="/catalog/comic">Komiks</a>
-                            </li>
-                            <li><a href="/catalog/crime">Kryminał</a>
-                            </li>
-                            <li><a href="belles">Literatura piękna</a>
-                            </li>
-                            <li><a href="custom">Obyczajowa</a>
-                            </li>
-                            <li><a href="/catalog/poetry">Poezja</a>
-                            </li>
-                            <li><a href="/catalog/thriller">Thriller</a>
-                            </li>
-                            <li><a href="/catalog/others">Inne</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/.well -->
-                </div>
-                <!--/sidebar-nav-fixed -->
+<div id="findBook" class="jumbotron text-center">
+    <form action="#" method="post" id="formFindBook" class="form-signin form-inline">
+        <div class="input-group">
+            <input id="inputFindBook" name="inputFindBook" type="text" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz">
+            <div class="input-group-btn">
+                <button id="findBookButton" name="findBookButton" type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-search"></span> wyszukaj
+                </button>
             </div>
-            <!--/span-->
-            <div class="col-md-10">
+        </div>
+    </form>
+</div>
 
 
-        #if($books.isEmpty())
-            <h1 id="noBooks">NIESTETY NIE POSIADAMY KSIĄŻEK W WYBRANEJ PRZEZ CIEBIE KATEGORII</h1>
-        #else
-            #foreach($book in $books)
+
+<div id="tresc" class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar-nav-fixed ">
+                <div class="well">
+                    <ul class="nav ">
+
+                        <li><a href="/catalog/action">Akcja</a>
+                        </li>
+                        <li><a href="/catalog/biographical ">Biograficzne</a>
+                        </li>
+                        <li><a href="/catalog/children">Dla dzieci</a>
+                        </li>
+                        <li><a href="/catalog/erotic">Erotyka</a>
+                        </li>
+                        <li><a href="/catalog/fantasy">Fantastyka</a>
+                        </li>
+                        <li><a href="/catalog/historical">Historyczna</a>
+                        </li>
+                        <li><a href="/catalog/horror">Horror</a>
+                        </li>
+                        <li><a href="/catalog/languages">Języki obce</a>
+                        </li>
+                        <li><a href="/catalog/classical">Klasyka</a>
+                        </li>
+                        <li><a href="/catalog/comic">Komiks</a>
+                        </li>
+                        <li><a href="/catalog/crime">Kryminał</a>
+                        </li>
+                        <li><a href="belles">Literatura piękna</a>
+                        </li>
+                        <li><a href="custom">Obyczajowa</a>
+                        </li>
+                        <li><a href="/catalog/poetry">Poezja</a>
+                        </li>
+                        <li><a href="/catalog/thriller">Thriller</a>
+                        </li>
+                        <li><a href="/catalog/others">Inne</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+        <div class="col-md-10">
+
+
+            #if($books.isEmpty())
+                <h1 id="noBooks">NIESTETY NIE POSIADAMY KSIĄŻEK W WYBRANEJ PRZEZ CIEBIE KATEGORII</h1>
+            #else #foreach($book in $books)
                 <div id="bookDiv" class="thumbnail col-md-4 container">
 
                     <a href="/book/$book.getIsbn()" target="">
@@ -114,17 +128,16 @@
                         </div>
                     </a>
                 </div>
-            #end
-        #end
-
-
-                
+            #end #end
 
 
 
-            </div>
+
+
 
         </div>
+
     </div>
+</div>
 </body>
 </html>

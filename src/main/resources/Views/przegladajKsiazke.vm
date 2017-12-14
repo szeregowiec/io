@@ -78,21 +78,37 @@
                             <form action="#" method="post" id="formBorrow" class="form-signin">
                                 <div class="form-group">
                                     <label>
-                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">Wypożycz!</button>
+                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">$book.getStateOfBook()</button>
                                     </label>
                                 </div>
                             </form>
                         </div>
 
-                        <div id="divFormReserve" class="container">
-                            <form action="#" method="post" id="formReserve" class="form-signin">
+                        <div id="divFormEdit" class="container">
+                            <form action="#" method="post" id="formEdit" class="form-signin">
                                 <div class="form-group">
                                     <label>
-                                        <button type="button" class="btn btn-lg btn-success" type="submit" id="reserveButton" name="reserveButton">Rezerwuj!</button>
+                                        <button type="button" class="btn btn-lg btn-success" type="submit" id="editButton" name="editButton">Edytuj!</button>
                                     </label>
                                 </div>
                             </form>
                         </div>
+
+
+                        <div id="divFormDelete" class="container">
+                            <form action="#" method="post" id="formDelete" class="form-signin">
+                                <div class="form-group">
+                                    <label>
+                                        <button type="button" class="btn btn-lg btn-danger" type="submit" id="deleteButton" name="deleteButton">Usuń!</button>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+
                     </div>
                 </div>
             </div>

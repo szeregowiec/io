@@ -38,11 +38,19 @@
         <div class="form-group">
             <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Hasło" required>
         </div>
-                  #if($wrongEmailOrPassword)        
+        #if($wrongEmailOrPassword)
             <div id="wrongPassword">
-            <strong>Podany błędny email lub hasło!<strong>
+                <strong>Podano błędny email lub hasło!<strong>
             </div>
-                #end
+        #end
+
+        <div class="form-check">
+            <label>
+                <input type="checkbox" id="inputEmployee" name="inputEmployee" class="form-check-input"> Pracownik
+            </label>
+        </div>
+
+
 
         <div class="form-check">
             <label>

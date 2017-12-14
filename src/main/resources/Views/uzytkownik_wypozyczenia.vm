@@ -40,7 +40,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ustawienia</a></li>
+                            <li><a href="/change">Ustawienia</a></li>
                             <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
@@ -59,11 +59,11 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="uzytkownik_rezerwacje.html">Rezerwacje</a></li>
-        <li role="presentation" class="active"><a href="uzytkownik_wypozyczenia.html">Wypożyczone</a></li>
-        <li role="presentation"><a href="uzytkownik_oplaty.html">Opłaty</a></li>
-        <li role="presentation"><a href="uzytkownik_historia.html">Historia wypozyczeń</a></li>
-        <li role="presentation"><a href="uzytkownik_dane.html">Dane użytkownika</a></li>
+        <li role="presentation"><a href="#">Rezerwacje</a></li>
+        <li role="presentation" class="active"><a href="#">Wypożyczone</a></li>
+        <li role="presentation"><a href="#">Opłaty</a></li>
+        <li role="presentation"><a href="#">Historia wypozyczeń</a></li>
+        <li role="presentation"><a href="/change">Dane użytkownika</a></li>
     </ul>
 </div>
 
@@ -75,29 +75,31 @@
             <table class="table table-bordered table-hover table-striped">
                 <tbody>
                 <thead>
-                <td class="text-center">Wybierz</td>
+                <td class="text-center">Prolonguj</td>
                 <td class="text-center">Tytuł</td>
                 <td class="text-center">Autor</td>
-                <td class="text-center">Data rezerwacji</td>
+                <td class="text-center">Data pożyczenia</td>
                 <td class="text-center">Data zwrotu</td>
                 </thead>
                 <tr>
-                    <td class="text-center"><input type="checkbox" class="form-check-input">
-                    </td>
-                    <td class="text-center">lol1</td>
-                    <td class="text-center">lol1</td>
-                    <td class="text-center">lol1</td>
-                    <td class="text-center">lol1</td>
+
+                    #if($borrowed.isEmpty())
+                        <h1 id="noBorrowed">Nie masz żadnych pożyczonych książek</h1>
+                    #else #foreach($borrowedBook in $borrowed)
+
+                        <td class="text-center"><button type="button" class="btn btn-primary" id="prolong" name="prolong">Prolonguj</button></td>
+                        <td class="text-center">$borrowedBook.getTitle()</td>
+                        <td class="text-center">$borrowedBook.getAuthors()</td>
+                        <td class="text-center">$borrowedBook.getBorrowedDate()</td>
+                        <td class="text-center">$borrowedBook.getReturnDate()</td>
+
+                    #end #end
+
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-
-
-<div class="container">
-    <button type="button" class="btn btn-primary">Prolonguj</button>
 </div>
 
 </body>
