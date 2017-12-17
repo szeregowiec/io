@@ -80,7 +80,7 @@
                                 <div class="form-group">
                                     <label>
                                         <!-- $ book.getStateOfBook() -->
-                                        <button type="button" class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">tutaj mozna wsadzic to co jest w komentarzy wyzej (chyba)(w kodzie w sensie ze)</button>
+                                        <button class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">tutaj mozna wsadzic to co jest w komentarzy wyzej (chyba)(w kodzie w sensie ze)</button>
                                     </label>
                                 </div>
                             </form>
@@ -90,7 +90,7 @@
                             <form action="#" method="post" id="formEdit" class="form-signin">
                                 <div class="form-group">
                                     <label>
-                                        <button type="button" class="btn btn-lg btn-success" type="submit" id="editButton" name="editButton">Edytuj!</button>
+                                        <button class="btn btn-lg btn-success" type="submit" id="editButton" name="editButton">Edytuj!</button>
                                     </label>
                                 </div>
                             </form>
@@ -101,7 +101,7 @@
                             <form action="#" method="post" id="formDelete" class="form-signin">
                                 <div class="form-group">
                                     <label>
-                                        <button type="button" class="btn btn-lg btn-danger" type="submit" id="deleteButton" name="deleteButton">Usuń!</button>
+                                        <button class="btn btn-lg btn-danger" type="submit" id="deleteButton" name="deleteButton">Usuń!</button>
                                     </label>
                                 </div>
                             </form>
