@@ -1,32 +1,32 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
     <property name="connection.url">jdbc:mysql://mysql.agh.edu.pl:3306/adbuczek</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.username">adbuczek</property>
     <property name="hibernate.connection.password">v3FBnz9tRVNyrjyU</property>
-      <mapping class="DataSchema.BooksEntity"/>
-      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-      <mapping class="DataSchema.BorrowedEntity"/>
-      <mapping resource="DataSchema/BorrowedEntity.hbm.xml"/>
-      <mapping class="DataSchema.CopiesEntity"/>
-      <mapping resource="DataSchema/CopiesEntity.hbm.xml"/>
-      <mapping class="DataSchema.EmployeeEntity"/>
-      <mapping resource="DataSchema/EmployeeEntity.hbm.xml"/>
-      <mapping class="DataSchema.NotificationsEntity"/>
-      <mapping resource="DataSchema/NotificationsEntity.hbm.xml"/>
-      <mapping resource="DataSchema/ReadersEntity.hbm.xml"/>
-      <mapping class="DataSchema.ReadersEntity"/>
-      <mapping class="DataSchema.ReservedEntity"/>
-      <mapping resource="DataSchema/ReservedEntity.hbm.xml"/>
-      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+    <mapping class="DataSchema.BooksEntity"/>
     <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-      <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-      <!-- <property name="connection.username"/> -->
+    <mapping class="DataSchema.BorrowedEntity"/>
+    <mapping resource="DataSchema/BorrowedEntity.hbm.xml"/>
+    <mapping class="DataSchema.CopiesEntity"/>
+    <mapping resource="DataSchema/CopiesEntity.hbm.xml"/>
+    <mapping class="DataSchema.EmployeeEntity"/>
+    <mapping resource="DataSchema/EmployeeEntity.hbm.xml"/>
+    <mapping class="DataSchema.NotificationsEntity"/>
+    <mapping resource="DataSchema/NotificationsEntity.hbm.xml"/>
+    <mapping resource="DataSchema/ReadersEntity.hbm.xml"/>
+    <mapping class="DataSchema.ReadersEntity"/>
+    <mapping class="DataSchema.ReservedEntity"/>
+    <mapping resource="DataSchema/ReservedEntity.hbm.xml"/>
+    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
+    <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 
     <!-- DB schema will be updated if needed -->

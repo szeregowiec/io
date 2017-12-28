@@ -1,35 +1,25 @@
 package DataSchema;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "reserved", schema = "adbuczek", catalog = "")
 public class ReservedEntity {
-    private String idReserved;
-    private String idBook;
+    private int idReserved;
     private String isbn;
-    private String idReader;
-    private String reservedDate;
-    private String expireDate;
+    private int idReader;
+    private Date reservedDate;
+    private Date expireDate;
 
     @Id
-    @Column(name = "id_reserved", nullable = false, length = 50)
-    public String getIdReserved() {
+    @Column(name = "id_reserved", nullable = false)
+    public int getIdReserved() {
         return idReserved;
     }
 
-    public void setIdReserved(String idReserved) {
+    public void setIdReserved(int idReserved) {
         this.idReserved = idReserved;
-    }
-
-    @Basic
-    @Column(name = "id_book", nullable = true, length = 50)
-    public String getIdBook() {
-        return idBook;
-    }
-
-    public void setIdBook(String idBook) {
-        this.idBook = idBook;
     }
 
     @Basic
@@ -43,32 +33,32 @@ public class ReservedEntity {
     }
 
     @Basic
-    @Column(name = "id_reader", nullable = false, length = 50)
-    public String getIdReader() {
+    @Column(name = "id_reader", nullable = false)
+    public int getIdReader() {
         return idReader;
     }
 
-    public void setIdReader(String idReader) {
+    public void setIdReader(int idReader) {
         this.idReader = idReader;
     }
 
     @Basic
-    @Column(name = "reserved_date", nullable = false, length = 50)
-    public String getReservedDate() {
+    @Column(name = "reserved_date", nullable = false)
+    public Date getReservedDate() {
         return reservedDate;
     }
 
-    public void setReservedDate(String reservedDate) {
+    public void setReservedDate(Date reservedDate) {
         this.reservedDate = reservedDate;
     }
 
     @Basic
-    @Column(name = "expire_date", nullable = true, length = 50)
-    public String getExpireDate() {
+    @Column(name = "expire_date", nullable = true)
+    public Date getExpireDate() {
         return expireDate;
     }
 
-    public void setExpireDate(String expireDate) {
+    public void setExpireDate(Date expireDate) {
         this.expireDate = expireDate;
     }
 
@@ -79,10 +69,9 @@ public class ReservedEntity {
 
         ReservedEntity that = (ReservedEntity) o;
 
-        if (idReserved != null ? !idReserved.equals(that.idReserved) : that.idReserved != null) return false;
-        if (idBook != null ? !idBook.equals(that.idBook) : that.idBook != null) return false;
+        if (idReserved != that.idReserved) return false;
+        if (idReader != that.idReader) return false;
         if (isbn != null ? !isbn.equals(that.isbn) : that.isbn != null) return false;
-        if (idReader != null ? !idReader.equals(that.idReader) : that.idReader != null) return false;
         if (reservedDate != null ? !reservedDate.equals(that.reservedDate) : that.reservedDate != null) return false;
         if (expireDate != null ? !expireDate.equals(that.expireDate) : that.expireDate != null) return false;
 
@@ -91,10 +80,9 @@ public class ReservedEntity {
 
     @Override
     public int hashCode() {
-        int result = idReserved != null ? idReserved.hashCode() : 0;
-        result = 31 * result + (idBook != null ? idBook.hashCode() : 0);
+        int result = idReserved;
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
-        result = 31 * result + (idReader != null ? idReader.hashCode() : 0);
+        result = 31 * result + idReader;
         result = 31 * result + (reservedDate != null ? reservedDate.hashCode() : 0);
         result = 31 * result + (expireDate != null ? expireDate.hashCode() : 0);
         return result;

@@ -6,13 +6,13 @@
 
     <class name="DataSchema.BorrowedEntity" table="borrowed" schema="adbuczek">
         <id name="idBorrowed">
-            <column name="id_borrowed" sql-type="varchar(50)" length="50"/>
+            <column name="id_borrowed" sql-type="int(11)"/>
         </id>
         <property name="idBook">
-            <column name="id_book" sql-type="varchar(50)" length="50"/>
+            <column name="id_book" sql-type="int(11)"/>
         </property>
         <property name="idReader">
-            <column name="id_reader" sql-type="varchar(50)" length="50"/>
+            <column name="id_reader" sql-type="int(11)"/>
         </property>
         <property name="borrowedDate">
             <column name="borrowed_date" sql-type="date"/>

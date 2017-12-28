@@ -6,22 +6,19 @@
 
     <class name="DataSchema.ReservedEntity" table="reserved" schema="adbuczek">
         <id name="idReserved">
-            <column name="id_reserved" sql-type="varchar(50)" length="50"/>
+            <column name="id_reserved" sql-type="int(11)"/>
         </id>
-        <property name="idBook">
-            <column name="id_book" sql-type="varchar(50)" length="50" not-null="true"/>
-        </property>
         <property name="isbn">
             <column name="isbn" sql-type="varchar(50)" length="50"/>
         </property>
         <property name="idReader">
-            <column name="id_reader" sql-type="varchar(50)" length="50"/>
+            <column name="id_reader" sql-type="int(11)"/>
         </property>
         <property name="reservedDate">
-            <column name="reserved_date" sql-type="varchar(50)" length="50"/>
+            <column name="reserved_date" sql-type="date"/>
         </property>
         <property name="expireDate">
-            <column name="expire_date" sql-type="varchar(50)" length="50" not-null="true"/>
+            <column name="expire_date" sql-type="date"/>
         </property>
     </class>
 </hibernate-mapping>

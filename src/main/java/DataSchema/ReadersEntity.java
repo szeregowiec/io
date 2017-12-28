@@ -6,7 +6,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "readers", schema = "adbuczek", catalog = "")
 public class ReadersEntity {
-    private String idReader;
+    private int idReader;
     private String login;
     private String password;
     private Date birthDate;
@@ -21,11 +21,11 @@ public class ReadersEntity {
 
     @Id
     @Column(name = "id_reader", nullable = false, length = 50)
-    public String getIdReader() {
+    public int getIdReader() {
         return idReader;
     }
 
-    public void setIdReader(String idReader) {
+    public void setIdReader(int idReader) {
         this.idReader = idReader;
     }
 
@@ -147,7 +147,7 @@ public class ReadersEntity {
         ReadersEntity that = (ReadersEntity) o;
 
         if (penalty != that.penalty) return false;
-        if (idReader != null ? !idReader.equals(that.idReader) : that.idReader != null) return false;
+        if (idReader != that.idReader) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -164,7 +164,7 @@ public class ReadersEntity {
 
     @Override
     public int hashCode() {
-        int result = idReader != null ? idReader.hashCode() : 0;
+        int result = idReader;
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);

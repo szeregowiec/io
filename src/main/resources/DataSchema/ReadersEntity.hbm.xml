@@ -6,7 +6,7 @@
 
     <class name="DataSchema.ReadersEntity" table="readers" schema="adbuczek">
         <id name="idReader">
-            <column name="id_reader" sql-type="varchar(50)" length="50"/>
+            <column name="id_reader" sql-type="int(11)"/>
         </id>
         <property name="login">
             <column name="login" sql-type="varchar(50)" length="50"/>

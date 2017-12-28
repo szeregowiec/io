@@ -16,6 +16,7 @@ public class Database {
     @Transactional
     public static void myUpdate(){
         Application.database.getSession().flush();
+        Application.database.getSession().clear();
         Application.database.getSession().getTransaction().commit();
         Application.database.getSession().getTransaction().begin();
     }

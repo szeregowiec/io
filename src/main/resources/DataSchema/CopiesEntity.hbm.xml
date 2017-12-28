@@ -6,7 +6,7 @@
 
     <class name="DataSchema.CopiesEntity" table="copies" schema="adbuczek">
         <id name="idBook">
-            <column name="id_book" sql-type="varchar(50)" length="50"/>
+            <column name="id_book" sql-type="int(11)"/>
         </id>
         <property name="isbn">
             <column name="isbn" sql-type="varchar(50)" length="50"/>

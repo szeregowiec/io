@@ -1,12 +1,15 @@
 package Main;
 
 import Base.Database;
+import Book.EditController;
+import Book.LoanController;
 import Book.ShowBooks;
 import Book.UploadController;
 import Login.ChangeUserData;
 import Login.LoginController;
 import Login.Register;
 //import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import Login.UserBookInfo;
 import util.Constants;
 
 import java.util.HashMap;
@@ -27,6 +30,9 @@ public class Application {
         staticFiles.expireTime(600L);
         database = new Database();
 
+
+       // before(Constants.CATALOG,(request, response) -> { System.out.println("test");});
+
         get("/", (req, res) -> {res.redirect(Constants.LOGIN); return null;});
 
 
@@ -36,12 +42,21 @@ public class Application {
         get(Constants.CATALOG, ShowBooks.viewBooks);
         get(Constants.CATEGORY, ShowBooks.viewSpecificBooks);
         get(Constants.ONE_BOOK, ShowBooks.viewOneBook);
+        post(Constants.ONE_BOOK, LoanController.loanBook);
         get(Constants.REGISTER,  Register.giveInformation);
         post(Constants.REGISTER, Register.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.logout);
-        get(Constants.UPLOADBOOK, UploadController.giveInformation);
-        post(Constants.UPLOADBOOK, UploadController.upload);
+        get(Constants.SETTINGS, UploadController.giveInformation);
+        post(Constants.SETTINGS, UploadController.upload);
+        post(Constants.EDIT_BOOK, EditController.giveInformation);
+        post(Constants.EDIT, EditController.editBook);
+        post(Constants.DELETE_BOOK, EditController.deleteBook);
+        get(Constants.RESERVED_BOOKS, UserBookInfo.reservedBooks);
+        post(Constants.DELETE_RESERVED_BOOK, UserBookInfo.deleteReservedBook);
+        get(Constants.BORROWED_BOOKS, UserBookInfo.borrowedBooks);
+        post(Constants.PROLONG_BORROWED_BOOK, UserBookInfo.prolongBorrowedBook);
+        get(Constants.PENALTIES, UserBookInfo.userPenalties);
 
         get(Constants.CHANGEUSERDATA, ChangeUserData.changeUserData);
         post(Constants.CHANGEUSERDATA, ChangeUserData.ChangeUserDataPost);

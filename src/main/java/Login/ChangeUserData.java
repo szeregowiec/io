@@ -1,6 +1,7 @@
 package Login;
 
 import Base.Database;
+import Book.UploadController;
 import DataSchema.ReadersEntity;
 import Main.Application;
 import spark.Route;
@@ -19,7 +20,7 @@ public class ChangeUserData {
 
     public static Route ChangeUserDataPost = (request, response) -> {
 
-        if(LoginController.ifUserIsNotLogged(request,response)){
+        if(LoginController.ifUserIsNotLogged(request,response)) {
             response.redirect(Constants.LOGIN);
             return "";
         }
@@ -186,10 +187,20 @@ public class ChangeUserData {
             return "";
         }
         Map<String,Object> model = new HashMap<>();
+        if(LoginController.ifItIsNotReader(request,response)){
+            response.redirect(Constants.SETTINGS);
+            /*model.put("login",request.session().attribute("login    "));
+            if(request.session().attributes().contains("alreadyExist")){
+                model.put("bookAlreadyExists", true);
+                request.session().removeAttribute("alreadyExist");
+            } else if(request.session().attributes().contains("wrongURL")) {
+                model.put("wrongURL", true);
+                request.session().removeAttribute("wrongURL");
+            } else model.put("bookAlreadyExists", false);*/
+            return "";
 
-
-        //if(request.queryParams().contains("ChangePasswordOld") && request.queryParams().contains("ChangePasswordNew")){
-
+            //return util.View.render(request, model, Constants.UPLOADBOOK_TEMPLATE);
+        }else{
             List readers = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.session().attribute("currentUser")).list();
             ReadersEntity reader = ((ReadersEntity) readers.get(0));
 
@@ -204,8 +215,14 @@ public class ChangeUserData {
             model.put("city", reader.getCity());
             model.put("phone", reader.getPhone());
 
-
             return util.View.render(request, model, Constants.CHANGEUSERDATA_TEMPLATE);
+        }
+
+
+
+        //if(request.queryParams().contains("ChangePasswordOld") && request.queryParams().contains("ChangePasswordNew")){
+
+
 
     };
 

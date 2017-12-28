@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="pl">
 
 <head>
@@ -41,7 +41,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="nameOfUser" name="nameOfUser" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zalogowano jako $!login<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/change">Ustawienia</a></li>
+                            <li><a href="/settings">Ustawienia</a></li>
                             <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
@@ -89,7 +89,7 @@
                         <div class="modal fade" id="modalChangeTitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeTitle" action="/changeBook">
+                                    <form method="post" id="formChangeTitle" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień tytuł</h4>
@@ -120,7 +120,7 @@
                         <div class="modal fade" id="modalChangeAuthors" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeAuthors" action="/changeBook">
+                                    <form method="post" id="formChangeAuthors" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień autora</h4>
@@ -151,7 +151,7 @@
                         <div class="modal fade" id="modalChangeCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeCategory" action="/changeBook">
+                                    <form method="post" id="formChangeCategory" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień kategorię</h4>
@@ -200,7 +200,7 @@
                         <div class="modal fade" id="modalChangePublishingHouse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangePublishingHouse" action="/changeBook">
+                                    <form method="post" id="formChangePublishingHouse" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień wydawnictwo</h4>
@@ -231,7 +231,7 @@
                         <div class="modal fade" id="modalChangePublishYear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangePublishYear" action="/changeBook">
+                                    <form method="post" id="formChangePublishYear" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień datę wydania</h4>
@@ -262,7 +262,7 @@
                         <div class="modal fade" id="modalChangePublishPlace" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangePublishPlace" action="/changeBook">
+                                    <form method="post" id="formChangePublishPlace" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień miejsce wydania</h4>
@@ -294,7 +294,7 @@
                         <div class="modal fade" id="modalChangePages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangePages" action="/changeBook">
+                                    <form method="post" id="formChangePages" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień ilość stron</h4>
@@ -325,7 +325,7 @@
                         <div class="modal fade" id="modalChangeDescription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeDescription" action="/changeBook">
+                                    <form method="post" id="formChangeDescription" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień opis</h4>
@@ -355,7 +355,7 @@
                         <div class="modal fade" id="modalChangeLanguage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeLanguage" action="/changeBook">
+                                    <form method="post" id="formChangeLanguage" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień język</h4>
@@ -390,12 +390,12 @@
                 <tr>
                     <td class="text-center">Ilość</td>
                     <td class="text-center">
-                        <text>$book.getAmount()</text>
+                        <text>$amount</text>
                         <a id="changeAmount" data-target="#modalChangeAmount" data-toggle="modal"> Zmień ilość</a>
                         <div class="modal fade" id="modalChangeAmount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeAmount" action="/changeBook">
+                                    <form method="post" id="formChangeAmount" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień ilość</h4>
@@ -420,13 +420,13 @@
                 <tr>
                     <td class="text-center">Okładka</td>
                     <td class="text-center">
-                        <!--          <text>$password</text> -->
+
                         <img id="picture" src="/Covers/$book.getCover()" alt="Brak okładki" style="width:100%"></a>
                         <a id="changeCover" data-target="#modalChangeCover" data-toggle="modal"> Zmień okładkę</a>
                         <div class="modal fade" id="modalChangeCover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <form method="post" id="formChangeCover" action="/changeBook">
+                                    <form method="post" id="formChangeCover" action="/changeBook/$book.getIsbn()">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Zamknij</span></button>
                                             <h4 class="modal-title" id="myModalLabel1">Zmień okładkę</h4>

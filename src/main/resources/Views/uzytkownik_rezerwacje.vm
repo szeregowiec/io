@@ -59,9 +59,9 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation" class="active"><a href="#">Rezerwacje</a></li>
-        <li role="presentation"><a href="#">Wypożyczone</a></li>
-        <li role="presentation"><a href="#">Opłaty</a></li>
+        <li role="presentation" class="active"><a href="/reserved">Rezerwacje</a></li>
+        <li role="presentation"><a href="/borrowed">Wypożyczone</a></li>
+        <li role="presentation"><a href="/penalties">Opłaty</a></li>
         <li role="presentation"><a href="#">Historia wypozyczeń</a></li>
         <li role="presentation"><a href="/change">Dane użytkownika</a></li>
     </ul>
@@ -88,14 +88,16 @@
                     #else #foreach($reservedBook in $reserved)
 
                         <td class="text-center">
-                            <form action="#" method="post" id="formReservation" name="formReservation" class="form-signin">
+                            <form action="/reserved/$reservedBook.getIdReserved()" method="post" id="formReservation" name="formReservation" class="form-signin">
                                 <button class="btn btn-primary" id="deleteReservation" name="deleteReservation" type="submit">Usuń rezerwację</button>
                             </form>
                         </td>
                         <td class="text-center">$reservedBook.getTitle()</td>
                         <td class="text-center">$reservedBook.getAuthors()</td>
                         <td class="text-center">$reservedBook.getReservedDate()</td>
-                        <td class="text-center">$reservedBook.getExpireDate()</td>
+                        <td class="text-center">$!reservedBook.getExpireDate()</td>
+                        <tr>
+
 
                     #end #end
 

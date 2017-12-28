@@ -78,8 +78,9 @@ public class Register {
             response.redirect(Constants.REGISTER);
             System.out.println("Wyjebalo wyjatek");
         }
-        int max_id = Integer.parseInt(database.getSession().createQuery("select max(idReader) from ReadersEntity ").list().get(0).toString());
-        newReader.setIdReader(Integer.toString(max_id + 1));
+        int max_id = Integer.parseInt(database.getSession().createQuery("select max(idReader) from ReadersEntity ").list().get(0).toString()); // wysypie się jak nie ma żadnego użytkownika
+
+        newReader.setIdReader(max_id + 1);
 
         database.getSession().save("ReadersEntity", newReader);
         Database.myUpdate();

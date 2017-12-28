@@ -1,5 +1,7 @@
 package util;
 
+import freemarker.cache.StrongCacheStorage;
+
 public class Constants {
 
     public static String LOGIN = "/login";
@@ -12,6 +14,15 @@ public class Constants {
     public static String CATEGORY = CATALOG+"/:category";
     public static String CHANGEUSERDATA = "/change";
     public static String ONE_BOOK = "/book/:isbn";
+    public static String SETTINGS = "/settings";
+    public static String EDIT = "/changeBook/:isbn";
+    public static String EDIT_BOOK = "/editbook/:isbn";
+    public static String DELETE_BOOK = "/deletebook/:isbn";
+    public static String RESERVED_BOOKS = "/reserved";
+    public static String BORROWED_BOOKS = "/borrowed";
+    public static String DELETE_RESERVED_BOOK = "/reserved/:id";
+    public static String PROLONG_BORROWED_BOOK = "/borrowed/:id";
+    public static String PENALTIES = "/penalties";
 
     public static String LOGIN_TEMPLATE = "/Views/logowanie.vm";
     public static String REGISTER_TEMPLATE = "Views/rejestracja.vm";
@@ -20,6 +31,11 @@ public class Constants {
     public static String MAIN_TEMPLATE = "Views/index2.vm";
     public static String CHANGEUSERDATA_TEMPLATE = "Views/uzytkownik_dane.vm";
     public static String ONE_BOOK_TEMPLATE = "Views/przegladajKsiazke.vm";
+    public static String EDIT_BOOK_TEMPLATE = "Views/edytujKsiazke.vm";
+    public static String RESERVED_BOOKS_TEMPLATE = "Views/uzytkownik_rezerwacje.vm";
+    public static String BORROWED_BOOKS_TEMPLATE = "Views/uzytkownik_wypozyczenia.vm";
+    public static String PENALTIES_TEMPLATE = "Views/uzytkownik_oplaty.vm";
+
 
 
 }
