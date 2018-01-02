@@ -23,6 +23,12 @@ public class Constants {
     public static String DELETE_RESERVED_BOOK = "/reserved/:id";
     public static String PROLONG_BORROWED_BOOK = "/borrowed/:id";
     public static String PENALTIES = "/penalties";
+    public static String BORROWING = "/confirmBorrowing";
+    public static String CONFIRM_BORROWING = "/confirmBorrowing/:id";
+    public static String RETURNING = "/confirmReturn";
+    public static String CONFIRM_RETURNING = "/confirmReturn/:id";
+    public static String PAYMENT = "/confirmPayment";
+    public static String CONFIRM_PAYMENT = "/confirmPayment/:id";
 
     public static String LOGIN_TEMPLATE = "/Views/logowanie.vm";
     public static String REGISTER_TEMPLATE = "Views/rejestracja.vm";
@@ -35,7 +41,9 @@ public class Constants {
     public static String RESERVED_BOOKS_TEMPLATE = "Views/uzytkownik_rezerwacje.vm";
     public static String BORROWED_BOOKS_TEMPLATE = "Views/uzytkownik_wypozyczenia.vm";
     public static String PENALTIES_TEMPLATE = "Views/uzytkownik_oplaty.vm";
-
+    public static String RESERVATION_LIST_TEMPLATE = "Views/pracownik_potwierdz_wyp.vm";
+    public static String RETURNING_LIST_TEMPLATE = "Views/pracownik_potwierdz_zwr.vm";
+    public static String PAYMENTS_LIST_TEMPLATE = "Views/pracownik_potwierdz_opl.vm";
 
 
 }

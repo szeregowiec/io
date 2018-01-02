@@ -59,10 +59,10 @@
 
 <div class="container" id="employee">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/uploadbook">Dodaj książkę</a></li>
-        <li role="presentation" class="active"><a href="#">Potwierdź wypożyczenie</a></li>
-        <li role="presentation"><a href="#">Potwierdź zwrot</a></li>
-        <li role="presentation"><a href="#">Potwierdź uiszczenie opłaty</a></li>
+        <li role="presentation"><a href="/settings">Dodaj książkę</a></li>
+        <li role="presentation" class="active"><a href="/confirmBorrowing">Potwierdź wypożyczenie</a></li>
+        <li role="presentation"><a href="/confirmReturn">Potwierdź zwrot</a></li>
+        <li role="presentation"><a href="/confirmPayment">Potwierdź uiszczenie opłaty</a></li>
     </ul>
 </div>
 
@@ -86,14 +86,14 @@
                     #else #foreach($borrowBook in $confirmBorrow)
 
                         <td class="text-center">
-                            <form action="#" method="post" id="formBorrow" name="formBorrow" class="form-signin">
+                            <form action="/confirmBorrowing/$borrowBook.getIdReservation()" method="post" id="formBorrow" name="formBorrow" class="form-signin">
                                 <button class="btn btn-primary" id="borrow" name="borrow" type="submit">Potwierdź</button>
                             </form>
                         </td>
                         <td class="text-center">$borrowBook.getUser()</td>
                         <td class="text-center">$borrowBook.getTitle()</td>
                         <td class="text-center">$borrowBook.getAuthors()</td>
-
+                    <tr>
                     #end #end
 
                 </tr>

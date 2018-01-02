@@ -10,6 +10,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'javax.mail', name: 'mail', version: '1.6.0'
 }
 version '1.0-SNAPSHOT'
 
@@ -38,5 +39,13 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.velocity/velocity
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.6.2'
     compile group: 'commons-validator', name: 'commons-validator', version: '1.5.0'
+    // https://mvnrepository.com/artifact/javax.mail/mail
+   // compile group: 'javax.mail', name: 'mail', version: '1.5.0'
+    // https://mvnrepository.com/artifact/javax.mail/javax.mail-api
+    // https://mvnrepository.com/artifact/com.sun.mail/javax.mail
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.0'
+
+
+
 
 }

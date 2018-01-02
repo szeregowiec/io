@@ -59,10 +59,10 @@
 
 <div class="container" id="employee">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/uploadbook">Dodaj książkę</a></li>
-        <li role="presentation"><a href="#">Potwierdź wypożyczenie</a></li>
-        <li role="presentation"><a href="#">Potwierdź zwrot</a></li>
-        <li role="presentation" class="active"><a href="#">Potwierdź uiszczenie opłaty</a></li>
+        <li role="presentation"><a href="/settings">Dodaj książkę</a></li>
+        <li role="presentation"><a href="/confirmBorrowing">Potwierdź wypożyczenie</a></li>
+        <li role="presentation"><a href="/confirmReturn">Potwierdź zwrot</a></li>
+        <li role="presentation" class="active"><a href="/confirmPayment">Potwierdź uiszczenie opłaty</a></li>
     </ul>
 </div>
 
@@ -85,13 +85,13 @@
                     #else #foreach($chargeBook in $confirmCharge)
 
                         <td class="text-center">
-                            <form action="#" method="post" id="formCharge" name="formCharge" class="form-signin">
+                            <form action="/confirmPayment/$chargeBook.getIdReader()" method="post" id="formCharge" name="formCharge" class="form-signin">
                                 <button class="btn btn-primary" id="charge" name="charge" type="submit">Potwierdź</button>
                             </form>
                         </td>
-                        <td class="text-center">$chargeBook.getUser()</td>
-                        <td class="text-center">$chargeBook.getTitle()</td>
-
+                        <td class="text-center">$chargeBook.getEmail() $chargeBook.getName() $chargeBook.getSurname()</td>
+                        <td class="text-center">$chargeBook.getPenalty()</td>
+                        <tr>
                     #end #end
 
                 </tr>

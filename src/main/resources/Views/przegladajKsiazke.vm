@@ -75,17 +75,19 @@
                         <p>Ilość stron: $book.getPages()</p>
 
                         #if($user)
+                            #if($banned == false)
 
-                        <div id="divFormBorrow" class="container">
-                            <form action="/book/$book.getIsbn()" method="post" id="formBorrow" class="form-signin">
-                                <div class="form-group">
-                                    <label>
-                                        <!-- $ book.getStateOfBook() -->
-                                        <button class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">$rButton</button>
-                                    </label>
+                                <div id="divFormBorrow" class="container">
+                                    <form action="/book/$book.getIsbn()" method="post" id="formBorrow" class="form-signin">
+                                        <div class="form-group">
+                                            <label>
+                                                <!-- $ book.getStateOfBook() -->
+                                                <button class="btn btn-lg btn-primary" type="submit" id="borrowButton" name="borrowButton">$rButton</button>
+                                            </label>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                        </div>
+                            #end
                         #else
                         <div id="divFormEdit" class="container">
                             <form action="/editbook/$book.getIsbn()" method="post" id="formEdit" class="form-signin">
@@ -97,19 +99,18 @@
                             </form>
                         </div>
 
-
-                        <div id="divFormDelete" class="container">
-                            <form action="/deletebook/$book.getIsbn()" method="post" id="formDelete" class="form-signin">
-                                <div class="form-group">
-                                    <label>
-                                        <button class="btn btn-lg btn-danger" type="submit" id="deleteButton" name="deleteButton">Usuń!</button>
-                                    </label>
-                                </div>
-                            </form>
-                        </div>
+                        #if($delete)
+                            <div id="divFormDelete" class="container">
+                                <form action="/deletebook/$book.getIsbn()" method="post" id="formDelete" class="form-signin">
+                                    <div class="form-group">
+                                        <label>
+                                            <button class="btn btn-lg btn-danger" type="submit" id="deleteButton" name="deleteButton">Usuń!</button>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
                         #end
-
-
+                        #end
 
 
                     </div>

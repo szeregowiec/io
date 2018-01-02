@@ -60,9 +60,9 @@
 <div class="container" id="employee">
     <ul class="nav nav-pills nav-justified">
         <li role="presentation"><a href="/uploadbook">Dodaj książkę</a></li>
-        <li role="presentation"><a href="#">Potwierdź wypożyczenie</a></li>
-        <li role="presentation" class="active"><a href="#">Potwierdź zwrot</a></li>
-        <li role="presentation"><a href="#">Potwierdź uiszczenie opłaty</a></li>
+        <li role="presentation"><a href="/confirmBorrowing">Potwierdź wypożyczenie</a></li>
+        <li role="presentation" class="active"><a href="/confirmReturn">Potwierdź zwrot</a></li>
+        <li role="presentation"><a href="/confirmPayment">Potwierdź uiszczenie opłaty</a></li>
     </ul>
 </div>
 
@@ -86,14 +86,14 @@
                     #else #foreach($returnBook in $confirmReturn)
 
                         <td class="text-center">
-                            <form action="#" method="post" id="formReturn" name="formReturn" class="form-signin">
+                            <form action="/confirmReturn/$returnBook.getIdReservation()" method="post" id="formReturn" name="formReturn" class="form-signin">
                                 <button class="btn btn-primary" id="return" name="return" type="submit">Potwierdź</button>
                             </form>
                         </td>
                         <td class="text-center">$returnBook.getUser()</td>
                         <td class="text-center">$returnBook.getTitle()</td>
                         <td class="text-center">$returnBook.getAuthors()</td>
-
+                        <tr>
                     #end #end
 
                 </tr>

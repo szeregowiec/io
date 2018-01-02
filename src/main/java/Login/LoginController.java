@@ -28,7 +28,6 @@ public class LoginController {
     public static Route loginIfRegistered = (request, response) -> {
         //Database database= new Database();
         String check = request.queryParams("inputEmployee");
-        //System.out.println(check);
         if(check == null){
             List reader = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email and password = :password").setParameter("email", request.queryParams("inputEmail")).setParameter("password", getHashedPassword(request.queryParams("inputPassword"))).list();
             if(!reader.isEmpty())

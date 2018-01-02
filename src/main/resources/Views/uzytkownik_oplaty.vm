@@ -71,6 +71,7 @@
 <div align="center" class="container">
     <div class="row">
         <div class="table-responsive">
+            <h1 id="noCharges">Łącznie do zapłaty(wraz z prolongowanymi i oddanymi książkami): $sum</h1>
             <table class="table table-bordered table-hover table-striped">
                 <tbody>
                 <thead>

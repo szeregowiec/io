@@ -2,6 +2,7 @@ package Book;
 
 import Base.Database;
 import DataSchema.BooksEntity;
+import DataSchema.ReadersEntity;
 import Login.LoginController;
 import spark.Route;
 import util.Constants;
@@ -55,8 +56,29 @@ public class ShowBooks {
         }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login"));
-        if(LoginController.ifItIsNotReader(request,response)) model.put("user",false);
-        else model.put("user",true);
+        if(LoginController.ifItIsNotReader(request,response)){
+            model.put("user",false);
+            int borrowedAmount;
+            try{
+                String isbnBook = request.params(":isbn");
+                borrowedAmount = Integer.parseInt(database.getSession().createQuery("select count(be.idBorrowed) from BorrowedEntity as be join CopiesEntity as ce on ce.idBook = be.idBook where ce.isbn = :isbn").setParameter("isbn", isbnBook).list().get(0).toString()) +
+                        Integer.parseInt(database.getSession().createQuery("select count(re.idReserved) from ReservedEntity as re where re.isbn = :isbn").setParameter("isbn", isbnBook).list().get(0).toString());
+            }catch(NullPointerException e){
+                borrowedAmount = 0;
+            }
+            if(borrowedAmount !=0) model.put("delete", false);
+            else model.put("delete", true);
+        }
+        else {
+            model.put("user",true);
+            List readers = Main.Application.database.getSession().createQuery("FROM ReadersEntity WHERE email = :email").setParameter("email", request.session().attribute("currentUser")).list();
+            ReadersEntity reader = ((ReadersEntity) readers.get(0));
+
+            if(reader.getPenalty() != 0) model.put("banned",true);
+            else model.put("banned",false);
+        }
+
+
         String isbnBook = request.params(":isbn");
         List<BooksEntity> books = database.getSession().createQuery("FROM BooksEntity WHERE isbn = :isbn").setParameter("isbn",isbnBook).list();
         BooksEntity book = books.get(0);
@@ -80,7 +102,6 @@ public class ShowBooks {
         else reservedButton = "Zarezerwuj";
         model.put("rButton",reservedButton);
         request.session().attribute("rButton",reservedButton);
-        //System.out.println(copiesAmount);
         return util.View.render(request, model, Constants.ONE_BOOK_TEMPLATE);
     };
 

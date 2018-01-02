@@ -26,7 +26,7 @@ public class EditController {
             response.redirect(Constants.START);
             return "";
         }
-        //TODO: Delete book
+
         Application.database.getSession().createQuery("delete BooksEntity where isbn = :isbn").setParameter("isbn",request.params(":isbn")).executeUpdate();
         Application.database.getSession().createQuery("delete CopiesEntity where isbn = :isbn").setParameter("isbn",request.params(":isbn")).executeUpdate();
         Database.myUpdate();

@@ -130,13 +130,16 @@ public class UserBookInfo {
             //System.out.println(book.getIdBook());
             List<String> oneBooks = database.getSession().createQuery("select be.title FROM BooksEntity as be join CopiesEntity as ce on be.isbn = ce.isbn where ce.idBook = :idBook").setParameter("idBook", book.getIdBook()).list();
             String oneBook = oneBooks.get(0);
-            Charge tmp = new Charge(oneBook, book.getReturnDate(), (int)Math.abs(book.getReturnDate().getTime() - new java.util.Date().getTime())/100000000);
+            Charge tmp = new Charge(oneBook, book.getReturnDate(), (int)Math.abs((book.getReturnDate().getTime() - new java.util.Date().getTime())/100000000));
             penalties.add(tmp);
         }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login"));
         model.put("charges",penalties);
         request.session().attribute("charges",penalties);
+        int sum = reader.getPenalty();
+        model.put("sum",sum);
+        request.session().attribute("sum",sum);
         return util.View.render(request, model, Constants.PENALTIES_TEMPLATE);
 
     };

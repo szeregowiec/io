@@ -5,17 +5,14 @@ import Book.EditController;
 import Book.LoanController;
 import Book.ShowBooks;
 import Book.UploadController;
-import Login.ChangeUserData;
-import Login.LoginController;
-import Login.Register;
-//import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-import Login.UserBookInfo;
-import util.Constants;
+import Login.*;
 
+import util.Constants;
+import Runnable.Daemon;
 import java.util.HashMap;
 
 import static spark.Spark.*;
-import static spark.debug.DebugScreen.enableDebugScreen;
+
 
 import util.View;
 
@@ -30,14 +27,20 @@ public class Application {
         staticFiles.expireTime(600L);
         database = new Database();
 
+        (new Thread(new Daemon())).start();
 
-       // before(Constants.CATALOG,(request, response) -> { System.out.println("test");});
 
         get("/", (req, res) -> {res.redirect(Constants.LOGIN); return null;});
 
 
-        get(Constants.LOGIN, (request, response) -> View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE));
-
+        get(Constants.LOGIN, (request, response) -> {
+            if(!LoginController.ifUserIsNotLogged(request, response)){
+                response.redirect(Constants.START);
+                return "";
+            }
+            return View.render(request, new HashMap<>(),Constants.LOGIN_TEMPLATE);
+        });
+        before(Constants.CONFIRM_RETURNING, LoanController.setNewBorrowed);
         post(Constants.START, LoginController.loginIfRegistered);
         get(Constants.CATALOG, ShowBooks.viewBooks);
         get(Constants.CATEGORY, ShowBooks.viewSpecificBooks);
@@ -57,9 +60,17 @@ public class Application {
         get(Constants.BORROWED_BOOKS, UserBookInfo.borrowedBooks);
         post(Constants.PROLONG_BORROWED_BOOK, UserBookInfo.prolongBorrowedBook);
         get(Constants.PENALTIES, UserBookInfo.userPenalties);
+        get(Constants.BORROWING, AdminBookInfo.borrowing);
+        post(Constants.CONFIRM_BORROWING, AdminBookInfo.confirmBorrowing);
+        get(Constants.RETURNING, AdminBookInfo.returning);
+        post(Constants.CONFIRM_RETURNING, AdminBookInfo.confirmReturning);
+        get(Constants.PAYMENT, AdminBookInfo.payments);
+        post(Constants.CONFIRM_PAYMENT, AdminBookInfo.confirmPayment);
 
         get(Constants.CHANGEUSERDATA, ChangeUserData.changeUserData);
         post(Constants.CHANGEUSERDATA, ChangeUserData.ChangeUserDataPost);
+
+
 
     }
 

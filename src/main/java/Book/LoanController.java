@@ -5,15 +5,21 @@ import Base.Database;
 import DataSchema.*;
 import Login.LoginController;
 
+
+import Main.Application;
+import com.sun.org.apache.regexp.internal.RE;
+import spark.Filter;
 import spark.Route;
 import util.Constants;
 
 import java.sql.Date;
-import java.util.HashMap;
+
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 import static Main.Application.database;
+import static Runnable.MailSender.sendFromGMail;
 
 
 public class LoanController {
@@ -50,30 +56,10 @@ public class LoanController {
         ReadersEntity re1 = re.get(0);
         newReservedBook.setIdReader(re1.getIdReader());
         newReservedBook.setReservedDate(new Date(new java.util.Date().getTime()));
-        ///newReservedBook.setExpireDate(new Date(new java.util.Date().getTime()+ 604800000));
         newReservedBook.setIsbn(isbnBook);
 
         if(copiesAmount > borrowedAmount) {
             newReservedBook.setExpireDate(new Date(new java.util.Date().getTime()+ 604800000));
-           /*BorrowedEntity newBorrowedBook = new BorrowedEntity();
-            int max_id;
-            try{
-                max_id = Integer.parseInt(database.getSession().createQuery("select max(idBorrowed) from BorrowedEntity").list().get(0).toString());
-            }catch (NullPointerException e) {
-                max_id = 0;
-            }
-            //System.out.println(max_id);
-            newBorrowedBook.setIdBorrowed(max_id + 1);
-            List<ReadersEntity> re = database.getSession().createQuery("from ReadersEntity where email = :email").setParameter("email",request.session().attribute("currentUser")).list();
-            ReadersEntity re1 = re.get(0);
-            newBorrowedBook.setIdReader(re1.getIdReader());
-            newBorrowedBook.setBorrowedDate(new Date(new java.util.Date().getTime()));
-            newBorrowedBook.setReturnDate(new Date(new java.util.Date().getTime()+ 604800000));
-            List<Integer> ce = database.getSession().createQuery("select idBook from CopiesEntity where isbn = :isbn").setParameter("isbn",isbnBook).list();
-            List<Integer> be = database.getSession().createQuery("select be.idBook from BorrowedEntity as be join CopiesEntity as ce on be.idBook = ce.idBook where ce.isbn = :isbn").setParameter("isbn",isbnBook).list();
-            ce.removeAll(be);
-            newBorrowedBook.setIdBook(ce.get(0));
-            database.getSession().save("BorrowedEntity", newBorrowedBook);*/
         }else{
             newReservedBook.setExpireDate(null);
         }
@@ -84,8 +70,29 @@ public class LoanController {
         return "Success";
     };
 
-    public static Route test = (request, response) -> {
-        System.out.println("test");
-        return "";
+    public static Filter setNewBorrowed = (request, response) -> {
+        if(!LoginController.ifUserIsNotLogged(request,response)){
+            List<BorrowedEntity> b1 = database.getSession().createQuery("from BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).list();
+            BorrowedEntity b2 = b1.get(0);
+            List<CopiesEntity> c1 = database.getSession().createQuery("from CopiesEntity where idBook = :idBook").setParameter("idBook",b2.getIdBook()).list();
+            CopiesEntity c2 = c1.get(0);
+            List<ReservedEntity> reservedBooks = database.getSession().createQuery("from ReservedEntity where isbn = :isbn and expireDate is null").setParameter("isbn", c2.getIsbn()).list();
+            if(!reservedBooks.isEmpty()){
+                ReservedEntity reservedBook = reservedBooks.get(0);
+                reservedBook.setExpireDate(new Date(new java.util.Date().getTime()+ 604800000));
+                Application.database.getSession().update(reservedBook);
+                Database.myUpdate();
+                List<ReadersEntity> r1 = database.getSession().createQuery("from ReadersEntity where idReader = :idReader").setParameter("idReader", reservedBook.getIdReader()).list();
+                ReadersEntity r2 = r1.get(0);
+                String subject = "Książka czeka na odbiór";
+                List<BooksEntity> be1 = database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn", c2.getIsbn()).list();
+                BooksEntity be2 = be1.get(0);
+                String body = "Od dnia dzisiejszego do " + reservedBook.getExpireDate() + " w placówce biblioteki czeka na odbiór książka " + be2.getTitle() + " autorstwa " + be2.getAuthors();
+                String[] to = {r2.getEmail()};
+                sendFromGMail(to,subject,body);
+            }
+
+
+        }
     };
 }
