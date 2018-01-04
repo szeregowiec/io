@@ -110,6 +110,15 @@
                                 </form>
                             </div>
                         #end
+                            <div id="divFormEdit" class="container">
+                                <form action="/hidebook/$book.getIsbn()" method="post" id="formHide" class="form-signin">
+                                    <div class="form-group">
+                                        <label>
+                                            <button class="btn btn-lg btn-success" type="submit" id="hideButton" name="hideButton">$hButton</button>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
                         #end
 
 

@@ -16,16 +16,14 @@
     <mapping resource="DataSchema/CopiesEntity.hbm.xml"/>
     <mapping class="DataSchema.EmployeeEntity"/>
     <mapping resource="DataSchema/EmployeeEntity.hbm.xml"/>
+    <mapping resource="DataSchema/HistoryEntity.hbm.xml"/>
+    <mapping class="DataSchema.HistoryEntity"/>
     <mapping class="DataSchema.NotificationsEntity"/>
     <mapping resource="DataSchema/NotificationsEntity.hbm.xml"/>
     <mapping resource="DataSchema/ReadersEntity.hbm.xml"/>
     <mapping class="DataSchema.ReadersEntity"/>
     <mapping class="DataSchema.ReservedEntity"/>
     <mapping resource="DataSchema/ReservedEntity.hbm.xml"/>
-    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
-    <mapping resource="DataSchema/BooksEntity.hbm.xml"/>
     <!-- <property name="connection.username"/> -->
     <!-- <property name="connection.password"/> -->
 

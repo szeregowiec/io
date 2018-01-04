@@ -1,7 +1,5 @@
 package util;
 
-import freemarker.cache.StrongCacheStorage;
-
 public class Constants {
 
     public static String LOGIN = "/login";
@@ -9,7 +7,7 @@ public class Constants {
     public static String REGISTER = "/register";
     public static String UPLOADBOOK = "/uploadbook";
     public static String LOGOUT = "/logout";
-    public static String MAIN = "/main";
+   // public static String MAIN = "/main";
     public static String CATALOG = "/catalog";
     public static String CATEGORY = CATALOG+"/:category";
     public static String CHANGEUSERDATA = "/change";
@@ -18,6 +16,7 @@ public class Constants {
     public static String EDIT = "/changeBook/:isbn";
     public static String EDIT_BOOK = "/editbook/:isbn";
     public static String DELETE_BOOK = "/deletebook/:isbn";
+    public static String HIDE_BOOK = "/hidebook/:isbn";
     public static String RESERVED_BOOKS = "/reserved";
     public static String BORROWED_BOOKS = "/borrowed";
     public static String DELETE_RESERVED_BOOK = "/reserved/:id";
@@ -29,6 +28,8 @@ public class Constants {
     public static String CONFIRM_RETURNING = "/confirmReturn/:id";
     public static String PAYMENT = "/confirmPayment";
     public static String CONFIRM_PAYMENT = "/confirmPayment/:id";
+    public static String DELETE_COPY = "/deleteCopy/:id";
+    public static String HISTORY = "/history";
 
     public static String LOGIN_TEMPLATE = "/Views/logowanie.vm";
     public static String REGISTER_TEMPLATE = "Views/rejestracja.vm";
@@ -44,6 +45,7 @@ public class Constants {
     public static String RESERVATION_LIST_TEMPLATE = "Views/pracownik_potwierdz_wyp.vm";
     public static String RETURNING_LIST_TEMPLATE = "Views/pracownik_potwierdz_zwr.vm";
     public static String PAYMENTS_LIST_TEMPLATE = "Views/pracownik_potwierdz_opl.vm";
+    public static String HISTORY_TEMPLATE = "Views/uzytkownik_historia.vm";
 
 
 }

@@ -390,8 +390,31 @@
                 <tr>
                     <td class="text-center">Ilość</td>
                     <td class="text-center">
-                        <text>$amount</text>
-                        <a id="changeAmount" data-target="#modalChangeAmount" data-toggle="modal"> Zmień ilość</a>
+                        <table class="table table-bordered table-hover table-striped">
+                            <tbody>
+                            <thead>
+                            <td class="text-center">Usuń egzemplarz</td>
+                            <td class="text-center">Identyfikator egzemplarza</td>
+
+                            </thead>
+                        <tr>
+
+                            #if($copiesBook.isEmpty())
+                                <h1 id="noConfirmReturn">Brak dostępnych egzemplarzy</h1>
+                            #else #foreach($copyBook in $copiesBook)
+
+                                <td class="text-center">
+                                    <form action="/deleteCopy/$copyBook" method="post" id="deleteCopy" name="deleteCopy" class="form-signin">
+                                        <button class="btn btn-primary" id="delete" name="delete" type="submit">Usuń</button>
+                                    </form>
+                                </td>
+                                <td class="text-center">$copyBook</td>
+                            <tr>
+                            #end #end
+
+                        </tr>
+                            </tbody>
+                        <a id="changeAmount" data-target="#modalChangeAmount" data-toggle="modal">Dodaj egzemplarze</a>
                         <div class="modal fade" id="modalChangeAmount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -402,7 +425,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <label id="changeLabel" for="text">Wpisz nową ilość</label>
+                                            <label id="changeLabel" for="text">Ile nowych egzemplarzy</label>
                                             <input type="number" min="0" name="ChangeAmountNew" id="ChangeAmountNew">
                                         </div>
 

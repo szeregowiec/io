@@ -7,6 +7,7 @@ import Main.Application;
 import spark.Route;
 import util.Constants;
 
+import java.awt.print.Book;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,10 +33,10 @@ public class AdminBookInfo {
         List<ReservedEntity> books = database.getSession().createQuery("FROM ReservedEntity where expireDate is not null").list();
         List<Reservation> reserved = new ArrayList<>();
         for (ReservedEntity book: books) {
-            List<ReadersEntity> user = database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list();
-            ReadersEntity oneUser = user.get(0);
-            List<BooksEntity> oneBooks = database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", book.getIsbn()).list();
-            BooksEntity oneBook = oneBooks.get(0);
+            //List<ReadersEntity> user = database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list();
+            ReadersEntity oneUser = (ReadersEntity)(database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list()).get(0);
+            //List<BooksEntity> oneBooks = database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", book.getIsbn()).list();
+            BooksEntity oneBook = (BooksEntity)(database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", book.getIsbn()).list()).get(0);
             Reservation tmp = new Reservation(oneBook.getTitle(), oneBook.getAuthors(), oneUser.getEmail()+ " " +oneUser.getName() + " " + oneUser.getSurname(), book.getIdReserved());
             reserved.add(tmp);
         }
@@ -58,12 +59,12 @@ public class AdminBookInfo {
         List<BorrowedEntity> books = database.getSession().createQuery("FROM BorrowedEntity").list();
         List<Reservation> reserved = new ArrayList<>();
         for (BorrowedEntity book: books) {
-            List<ReadersEntity> user = database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list();
-            ReadersEntity oneUser = user.get(0);
-            List<CopiesEntity> copies = database.getSession().createQuery("FROM CopiesEntity where idBook = :idBook").setParameter("idBook", book.getIdBook()).list();
-            CopiesEntity copy = copies.get(0);
-            List<BooksEntity> oneBooks = database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
-            BooksEntity oneBook = oneBooks.get(0);
+            //List<ReadersEntity> user = database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list();
+            ReadersEntity oneUser = (ReadersEntity)(database.getSession().createQuery("FROM ReadersEntity where idReader = :idReader").setParameter("idReader", book.getIdReader()).list()).get(0);
+            //List<CopiesEntity> copies = database.getSession().createQuery("FROM CopiesEntity where idBook = :idBook").setParameter("idBook", book.getIdBook()).list();
+            CopiesEntity copy = (CopiesEntity) (database.getSession().createQuery("FROM CopiesEntity where idBook = :idBook").setParameter("idBook", book.getIdBook()).list()).get(0);
+            //List<BooksEntity> oneBooks = database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
+            BooksEntity oneBook = (BooksEntity)(database.getSession().createQuery("FROM BooksEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list()).get(0);
             Reservation tmp = new Reservation(oneBook.getTitle(), oneBook.getAuthors(), oneUser.getEmail()+ " " +oneUser.getName() + " " + oneUser.getSurname(), book.getIdBorrowed());
             reserved.add(tmp);
         }
@@ -83,7 +84,7 @@ public class AdminBookInfo {
         }
         Map<String,Object> model = new HashMap<>();
         model.put("login",request.session().attribute("login"));
-        List<ReadersEntity> readers = database.getSession().createQuery("FROM ReadersEntity where penalty > 0").list();
+        List readers = database.getSession().createQuery("FROM ReadersEntity where penalty > 0").list();
         model.put("confirmCharge",readers);
         request.session().attribute("confirmCharge",readers);
         return util.View.render(request, model, Constants.PAYMENTS_LIST_TEMPLATE);
@@ -136,13 +137,29 @@ public class AdminBookInfo {
             response.redirect(Constants.START);
             return "";
         }
+        int idReader = (int)(database.getSession().createQuery("select idReader from BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).list()).get(0);
+        String isbn = (String)(database.getSession().createQuery("select isbn from CopiesEntity where idBook = :idBook").setParameter("idBook",Integer.parseInt(request.params(":id"))).list()).get(0);
+        BooksEntity book = (BooksEntity)(database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn",isbn).list()).get(0);
+        int max_id;
+        try{
+            max_id = Integer.parseInt(database.getSession().createQuery("select max(idHistory) from HistoryEntity ").list().get(0).toString()); // wysypie się jak nie ma żadnego użytkownika
+        }catch (NullPointerException e){
+            max_id = 0;
+        }
 
+        HistoryEntity history = new HistoryEntity();
+        history.setReturnDate(new Date(new java.util.Date().getTime()));
+        history.setIdReader(idReader);
+        history.setAuthors(book.getAuthors());
+        history.setIsbn(isbn);
+        history.setTitle(book.getTitle());
+        history.setIdHistory(max_id + 1);
+        database.getSession().save("HistoryEntity", history);
         Application.database.getSession().createQuery("delete BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).executeUpdate();
         Database.myUpdate();
         response.redirect(Constants.RETURNING);
         return "";
     };
-
 
     public static Route confirmPayment = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
@@ -153,8 +170,8 @@ public class AdminBookInfo {
             response.redirect(Constants.START);
             return "";
         }
-        List<ReadersEntity> users = database.getSession().createQuery("FROM ReadersEntity WHERE idReader = :id").setParameter("id",Integer.parseInt(request.params(":id"))).list();
-        ReadersEntity user = users.get(0);
+        List users = database.getSession().createQuery("FROM ReadersEntity WHERE idReader = :id").setParameter("id",Integer.parseInt(request.params(":id"))).list();
+        ReadersEntity user = (ReadersEntity)users.get(0);
         user.setPenalty(0);
         Application.database.getSession().update(user);
         Database.myUpdate();

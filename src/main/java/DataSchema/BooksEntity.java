@@ -16,6 +16,7 @@ public class BooksEntity {
     private String language;
     private String isbn;
     private String cover;
+    private Byte visibility;
 
     @Basic
     @Column(name = "title", nullable = false, length = 50)
@@ -88,7 +89,7 @@ public class BooksEntity {
     }
 
     @Basic
-    @Column(name = "description", nullable = false, length = 50)
+    @Column(name = "description", nullable = false, length = 250)
     public String getDescription() {
         return description;
     }
@@ -164,5 +165,15 @@ public class BooksEntity {
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
         result = 31 * result + (cover != null ? cover.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "visibility", nullable = true)
+    public Byte getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Byte visibility) {
+        this.visibility = visibility;
     }
 }

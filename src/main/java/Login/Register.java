@@ -54,7 +54,7 @@ public class Register {
          * lepiej by było to brać z oddzielnych pól, no ale cóż
          */
         try{
-            int year=0, month=0, day=0;
+            //int year=0, month=0, day=0;
             String dataGiven = request.queryParams("inputDateBirth");
 
             /*if(Pattern.matches("\\d\\d\\d\\d-\\d\\d-\\d\\d",dataGiven)){
@@ -78,7 +78,12 @@ public class Register {
             response.redirect(Constants.REGISTER);
             System.out.println("Wyjebalo wyjatek");
         }
-        int max_id = Integer.parseInt(database.getSession().createQuery("select max(idReader) from ReadersEntity ").list().get(0).toString()); // wysypie się jak nie ma żadnego użytkownika
+        int max_id;
+        try{
+            max_id = Integer.parseInt(database.getSession().createQuery("select max(idReader) from ReadersEntity ").list().get(0).toString()); // wysypie się jak nie ma żadnego użytkownika
+        }catch (NullPointerException e){
+            max_id = 0;
+        }
 
         newReader.setIdReader(max_id + 1);
 

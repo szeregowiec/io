@@ -1,19 +1,16 @@
 package Login;
 
 import Base.Database;
-import Book.UploadController;
 import DataSchema.ReadersEntity;
 import Main.Application;
 import spark.Route;
 import util.Constants;
 import util.Password;
-
-import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static util.Password.getHashedPassword;
+
 
 public class ChangeUserData {
 

@@ -59,7 +59,7 @@
 
 <div class="container" id="employee">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="/uploadbook">Dodaj książkę</a></li>
+        <li role="presentation"><a href="/settings">Dodaj książkę</a></li>
         <li role="presentation"><a href="/confirmBorrowing">Potwierdź wypożyczenie</a></li>
         <li role="presentation" class="active"><a href="/confirmReturn">Potwierdź zwrot</a></li>
         <li role="presentation"><a href="/confirmPayment">Potwierdź uiszczenie opłaty</a></li>

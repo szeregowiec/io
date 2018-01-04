@@ -95,9 +95,9 @@
                         </li>
                         <li><a href="/catalog/crime">Kryminał</a>
                         </li>
-                        <li><a href="belles">Literatura piękna</a>
+                        <li><a href="/catalog/belles">Literatura piękna</a>
                         </li>
-                        <li><a href="custom">Obyczajowa</a>
+                        <li><a href="/catalog/custom">Obyczajowa</a>
                         </li>
                         <li><a href="/catalog/poetry">Poezja</a>
                         </li>

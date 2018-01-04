@@ -62,7 +62,7 @@
         <li role="presentation"><a href="/reserved">Rezerwacje</a></li>
         <li role="presentation"><a href="/borrowed">Wypożyczone</a></li>
         <li role="presentation" class="active"><a href="/penalties">Opłaty</a></li>
-        <li role="presentation"><a href="#">Historia wypozyczeń</a></li>
+        <li role="presentation"><a href="/history">Historia wypozyczeń</a></li>
         <li role="presentation"><a href="/change">Dane użytkownika</a></li>
     </ul>
 </div>

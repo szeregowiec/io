@@ -3,8 +3,7 @@ package Book;
 import DataSchema.BooksEntity;
 import DataSchema.CopiesEntity;
 import Login.LoginController;
-import com.sun.org.apache.regexp.internal.RE;
-import org.apache.commons.lang.ObjectUtils;
+
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -12,7 +11,6 @@ import util.Constants;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.file.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,28 +23,16 @@ import static Main.Application.database;
 public class UploadController {
 
 
-    public static void deleteCover(Path path) {
-        //Path path = FileSystems.getDefault().getPath("src\\main\\resources\\Views\\Covers\\", request.queryParams("inputIsbn")+".jpg");
-        try {
-            Files.deleteIfExists(path);
-        } catch (NoSuchFileException x) {
-            System.err.format("%s: no such" + " file or directory%n", path);
-        } catch (DirectoryNotEmptyException x) {
-            System.err.format("%s not empty%n", path);
-        } catch (IOException x) {
-            // File permission problems are caught here.
-            System.err.println(x);
-        }
-    }
 
-    public static void createCover(String param, String path, Request request, Response response) {
+
+    static void createCover(String param, String path, Request request, Response response) {
         try {
             String imgURL = request.queryParams(param);
             URL url = new URL(imgURL);
             InputStream in = new BufferedInputStream(url.openStream());
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             byte[] buf = new byte[1024];
-            int n = 0;
+            int n;// = 0;
             while (-1 != (n = in.read(buf))) {
                 out.write(buf, 0, n);
             }
@@ -64,7 +50,6 @@ public class UploadController {
             //return "";
         }
     }
-
 
     public static Route upload = (request, response) -> {
 
@@ -94,6 +79,8 @@ public class UploadController {
         newBook.setPublishYear(request.queryParams("inputDate"));
         newBook.setPublishPlace(request.queryParams("inputPlace"));
         newBook.setCover(request.queryParams("inputIsbn")+".jpg");
+        Byte tmp = 1;
+        newBook.setVisibility(tmp);
 
 
 

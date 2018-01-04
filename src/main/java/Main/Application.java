@@ -8,7 +8,7 @@ import Book.UploadController;
 import Login.*;
 
 import util.Constants;
-import Runnable.Daemon;
+import MyRunnable.Daemon;
 import java.util.HashMap;
 
 import static spark.Spark.*;
@@ -52,9 +52,12 @@ public class Application {
         get(Constants.LOGOUT, LoginController.logout);
         get(Constants.SETTINGS, UploadController.giveInformation);
         post(Constants.SETTINGS, UploadController.upload);
+        get(Constants.EDIT_BOOK, EditController.giveInformation);
         post(Constants.EDIT_BOOK, EditController.giveInformation);
         post(Constants.EDIT, EditController.editBook);
         post(Constants.DELETE_BOOK, EditController.deleteBook);
+        post(Constants.HIDE_BOOK, EditController.hideShowBook);
+        post(Constants.DELETE_COPY, EditController.deleteCopy);
         get(Constants.RESERVED_BOOKS, UserBookInfo.reservedBooks);
         post(Constants.DELETE_RESERVED_BOOK, UserBookInfo.deleteReservedBook);
         get(Constants.BORROWED_BOOKS, UserBookInfo.borrowedBooks);
@@ -66,6 +69,7 @@ public class Application {
         post(Constants.CONFIRM_RETURNING, AdminBookInfo.confirmReturning);
         get(Constants.PAYMENT, AdminBookInfo.payments);
         post(Constants.CONFIRM_PAYMENT, AdminBookInfo.confirmPayment);
+        get(Constants.HISTORY, UserBookInfo.userHistory);
 
         get(Constants.CHANGEUSERDATA, ChangeUserData.changeUserData);
         post(Constants.CHANGEUSERDATA, ChangeUserData.ChangeUserDataPost);

@@ -1,10 +1,10 @@
 package util;
-import org.apache.velocity.*;
+
 import org.apache.velocity.app.VelocityEngine;
 import spark.ModelAndView;
 import spark.Request;
 import spark.template.velocity.VelocityTemplateEngine;
-import static spark.Spark.*;
+
 
 import java.util.Map;
 

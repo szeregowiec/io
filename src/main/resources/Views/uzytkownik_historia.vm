@@ -59,10 +59,10 @@
 
 <div class="container" id="user">
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation"><a href="#">Rezerwacje</a></li>
-        <li role="presentation"><a href="#">Wypożyczone</a></li>
-        <li role="presentation"><a href="#">Opłaty</a></li>
-        <li role="presentation" class="active"><a href="#">Historia wypozyczeń</a></li>
+        <li role="presentation"><a href="/reserved">Rezerwacje</a></li>
+        <li role="presentation"><a href="/borrowed">Wypożyczone</a></li>
+        <li role="presentation"><a href="/penalties">Opłaty</a></li>
+        <li role="presentation" class="active"><a href="/history">Historia wypozyczeń</a></li>
         <li role="presentation"><a href="/change">Dane użytkownika</a></li>
     </ul>
 </div>
@@ -88,7 +88,7 @@
                         <td class="text-center">$book.getReturnDate()</td>
                         <td class="text-center">$book.getTitle()</td>
                         <td class="text-center">$book.getAuthors()</td>
-
+                        <tr>
                     #end #end
 
                 </tr>

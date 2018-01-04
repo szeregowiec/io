@@ -15,10 +15,12 @@ import static util.Password.getHashedPassword;
 
 public class LoginController {
 
+
     public static boolean ifUserIsNotLogged(Request request, Response response) {
         if (request.session().attribute("currentUser") == null && request.session().attribute("currentEmployee") == null) return true;
         return false;
     };
+
     public static boolean ifItIsNotReader(Request request, Response response) {
         if (request.session().attribute("currentUser") == null) return true;
         return false;
