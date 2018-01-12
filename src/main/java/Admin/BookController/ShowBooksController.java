@@ -125,14 +125,19 @@ public class ShowBooksController {
     };
 
     public static Route viewFoundBooks = (request, response) -> {
-        if(LoginController.ifUserIsNotLogged(request,response)){
+        if (LoginController.ifUserIsNotLogged(request, response)) {
             response.redirect(Constants.LOGIN);
             return "";
         }
-        Map<String,Object> model = new HashMap<>();
-        model.put("login",request.session().attribute("login"));
+        Map<String, Object> model = new HashMap<>();
+        model.put("login", request.session().attribute("login"));
         String input = request.queryParams("inputFindBook");
-        List<BooksEntity> allBooks = database.getSession().createQuery("From BooksEntity ").list();
+        List<BooksEntity> allBooks = null;
+        if (LoginController.ifItIsNotReader(request, response)) {
+            allBooks = database.getSession().createQuery("From BooksEntity").list();
+        } else {
+            allBooks = database.getSession().createQuery("From BooksEntity where visibility = 1").list();
+        }
         Map<String, FoundBook> foundBooks = findBook(allBooks,input);
         List books = new ArrayList();
         for (Map.Entry<String,FoundBook> tmp:foundBooks.entrySet()) {

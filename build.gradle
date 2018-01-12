@@ -45,7 +45,17 @@ dependencies {
     compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '4.0.0'
 
     compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '4.0.0'
-    compile group: 'org.mockito', name: 'mockito-core', version: '2.13.0'
+    //compile group: 'org.mockito', name: 'mockito-core', version: '2.13.0'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    //compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.8.0'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+     compile group: 'com.google.guava', name: 'guava', version: '23.0'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
+   compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.8.1'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
+
+
+
 
 
 

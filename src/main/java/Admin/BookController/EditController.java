@@ -209,10 +209,10 @@ public class EditController {
             response.redirect(Constants.START);
             return "";
         }
-        //List<CopiesEntity> copies = database.getSession().createQuery("from CopiesEntity where idBook = :idBook").setParameter("idBook", Integer.parseInt(request.params(":id"))).list();
         CopiesEntity copy = (CopiesEntity)(database.getSession().createQuery("from CopiesEntity where idBook = :idBook").setParameter("idBook", Integer.parseInt(request.params(":id"))).list()).get(0);
+        List<CopiesEntity> copies = database.getSession().createQuery("from CopiesEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
         List reservedBooks = database.getSession().createQuery("from ReservedEntity where expireDate is not null and isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
-        if(!reservedBooks.isEmpty()){
+        if(!reservedBooks.isEmpty() && copies.size() == reservedBooks.size()){
             ReservedEntity reservedBook = (ReservedEntity)reservedBooks.get(reservedBooks.size()-1);
             reservedBook.setExpireDate(null);
             Application.database.getSession().update(reservedBook);
