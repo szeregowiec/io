@@ -15,18 +15,31 @@ import static util.Password.getHashedPassword;
 
 public class LoginController {
 
-
+    /**
+     * Sprawdza czy uzytkownik jest niezalogowany
+     * @param request
+     * @param response
+     * @return
+     */
     public static boolean ifUserIsNotLogged(Request request, Response response) {
         if (request.session().attribute("currentUser") == null && request.session().attribute("currentEmployee") == null) return true;
         return false;
     };
 
+    /**
+     * Sprawdza czy czytelnik nie jest zalogowany
+     * @param request
+     * @param response
+     * @return
+     */
     public static boolean ifItIsNotReader(Request request, Response response) {
         if (request.session().attribute("currentUser") == null) return true;
         return false;
     };
 
-
+    /**
+     * Loguje do systemu jeśli w bazie jest taki uzytkownik tzn jest zarejestrowny
+     */
     public static Route loginIfRegistered = (request, response) -> {
         //Database database= new Database();
         String check = request.queryParams("inputEmployee");
@@ -59,7 +72,9 @@ public class LoginController {
         return util.View.render(request, model, Constants.LOGIN_TEMPLATE);
 
     };
-
+    /**
+     * Wyświela stronę główną
+     */
     public static Route start = (request, response) -> {
       if(ifUserIsNotLogged(request,response)){
           response.redirect(Constants.LOGIN);
@@ -70,7 +85,9 @@ public class LoginController {
       return util.View.render(request, model, Constants.MAIN_TEMPLATE);
     };
 
-
+    /**
+     * Wylogowuje użytkownika
+     */
     public static Route logout = (request, response) -> {
         if(ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);

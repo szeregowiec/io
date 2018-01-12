@@ -1,7 +1,9 @@
 package util;
 
+/**
+ * Lista stałych
+ */
 public class Constants {
-
     public static String LOGIN = "/login";
     public static String START = "/start";
     public static String REGISTER = "/register";

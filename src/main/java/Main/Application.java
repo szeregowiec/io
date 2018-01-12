@@ -18,21 +18,29 @@ import static spark.Spark.*;
 
 
 import util.View;
-
+/**
+ * Serwis biblioteczny(wypożyczalnia książek) oparty na frameworku
+ * Spark - A micro framework for creating web applications in and Java 8
+ *
+ * @author  Patrycja Kopacz, Piotr Karaś, Kamil Magiera, Adam Buczek
+ * @version 1.0
+ * @since   2018-01-12
+ */
 public class Application {
 
     public static Database database;
 
     public static void main(String[] args) {
-        staticFiles.externalLocation(System.getProperty("user.dir") + "/src/main/resources/Views");
+        spark.Spark.staticFiles.externalLocation(System.getProperty("user.dir") + "/src/main/resources/Views"); //statyczny folder z plikami velocity
         port(8000);
         init();
         staticFiles.expireTime(600L);
         database = new Database();
 
-        (new Thread(new Daemon())).start();
+        (new Thread(new Daemon())).start(); //wątek który co 24 godziny wysyła stosowne powiadomienia sotsownym uzytkonikom, nalicza kary oraz usuwa przestarzałe rezerwacje
 
-
+        // funkcje get i post reagują na komunikaty z velocity
+        // before jest wywoływana przed odpowiednim get/post w którym zgadza się pierwszy argument
         get("/", (req, res) -> {res.redirect(Constants.LOGIN); return null;});
 
 

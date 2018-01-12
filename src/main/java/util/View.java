@@ -21,7 +21,13 @@ public class View {
         return new VelocityTemplateEngine(configuredEngine);
     }
 
-
+    /**
+     * Renderuje stronę o podanej ścieżce
+     * @param request
+     * @param model atrubuty które są przekazywane do veolcity
+     * @param templatePath ścieżka do pliku velocity
+     * @return
+     */
     public static String render(Request request, Map<String, Object> model, String templatePath) {
 //        model.put("msg", new MessageBundle(getSessionLocale(request)));
 //        model.put("currentUser", getSessionCurrentUser(request));

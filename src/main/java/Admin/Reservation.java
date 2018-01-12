@@ -1,6 +1,8 @@
 package Admin;
 
-
+/**
+ * Klasa pomocnicza aby przekazać do modelu konkretny obiekt do pokazania na stronie
+ */
 public class Reservation {
 
     private String title;

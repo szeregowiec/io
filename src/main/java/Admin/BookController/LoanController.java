@@ -14,9 +14,13 @@ import java.util.List;
 
 import static Main.Application.database;
 
-
+/**
+ * Klasa kontrolująca wypożycznia książek
+ */
 public class LoanController {
-
+    /**
+     * Na podstawie zapytań przydziela użytkownikowi rezerwację w zależności czy książka jest dostępna(data wygaśnięcia) czy jej w danyum momencie nie ma
+     */
     public static Route loanBook = (request, response) -> {
 
         if(LoginController.ifUserIsNotLogged(request,response)){
@@ -66,7 +70,9 @@ public class LoanController {
         response.redirect(Constants.CATALOG);
         return "Success";
     };
-
+    /**
+     * Przydziela oddane do biblioteki książki nowym uzytkownikom na podstawie rezerwacji
+     */
     public static Filter setNewBorrowed = (request, response) -> {
         if(!LoginController.ifUserIsNotLogged(request,response)){
             //List<BorrowedEntity> b1 = database.getSession().createQuery("from BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).list();

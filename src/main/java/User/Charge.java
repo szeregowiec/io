@@ -2,6 +2,10 @@ package User;
 
 import java.sql.Date;
 
+
+/**
+ * Klasa pomocnicza do wyświetlania odpowidniego obiektu w velocity
+ */
 public class Charge {
 
     private String title;

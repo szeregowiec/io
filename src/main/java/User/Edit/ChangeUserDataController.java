@@ -12,10 +12,14 @@ import java.util.List;
 import java.util.Map;
 
 
-
+/**
+ * Klasa kontrolująca wyświetlanie i edytowanie danych użytkownika
+ */
 public class ChangeUserDataController {
 
-
+    /**
+     * zmienia podane przez formularz dane użytkownika
+     */
     public static Route ChangeUserDataPost = (request, response) -> {
 
         if(LoginController.ifUserIsNotLogged(request,response)) {
@@ -177,7 +181,9 @@ public class ChangeUserDataController {
 
     };
 
-
+    /**
+     * Wyświetla informacje o danych użytkownika które może edytować
+     */
     public static Route changeUserData = (request, response) -> {
 
         if(LoginController.ifUserIsNotLogged(request,response)){

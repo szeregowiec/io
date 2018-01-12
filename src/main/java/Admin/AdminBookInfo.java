@@ -17,7 +17,9 @@ import static Main.Application.database;
 
 public class AdminBookInfo {
 
-
+    /**
+     * Wyświetla pracownikowi wszystkie aktualnie zarezerwowane książki które może wypozyczyć odpowiednim czytlenikom
+     */
     public static Route borrowing = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -43,7 +45,9 @@ public class AdminBookInfo {
         request.session().attribute("confirmBorrow",reserved);
         return util.View.render(request, model, Constants.RESERVATION_LIST_TEMPLATE);
     };
-
+    /**
+     * Wyświela pracownikowi wszytkei aktualnie wypozyczone książki które mogą btć zwrócone
+     */
     public static Route returning = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -71,7 +75,9 @@ public class AdminBookInfo {
         request.session().attribute("confirmReturn",reserved);
         return util.View.render(request, model, Constants.RETURNING_LIST_TEMPLATE);
     };
-
+    /**
+     * wyświetla pracownikowi listę użytkowników z naliczonymi karami które mogą uregulować
+     */
     public static Route payments = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -88,7 +94,9 @@ public class AdminBookInfo {
         request.session().attribute("confirmCharge",readers);
         return util.View.render(request, model, Constants.PAYMENTS_LIST_TEMPLATE);
     };
-
+    /**
+     * na podstawie listy uzytkowników z parametru borrowing i tego co po przez pracownika velocity przekazało w zapytaniu potwierdza wypozyczenie książki
+     */
     public static Route confirmBorrowing = (request, response) -> {
         Database.myUpdate();
         if(LoginController.ifUserIsNotLogged(request,response)){
@@ -124,7 +132,9 @@ public class AdminBookInfo {
         response.redirect(Constants.BORROWING);
         return "";
     };
-
+    /**
+     * na podstawie listy uzytkowników z parametru returning i tego co po przez pracownika velocity przekazało w zapytaniu potwierdza oddanie książki
+     */
     public static Route confirmReturning = (request, response) -> {
         Database.myUpdate();
         if(LoginController.ifUserIsNotLogged(request,response)){
@@ -159,7 +169,9 @@ public class AdminBookInfo {
         response.redirect(Constants.RETURNING);
         return "";
     };
-
+    /**
+     * na podstawie listy uzytkowników z parametru payments i tego co po przez pracownika velocity przekazało w zapytaniu potwierdza uiszczenie wpłaty
+     */
     public static Route confirmPayment = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);

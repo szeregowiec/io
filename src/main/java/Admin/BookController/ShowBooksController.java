@@ -15,10 +15,16 @@ import java.util.Map;
 import static Main.Application.database;
 import static SearchEngine.BookSearchEngine.findBook;
 
+
+/**
+ * Klasa kontrolująca wyświatlanie informacji o książkach
+ */
 public class ShowBooksController {
 
 
-
+    /**
+     * Wyświetla katalog książek
+     */
     public static Route viewBooks = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -38,7 +44,9 @@ public class ShowBooksController {
         request.session().attribute("books",books);
         return util.View.render(request, model, Constants.VIEW_BOOKS);
     };
-
+    /**
+     * Wyświetle katalog książek o konkretnej kategorii
+     */
     public static Route viewSpecificBooks = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -60,7 +68,9 @@ public class ShowBooksController {
 
         return util.View.render(request, model, Constants.VIEW_BOOKS);
     };
-
+    /**
+     * Wyświetla informacje o konkretnej książce
+     */
     public static Route viewOneBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -123,7 +133,9 @@ public class ShowBooksController {
         request.session().attribute("hButton",hideButton);
         return util.View.render(request, model, Constants.ONE_BOOK_TEMPLATE);
     };
-
+    /**
+     * wyświetla znalezione książki na podstawie hasła podanego w wyszukiwarce
+     */
     public static Route viewFoundBooks = (request, response) -> {
         if (LoginController.ifUserIsNotLogged(request, response)) {
             response.redirect(Constants.LOGIN);

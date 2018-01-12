@@ -16,7 +16,9 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 
 public class RegisterController {
-
+    /**
+     * Rejestruje użytkownika w bazie
+     */
     public static Route register = (request, response) -> {
         EmailValidator emailValidator = EmailValidator.getInstance();
 
@@ -93,7 +95,9 @@ public class RegisterController {
     return newReader.getIdReader()+"\n"+newReader.getName()+"\n"+newReader.getSurname()+"\n"+newReader.getPassword()+"\n"+newReader.getLogin();
     };
 
-
+    /**
+     * Wyświetla stronę do rejestracji
+     */
     public static Route giveInformation = (request, response) -> {
         Map<String,Object> model = new HashMap<>();
 

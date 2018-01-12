@@ -8,6 +8,9 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import javax.transaction.Transactional;
 
+/**
+ * Klasa zarządzającą bazą danych, korzysta z frameworku Hibernate
+ */
 public class Database {
 
     @Transactional

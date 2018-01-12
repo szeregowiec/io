@@ -6,7 +6,11 @@ import java.security.NoSuchAlgorithmException;
 public class Password {
 
 
-
+    /**
+     * Generuje zahashowane hasło
+     * @param Password hasło do zahashowania
+     * @return
+     */
     public static String getHashedPassword(String Password){
         String generatedPassword = null;
         try {

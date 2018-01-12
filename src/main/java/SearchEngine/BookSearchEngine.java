@@ -25,7 +25,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Klasa zarządzająca wyszukiwaniem książek
+ */
 public class BookSearchEngine {
+    /**
+     *
+     * @param books lista książek z bazy danuych
+     * @param input wprowadzone hasło na podstawie którego wyszukiwane będą książki
+     * @return zwraca mapę znalezionych książek
+     */
     public static Map<String,FoundBook> findBook(List<BooksEntity> books, String input) throws IOException, ParseException {
         // 0. Specify the analyzer for tokenizing text.
         //    The same analyzer should be used for indexing and searching

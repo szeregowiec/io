@@ -1,5 +1,8 @@
 package SearchEngine;
 
+/**
+ * Klasa pomocnicza aby przekazać do modelu odpowidni obiekt do wyświatlania
+ */
 public class FoundBook {
     private String title;
     private String authors;

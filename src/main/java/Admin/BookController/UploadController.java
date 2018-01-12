@@ -19,12 +19,19 @@ import DataSchema.Base.Database;
 
 import static Main.Application.database;
 
-
+/**
+ * Klasa kontrolująca dodawanie nowych ksiązek do biblioteki
+ */
 public class UploadController {
 
 
-
-
+    /**
+     *
+     * @param param nazwa parametru otrzymanego ze spark poprzez Request w którym znajduje się okładka
+     * @param path scieżka do zapisu okładki
+     * @param request parametr z którego otrzymujemy informacje przekazane z velocity
+     * @param response parametr do którego wysyłamy informacje zwrotną
+     */
     static void createCover(String param, String path, Request request, Response response) {
         try {
             String imgURL = request.queryParams(param);
@@ -51,6 +58,9 @@ public class UploadController {
         }
     }
 
+    /**
+     * Dodaje do bazy nową książkę wraz z okładką i jej kopiami
+     */
     public static Route upload = (request, response) -> {
 
         List book = database.getSession().createQuery("FROM BooksEntity WHERE isbn = :isbn").setParameter("isbn", request.queryParams("inputIsbn")).list();
@@ -107,7 +117,9 @@ public class UploadController {
         return "Success";
 
     };
-
+    /**
+     * Wyświetla stronę/formularz dodawania książki
+     */
     public static Route giveInformation = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);

@@ -19,10 +19,15 @@ import java.util.Map;
 
 import static Admin.BookController.UploadController.createCover;
 import static Main.Application.database;
-import static MyRunnable.MailSender.*;
-
+import static MyRunnable.MailSenderRunnable.*;
+/**
+ * Klasa zawiera statyczne pola pod które za pomocą wyrażeń lambda, które nadpisują metodę handle z interfejsu Route
+ * pola te są wykorzystywane przez metody get/post do renderowania stron
+ */
 public class EditController {
-
+    /**
+     * Na podstawie Zapytań ze strony kasuje odpowiednią książkę z bazy
+     */
     public static Route deleteBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -47,7 +52,7 @@ public class EditController {
             emailList[i] = email;
             i++;
         }
-        if(emailList.length !=0) sendCancelNotification(book,emailList);
+        if(emailList.length !=0) /*sendCancelNotification(book,emailList);*/ (new Thread(new MailSenderRunnable(3,null,book,emailList))).start();
         //Application.database.getSession().createQuery("delete ReservedEntity where isbn = :isbn").setParameter("isbn", request.params(":isbn")).executeUpdate();
         Database.myUpdate();
         Path path = FileSystems.getDefault().getPath("src\\main\\resources\\Views\\Covers\\", request.params(":isbn")+".jpg");
@@ -55,7 +60,9 @@ public class EditController {
         response.redirect(Constants.CATALOG);
         return "";
     };
-
+    /**
+     * Na podstawie zapytań ze strony zmienia informacje odowiedniej książki w bazie
+     */
     public static Route editBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -199,7 +206,9 @@ public class EditController {
         return util.View.render(request, model, Constants.EDIT_BOOK_TEMPLATE);
 
     };
-
+    /**
+     * Na podstawie zapytań kasuje konkretny egzemplarz książki z bazy
+     */
     public static Route deleteCopy = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -231,7 +240,9 @@ public class EditController {
         return "";
 
     };
-
+    /**
+     * Na podstawie zapytań ukrywa przed czytlenikiem odpowiednią książkę
+     */
     public static Route hideShowBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -273,7 +284,10 @@ public class EditController {
         response.redirect("/book/"+ book.getIsbn());
         return "";
     };
-
+    /**
+     * na Pozdstawie zapytań wyświetla informacje o konkretnej książce
+     * informacje te jest w stanie zobaczyć tylko pracownik systemu w celu edycji informacji o książce
+     */
     public static Route giveInformation = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -306,6 +320,10 @@ public class EditController {
         return util.View.render(request, model, Constants.EDIT_BOOK_TEMPLATE);
     };
 
+    /**
+     * Kasuje okładke o podanaj ścieżce
+     * @param path - scieżka do okładki
+     */
     private static void deleteCover(Path path) {
         //Path path = FileSystems.getDefault().getPath("src\\main\\resources\\Views\\Covers\\", request.queryParams("inputIsbn")+".jpg");
         try {

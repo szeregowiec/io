@@ -1,4 +1,4 @@
-version '1.0-SNAPSHOT'
+version '1.0'
 
 apply plugin: 'java'
 
@@ -10,9 +10,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'javax.mail', name: 'mail', version: '1.6.0'
 }
-version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -20,39 +18,34 @@ apply plugin: 'application'
 mainClassName = "Main.Application"
 
 
-sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
 
+
+jar {
+    doFirst {
+        from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+
+    }
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.sparkjava', name: 'spark-core', version:'2.7.0'
     compile group: 'com.sparkjava', name: 'spark-debug-tools', version:'0.5'
     compile group: 'com.sparkjava', name: 'spark-template-velocity', version:'2.3'
     compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.13'
     compile group: 'org.hibernate', name: 'hibernate-core', version:'5.2.12.Final'
-
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.6.2'
     compile group: 'commons-validator', name: 'commons-validator', version: '1.5.0'
-
     compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.0'
     compile group: 'org.apache.lucene', name: 'lucene-core', version: '4.0.0'
-
     compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '4.0.0'
-
     compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '4.0.0'
-    //compile group: 'org.mockito', name: 'mockito-core', version: '2.13.0'
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    //compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.8.0'
-    // https://mvnrepository.com/artifact/com.google.guava/guava
-     compile group: 'com.google.guava', name: 'guava', version: '23.0'
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
-   compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.8.1'
-    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core
+    compile group: 'com.google.guava', name: 'guava', version: '23.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.8.1'
+
 
 
 

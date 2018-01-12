@@ -12,10 +12,13 @@ import java.util.*;
 
 import static Main.Application.database;
 
-import static MyRunnable.MailSender.sendReturnNotification;
+import static MyRunnable.MailSenderRunnable.sendReturnNotification;
 
+
+/**
+ * Klasa która odpowiada za wysyłanie powiadomień, nalicznie kar oraz kasowanie przestarzałych rezerwacji co 24 godziny
+ */
 public class Daemon implements Runnable {
-
 
 
     public void run() {
@@ -33,6 +36,9 @@ public class Daemon implements Runnable {
 
     }
 
+    /**
+     * Nalicza kary
+     */
     private static void addPenalties(){
         List<ReadersEntity> readers = database.getSession().createQuery("from ReadersEntity").list();
         List<BorrowedEntity> borrowedBooks;// = new ArrayList<>();
@@ -45,6 +51,10 @@ public class Daemon implements Runnable {
             Database.myUpdate();
         }
     }
+
+    /**
+     * Usuwa przestarzałe rezerwacje
+     */
     private static void removeExpiredReservation(){
         Application.database.getSession().createQuery("delete ReservedEntity where expireDate < current_date() ").executeUpdate();
         Database.myUpdate();

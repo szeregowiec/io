@@ -15,7 +15,9 @@ import java.util.Map;
 import static Main.Application.database;
 
 public class UserBookInfo {
-
+    /**
+     * Wyświetla zarezerwowane przez użytkownika książki
+     */
     public static Route reservedBooks = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -42,7 +44,9 @@ public class UserBookInfo {
         request.session().attribute("reserved",reserved);
         return util.View.render(request, model, Constants.RESERVED_BOOKS_TEMPLATE);
     };
-
+    /**
+     * Wyświetla wypozyczone przez użytkownika książki
+     */
     public static Route borrowedBooks = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -71,7 +75,9 @@ public class UserBookInfo {
         request.session().attribute("borrowed",borrowed);
         return util.View.render(request, model, Constants.BORROWED_BOOKS_TEMPLATE);
     };
-
+    /**
+     * Kasuje wybraną przez uzytkownika rezerwacje
+     */
     public static Route deleteReservedBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -86,7 +92,9 @@ public class UserBookInfo {
         response.redirect(Constants.RESERVED_BOOKS);
         return "";
     };
-
+    /**
+     * Prolonguje wybraną przez użytkownika wypożyczoną książkę
+     */
     public static Route prolongBorrowedBook = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -105,7 +113,9 @@ public class UserBookInfo {
         response.redirect(Constants.BORROWED_BOOKS);
         return "";
     };
-
+    /**
+     * Wyświetla kary użytkownika i przetrymane książki
+     */
     public static Route userPenalties = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
@@ -136,7 +146,9 @@ public class UserBookInfo {
         return util.View.render(request, model, Constants.PENALTIES_TEMPLATE);
 
     };
-
+    /**
+     * Wyświetla historię wypożyczeń użytkownika
+     */
     public static Route userHistory = (request, response) -> {
         if(LoginController.ifUserIsNotLogged(request,response)){
             response.redirect(Constants.LOGIN);
