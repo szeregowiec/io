@@ -3,4 +3,4 @@ library system
 system biblioteczny
 
 
-Administrator amind@wp.pl hasło: adimin
+Administrator: admin@wp.pl hasło: admin
