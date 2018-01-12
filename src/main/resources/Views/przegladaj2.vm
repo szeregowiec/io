@@ -52,7 +52,7 @@
 
 
 <div id="findBook" class="jumbotron text-center">
-    <form action="#" method="post" id="formFindBook" class="form-signin form-inline">
+    <form action="/search" method="post" id="formFindBook" class="form-signin form-inline">
         <div class="input-group">
             <input id="inputFindBook" name="inputFindBook" type="text" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz">
             <div class="input-group-btn">
@@ -113,7 +113,6 @@
         </div>
         <!--/span-->
         <div class="col-md-10">
-
 
             #if($books.isEmpty())
                 <h1 id="noBooks">NIESTETY NIE POSIADAMY KSIĄŻEK W WYBRANEJ PRZEZ CIEBIE KATEGORII</h1>

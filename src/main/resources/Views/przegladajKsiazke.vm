@@ -87,6 +87,7 @@
                                         </div>
                                     </form>
                                 </div>
+                            #else <h1 id="noCharges">Możliwość wypożyczania zablokowana</h1>
                             #end
                         #else
                         <div id="divFormEdit" class="container">

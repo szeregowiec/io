@@ -55,9 +55,9 @@
     <h1>Biblioteka Główna</h1>
     <p>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p>
 
-    <form action="#" method="post" id="formFindBookMain" class="form-signin form-inline">
+    <form action="/search" method="post" id="formFindBookMain" class="form-signin form-inline">
         <div class="input-group">
-            <input id="inputFindBookMain" name="inputFindBookMain" type="text" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz">
+            <input id="inputFindBook" name="inputFindBook" type="text" class="form-control" size="50" placeholder="książka, autor, po prostu co chcesz">
             <div class="input-group-btn">
                 <button id="findBookButtonMain" name="findBookButtonMain" type="submit" class="btn btn-primary">
                     <span class="glyphicon glyphicon-search"></span> wyszukaj

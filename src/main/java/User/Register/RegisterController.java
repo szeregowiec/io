@@ -1,6 +1,6 @@
-package Login;
+package User.Register;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.ReadersEntity;
 import spark.Route;
 import util.Constants;
@@ -9,15 +9,13 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 import static Main.Application.database;
-import static spark.Spark.redirect;
 import static util.Password.getHashedPassword;
 import org.apache.commons.validator.routines.EmailValidator;
 
 
-public class Register {
+public class RegisterController {
 
     public static Route register = (request, response) -> {
         EmailValidator emailValidator = EmailValidator.getInstance();

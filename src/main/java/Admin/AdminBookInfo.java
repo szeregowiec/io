@@ -1,13 +1,12 @@
-package Login;
+package Admin;
 
-import Admin.Reservation;
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.*;
+import User.Login.LoginController;
 import Main.Application;
+
 import spark.Route;
 import util.Constants;
-
-import java.awt.print.Book;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +89,6 @@ public class AdminBookInfo {
         return util.View.render(request, model, Constants.PAYMENTS_LIST_TEMPLATE);
     };
 
-
     public static Route confirmBorrowing = (request, response) -> {
         Database.myUpdate();
         if(LoginController.ifUserIsNotLogged(request,response)){
@@ -138,7 +136,8 @@ public class AdminBookInfo {
             return "";
         }
         int idReader = (int)(database.getSession().createQuery("select idReader from BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).list()).get(0);
-        String isbn = (String)(database.getSession().createQuery("select isbn from CopiesEntity where idBook = :idBook").setParameter("idBook",Integer.parseInt(request.params(":id"))).list()).get(0);
+        int idBook = (int)(database.getSession().createQuery("select idBook from BorrowedEntity where idBorrowed = :idBorrowed").setParameter("idBorrowed",Integer.parseInt(request.params(":id"))).list()).get(0);
+        String isbn = (String)(database.getSession().createQuery("select isbn from CopiesEntity where idBook = :idBook").setParameter("idBook",idBook).list()).get(0);
         BooksEntity book = (BooksEntity)(database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn",isbn).list()).get(0);
         int max_id;
         try{
@@ -178,4 +177,5 @@ public class AdminBookInfo {
         response.redirect(Constants.PAYMENT);
         return "";
     };
+
 }

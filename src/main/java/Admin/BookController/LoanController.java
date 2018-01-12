@@ -1,9 +1,10 @@
-package Book;
+package Admin.BookController;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.*;
-import Login.LoginController;
+import User.Login.LoginController;
 import Main.Application;
+import MyRunnable.MailSenderRunnable;
 import spark.Filter;
 import spark.Route;
 import util.Constants;
@@ -12,7 +13,6 @@ import java.util.List;
 
 
 import static Main.Application.database;
-import static MyRunnable.MailSender.sendAvailabilityNotification;
 
 
 public class LoanController {
@@ -53,6 +53,10 @@ public class LoanController {
 
         if(copiesAmount > borrowedAmount) {
             newReservedBook.setExpireDate(new Date(new java.util.Date().getTime()+ 604800000));
+            BooksEntity book = (BooksEntity)(database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn",isbnBook).list().get(0));
+            String[] emails = {request.session().attribute("currentUser")};
+            //MailSender.sendAvailabilityNotification(newReservedBook,book,emails);
+            (new Thread(new MailSenderRunnable(1,newReservedBook,book,emails))).start();
         }else{
             newReservedBook.setExpireDate(null);
         }
@@ -82,7 +86,8 @@ public class LoanController {
                 BooksEntity be2 = (BooksEntity)(database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn", c2.getIsbn()).list()).get(0);
                 //String body = "Od dnia dzisiejszego do " + reservedBook.getExpireDate() + " w placówce biblioteki czeka na odbiór książka " + be2.getTitle() + " autorstwa " + be2.getAuthors();
                 String[] to = {r2.getEmail()};
-                sendAvailabilityNotification(reservedBook, be2, to);
+                //sendAvailabilityNotification(reservedBook, be2, to);
+                (new Thread(new MailSenderRunnable(1,reservedBook,be2,to))).start();
                 //sendFromGMail(to,subject,body);
             }
 

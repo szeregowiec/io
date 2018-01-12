@@ -1,8 +1,9 @@
-package Login;
+package User.Edit;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.ReadersEntity;
 import Main.Application;
+import User.Login.LoginController;
 import spark.Route;
 import util.Constants;
 import util.Password;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 
 
-public class ChangeUserData {
+public class ChangeUserDataController {
 
 
     public static Route ChangeUserDataPost = (request, response) -> {

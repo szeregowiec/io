@@ -100,9 +100,7 @@ public class MailSender {
                 e.printStackTrace();
             }
             float days = ((borrowedBook.getReturnDate().getTime() - todayWithZeroTime.getTime()) / (1000*60*60*24));
-            //System.out.println(days);
             if(days == 1.0){
-
                 //List<ReadersEntity> readers = database.getSession().createQuery("from ReadersEntity where idReader = :id").setParameter("id", borrowedBook.getIdReader()).list();
                 ReadersEntity reader = (ReadersEntity) (database.getSession().createQuery("from ReadersEntity where idReader = :id").setParameter("id", borrowedBook.getIdReader()).list()).get(0);
                 //List<String> book = database.getSession().createQuery("select be.title FROM BooksEntity as be join CopiesEntity as ce on be.isbn = ce.isbn where ce.idBook = :idBook").setParameter("idBook", borrowedBook.getIdBook()).list();
@@ -110,7 +108,7 @@ public class MailSender {
                // book = database.getSession().createQuery("select be.authors FROM BooksEntity as be join CopiesEntity as ce on be.isbn = ce.isbn where ce.idBook = :idBook").setParameter("idBook", borrowedBook.getIdBook()).list();
                 String authors = (String)(database.getSession().createQuery("select be.authors FROM BooksEntity as be join CopiesEntity as ce on be.isbn = ce.isbn where ce.idBook = :idBook").setParameter("idBook", borrowedBook.getIdBook()).list()).get(0);
                 String[] to = {reader.getEmail()};
-                body = "W dniu jutrzejszym upływa termin oddania książki " + title + "autorstwa " + authors;
+                body = "W dniu jutrzejszym upływa termin oddania książki " + title + " autorstwa " + authors;
                 sendFromGMail(to,subject,body);
             }
 

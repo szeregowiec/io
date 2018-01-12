@@ -71,23 +71,22 @@
 <div align="center" class="container">
     <div class="row">
         <div class="table-responsive">
-            <h1 id="noCharges">Łącznie do zapłaty(wraz z prolongowanymi i oddanymi książkami): $sum</h1>
+            <h1 id="noCharges">Łącznie do zapłaty(wraz z prolongowanymi i oddanymi książkami): $sum złotych</h1>
             <table class="table table-bordered table-hover table-striped">
                 <tbody>
                 <thead>
                 <td class="text-center">Przewidywana data zwrotu</td>
                 <td class="text-center">Ksiażka</td>
-                <td class="text-center">Opłata</td>
                 </thead>
                 <tr>
 
                     #if($charges.isEmpty())
-                        <h1 id="noCharges">Nie masz żadnych opłat</h1>
-                    #else #foreach($charge in $charges)
+                        <h1 id="noCharges">Nie masz żadnych przetrzymanych książek</h1>
+                    #else <h1 id="noCharges">Przetrzymane książki</h1>
+                        #foreach($charge in $charges)
 
                         <td class="text-center">$charge.getReturnDate()</td>
                         <td class="text-center">$charge.getTitle()</td>
-                        <td class="text-center">$charge.getCharge()</td>
                         <tr>
                     #end #end
 

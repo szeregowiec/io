@@ -1,4 +1,4 @@
-package Base;
+package DataSchema.Base;
 
 
 import Main.Application;

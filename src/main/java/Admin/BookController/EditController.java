@@ -1,11 +1,12 @@
-package Book;
+package Admin.BookController;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.BooksEntity;
 import DataSchema.CopiesEntity;
 import DataSchema.ReservedEntity;
-import Login.LoginController;
+import User.Login.LoginController;
 import Main.Application;
+import MyRunnable.MailSenderRunnable;
 import spark.Route;
 import util.Constants;
 
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static Book.UploadController.createCover;
+import static Admin.BookController.UploadController.createCover;
 import static Main.Application.database;
 import static MyRunnable.MailSender.*;
 
@@ -167,7 +168,7 @@ public class EditController {
                 }
 
             }
-            if(emailList.length != 0) sendAvailabilityNotification(reservedBook,book,emailList);
+            if(emailList.length != 0)/* sendAvailabilityNotification(reservedBook,book,emailList); */   (new Thread(new MailSenderRunnable(1,reservedBook,book,emailList))).start();
             Database.myUpdate();
             model.put("login", request.session().attribute("login"));
             model.put("book", book);
@@ -212,7 +213,7 @@ public class EditController {
         CopiesEntity copy = (CopiesEntity)(database.getSession().createQuery("from CopiesEntity where idBook = :idBook").setParameter("idBook", Integer.parseInt(request.params(":id"))).list()).get(0);
         List reservedBooks = database.getSession().createQuery("from ReservedEntity where expireDate is not null and isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
         if(!reservedBooks.isEmpty()){
-            ReservedEntity reservedBook = (ReservedEntity)reservedBooks.get(0);
+            ReservedEntity reservedBook = (ReservedEntity)reservedBooks.get(reservedBooks.size()-1);
             reservedBook.setExpireDate(null);
             Application.database.getSession().update(reservedBook);
             //List<String> emails = database.getSession().createQuery("select email from ReadersEntity where idReader = :idReader").setParameter("idReader", reservedBook.getIdReader()).list();
@@ -220,7 +221,8 @@ public class EditController {
             String[] emailList = {(String)(database.getSession().createQuery("select email from ReadersEntity where idReader = :idReader").setParameter("idReader", reservedBook.getIdReader()).list()).get(0)};
             //List books = database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list();
             BooksEntity book = (BooksEntity)(database.getSession().createQuery("from BooksEntity where isbn = :isbn").setParameter("isbn", copy.getIsbn()).list()).get(0);
-            sendNotAvailabilityNotification(book,emailList);
+            //sendNotAvailabilityNotification(book,emailList);
+            (new Thread(new MailSenderRunnable(3,null,book,emailList))).start();
         }
 
         database.getSession().createQuery("delete CopiesEntity where idBook = :idBook").setParameter("idBook", Integer.parseInt(request.params(":id"))).executeUpdate();
@@ -260,7 +262,7 @@ public class EditController {
             }
             //String subject = "Anulowana rezerwacja";
             //String body = "Z powodu wycofania książki " + book.getTitle() + " autorstwa " + book.getAuthors() + " pańska rezerwacja została anulowana.\nZa utrudnienia przepraszamy.";
-            if(emailList.length !=0) sendCancelNotification(book,emailList);//MyRunnable.MailSender.sendFromGMail(emailList,subject,body);
+            if(emailList.length !=0) /*sendCancelNotification(book,emailList);*/(new Thread(new MailSenderRunnable(2,null,book,emailList))).start(); //MyRunnable.MailSender.sendFromGMail(emailList,subject,body);
         }
         else {
             tmp = 1;

@@ -1,12 +1,15 @@
 package Main;
 
-import Base.Database;
-import Book.EditController;
-import Book.LoanController;
-import Book.ShowBooks;
-import Book.UploadController;
-import Login.*;
-
+import Admin.AdminBookInfo;
+import User.UserBookInfo;
+import DataSchema.Base.Database;
+import Admin.BookController.EditController;
+import Admin.BookController.LoanController;
+import Admin.BookController.ShowBooksController;
+import Admin.BookController.UploadController;
+import User.Edit.ChangeUserDataController;
+import User.Login.LoginController;
+import User.Register.RegisterController;
 import util.Constants;
 import MyRunnable.Daemon;
 import java.util.HashMap;
@@ -42,12 +45,12 @@ public class Application {
         });
         before(Constants.CONFIRM_RETURNING, LoanController.setNewBorrowed);
         post(Constants.START, LoginController.loginIfRegistered);
-        get(Constants.CATALOG, ShowBooks.viewBooks);
-        get(Constants.CATEGORY, ShowBooks.viewSpecificBooks);
-        get(Constants.ONE_BOOK, ShowBooks.viewOneBook);
+        get(Constants.CATALOG, ShowBooksController.viewBooks);
+        get(Constants.CATEGORY, ShowBooksController.viewSpecificBooks);
+        get(Constants.ONE_BOOK, ShowBooksController.viewOneBook);
         post(Constants.ONE_BOOK, LoanController.loanBook);
-        get(Constants.REGISTER,  Register.giveInformation);
-        post(Constants.REGISTER, Register.register);
+        get(Constants.REGISTER,  RegisterController.giveInformation);
+        post(Constants.REGISTER, RegisterController.register);
         get(Constants.START, LoginController.start);
         get(Constants.LOGOUT, LoginController.logout);
         get(Constants.SETTINGS, UploadController.giveInformation);
@@ -70,9 +73,10 @@ public class Application {
         get(Constants.PAYMENT, AdminBookInfo.payments);
         post(Constants.CONFIRM_PAYMENT, AdminBookInfo.confirmPayment);
         get(Constants.HISTORY, UserBookInfo.userHistory);
+        post(Constants.SEARCH, ShowBooksController.viewFoundBooks);
 
-        get(Constants.CHANGEUSERDATA, ChangeUserData.changeUserData);
-        post(Constants.CHANGEUSERDATA, ChangeUserData.ChangeUserDataPost);
+        get(Constants.CHANGEUSERDATA, ChangeUserDataController.changeUserData);
+        post(Constants.CHANGEUSERDATA, ChangeUserDataController.ChangeUserDataPost);
 
 
 

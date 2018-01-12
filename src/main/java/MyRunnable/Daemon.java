@@ -1,6 +1,6 @@
 package MyRunnable;
 
-import Base.Database;
+import DataSchema.Base.Database;
 
 import DataSchema.BorrowedEntity;
 import DataSchema.ReadersEntity;

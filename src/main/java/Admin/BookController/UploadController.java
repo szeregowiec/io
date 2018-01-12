@@ -1,8 +1,8 @@
-package Book;
+package Admin.BookController;
 
 import DataSchema.BooksEntity;
 import DataSchema.CopiesEntity;
-import Login.LoginController;
+import User.Login.LoginController;
 
 import spark.Request;
 import spark.Response;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import Base.Database;
+import DataSchema.Base.Database;
 
 
 import static Main.Application.database;

@@ -1,11 +1,9 @@
-package Login;
+package User;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.*;
 import Main.Application;
-import User.Borrowed;
-import User.Charge;
-import User.Reserved;
+import User.Login.LoginController;
 import spark.Route;
 import util.Constants;
 import java.sql.Date;

@@ -1,18 +1,21 @@
-package Book;
+package Admin.BookController;
 
-import Base.Database;
+import DataSchema.Base.Database;
 import DataSchema.BooksEntity;
 import DataSchema.ReadersEntity;
-import Login.LoginController;
+import User.Login.LoginController;
+import SearchEngine.FoundBook;
 import spark.Route;
 import util.Constants;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static Main.Application.database;
+import static SearchEngine.BookSearchEngine.findBook;
 
-public class ShowBooks {
+public class ShowBooksController {
 
 
 
@@ -119,6 +122,24 @@ public class ShowBooks {
         model.put("hButton",hideButton);
         request.session().attribute("hButton",hideButton);
         return util.View.render(request, model, Constants.ONE_BOOK_TEMPLATE);
+    };
+
+    public static Route viewFoundBooks = (request, response) -> {
+        if(LoginController.ifUserIsNotLogged(request,response)){
+            response.redirect(Constants.LOGIN);
+            return "";
+        }
+        Map<String,Object> model = new HashMap<>();
+        model.put("login",request.session().attribute("login"));
+        String input = request.queryParams("inputFindBook");
+        List<BooksEntity> allBooks = database.getSession().createQuery("From BooksEntity ").list();
+        Map<String, FoundBook> foundBooks = findBook(allBooks,input);
+        List books = new ArrayList();
+        for (Map.Entry<String,FoundBook> tmp:foundBooks.entrySet()) {
+            books.add(tmp.getValue());
+        }
+        model.put("books",books);
+        return util.View.render(request, model, Constants.VIEW_BOOKS);
     };
 
 

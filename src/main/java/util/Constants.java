@@ -30,6 +30,7 @@ public class Constants {
     public static String CONFIRM_PAYMENT = "/confirmPayment/:id";
     public static String DELETE_COPY = "/deleteCopy/:id";
     public static String HISTORY = "/history";
+    public static String SEARCH = "/search";
 
     public static String LOGIN_TEMPLATE = "/Views/logowanie.vm";
     public static String REGISTER_TEMPLATE = "Views/rejestracja.vm";
