@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+<!-- plik odpowiedzialny za wyswietlanie w panelu uzytkownika tableki  -->
+
+
 <head>
     <meta charset="UTF-8">
     <title>UŻYTKOWNIK</title>

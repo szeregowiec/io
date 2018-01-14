@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!-- plik odpowiedzialny za wyswietlanie całego katalogu ksiazek i kategorii -->
+
+
 <head>
     <title>Biblioteka</title>
     <meta charset="utf-8">

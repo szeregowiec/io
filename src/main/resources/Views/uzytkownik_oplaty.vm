@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+
+<!-- plik odpowiedzialny za wyswietlanie w panelu uzytkownika tableki z ksiazkami przetrzymanymi oraz wysokoscia oplat -->
+
+
 <head>
     <meta charset="UTF-8">
     <title>OPŁATY</title>

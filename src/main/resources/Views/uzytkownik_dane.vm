@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+<!-- plik odpowiedzialny za wyswietlanie w panelu uzytkownika tableki z jego danymi oraz ich edycja -->
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>DANE</title>

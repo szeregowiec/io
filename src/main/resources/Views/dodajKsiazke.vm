@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+<!-- plik z formularzem dodajacym nowa ksiazke oraz walidacja danych wprowadzanych -->
+<!-- formularz znajduje sie w panelu pracownika -->
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>DODAJ KSIĄŻKĘ</title>

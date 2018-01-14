@@ -4,8 +4,6 @@
     padding: 100px 25px;
 }
 
-
-
 .container-fluid {
     padding: 60px 50px;
 }
@@ -26,9 +24,6 @@ td {
     background-color: ghostwhite;
 }
 
-
-
-
 .sidebar-nav-fixed {
     width: %;
 }
@@ -45,11 +40,9 @@ td {
     height: 400px;
 }
 
-
 #divFormLogIn {
     width: 350px;
 }
-
 
 #divFormSignUp {
     width: 350px;
@@ -70,7 +63,6 @@ td {
 #noBooks{
     color: #b92c28;
 }
-
 
 #changeLabel {
     display: block;

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+<!-- plik odpowiedzialny za wyswietlanie w panelu pracownika tableki z ksiazkami wymagajacymi potwierdzenie zwrotu -->
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>POTWIERDZENIE</title>

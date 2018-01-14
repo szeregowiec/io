@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+
+<!-- plik odpowiedzialny za wyswietlanie w panelu uzytkownika tableki z ksiazkami zarezerwowanymi -->
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>REZERWACJE</title>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 
+
+
+<!-- plik odpowiedzialny za wyswietlanie w panelu pracownika tableki z ksiazkami wymagajacymi potwierdzenie wypozyczenia -->
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>POTWIERDZENIE</title>

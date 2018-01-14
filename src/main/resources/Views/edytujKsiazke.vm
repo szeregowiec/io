@@ -1,6 +1,11 @@
 `<!DOCTYPE html>
 <html lang="pl">
 
+
+<!-- plik odpowiedzialny za edycje ksiazki przez pracownika -->
+
+
+
 <head>
     <meta charset="UTF-8">
     <title>EDYCJA KSIĄŻKI</title>
